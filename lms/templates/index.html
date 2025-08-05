@@ -61,11 +61,8 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
 </%block>
 <section class="container-fluid px-0" id="main">
   <div class="container-center">
-    <img src="${static.url('open-uchile-theme/images/svg-2023/bannerOpenUchile.jpg')}" class="mx-auto openuchile-header d-block">
-      <!--div class="title-1">${_("Open UChile ")}</div>
-      <div class="title-2">${_("E-Learning Platform ")}</div-->
+    <img src="${static.url('open-uchile-theme/images/svg-2023/bannerOpenUchile.svg')}" class="mx-auto openuchile-header d-block" alt="">
   </div>
-  <img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.png')}" alt="">
   % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
   <%!
    from course_classification.helpers import get_all_logos

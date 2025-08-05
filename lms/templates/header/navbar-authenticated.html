@@ -11,20 +11,8 @@ from django.utils.translation import ugettext as _
 <div class="collapse navbar-collapse pt-3" id="navbar">
   <ul class="navbar-nav mr-auto"></ul>
   <ul class="navbar-nav">
-    % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-    <li class="nav-item my-auto">
-        <div class="search-container">
-            <form action="/courses" method="get">
-              <input class="search expandright" id="searchright" type="search" name="search_query" placeholder="${_('Search')}">          
-              <button class="searchbutton" type="submit" for="searchright">
-                <span class="mglass">&#9906;</span>
-              </button>
-            </form>
-        </div>
-    </li>
-    % endif
     <li class="open-desktop-view nav-item my-auto">
-      <a class="nav-link my-auto " href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
+      <a class="nav-link my-auto explore-courses-authenthicated" href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
     </li>
     <li class="nav-item dropdown my-auto mx-0 ml-xl-3 py-1">
         <%include file="user_dropdown.html"/>

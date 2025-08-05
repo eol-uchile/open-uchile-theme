@@ -16,7 +16,7 @@ from lms.djangoapps.branding import api as branding_api
 
 <%block name="navigation_logo">
 <a class="navbar-brand ml-2 mr-4" href="/">
-  <img class="my-auto" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+  <img class="my-auto" src="${static.url('open-uchile-theme/images/svg-2023/logo_open_uchile.svg')}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
 </a>
 </%block>
 % if enable_enterprise_sidebar:
