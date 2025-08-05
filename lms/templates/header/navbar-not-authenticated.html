@@ -48,8 +48,6 @@ from django.utils.translation import ugettext as _
         <i class="fa fa-bars icon-hide" aria-hidden="true"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="openMenu">
-          <a class="dropdown-item" href="/about">${_('About')}</a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/faq">${_('FAQ')}</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/certificates/validate">${_('Certificate Validation ')}</a>
@@ -60,9 +58,6 @@ from django.utils.translation import ugettext as _
     <div class="open-mobile-view">
       <li class="nav-item my-auto">
         <a class="nav-link my-auto ${'active ' if '/courses' == request.path else ''}" href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
-      </li>
-      <li class="nav-item my-auto">
-        <a class="nav-link my-auto ${'active ' if '/about' == request.path else ''}" href="/about">${_('About')}</a>
       </li>
       <li class="nav-item my-auto">
           <a class="nav-link my-auto ${'active ' if '/faq' == request.path else ''}" href="/faq">${_('FAQ')}</a>

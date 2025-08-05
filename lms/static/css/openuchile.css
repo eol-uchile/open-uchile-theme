@@ -93,26 +93,6 @@ footer#openuchile-footer img:hover {
     -webkit-filter: grayscale(0%);
 }
 
-/* ABOUT */
-
-#about_us h1 {
-    color: #069bdc;
-}
-
-#about_us div.about-content {
-    column-count: 2;
-    text-align: justify;
-    text-justify: inter-word;
-    overflow-wrap: break-word;
-    hyphens: manual;
-}
-
-@media (max-width: 850px) {
-    #about_us div.about-content {
-        column-count: 1;
-    }
-}
-
 /* FAQ */
 
 #faq h1 {
