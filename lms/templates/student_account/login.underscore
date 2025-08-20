@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-1 d-flex"></div>
                         <div class="col-10">
-                            <img class="uchile-separator img-login" src="/static/open-uchile-theme/images/uchile_separator.png" alt="" aria-hidden="true">
+                            <img class="uchile-separator img-login" src="/static/open-uchile-theme/images/uchile_separator.svg" alt="" aria-hidden="true">
                             <button id="sso_btn" type="button" class=" font-size-16 w-100 login-open-u-chile-button font-weight-bold" ><span class="font-weight-normal"><%- gettext("Log in with your account")%></span>  Mi.UChile</button>
                         </div>
                         <div class="col-1 text-left align-items-center d-flex pl-0 pr-2">
