@@ -306,7 +306,7 @@ function createCourse(data, extra_data){
                         '</div>'+
                         '<strong><h5 class="card-title fw-bold my-2" title="{course_display_name}">{course_display_name}</h5></strong>'+
                         '{course_date_html}'+
-                        '<div class="card-card-button mt-2 p-0 mb-0">'+
+                        '<div class="card-button mt-2 p-0 mb-0">'+
                             '<a href="/courses/{course}/about">'+ button_html +'</a>'+
                         '</div>'+
                     '</div>'+
@@ -314,7 +314,7 @@ function createCourse(data, extra_data){
             '</div>'+
         '</div>'+
     '</div>';
-    data['course_date_html'] = create_course_date_html(data.start, data.end, extra_data.advertised_start)
+    data['course_date_html'] = create_course_date_html(data.start, extra_data.self_paced, extra_data.effort, extra_data.price)
     data["course_display_name"] = data.content.display_name;
     data["is_active"] = course_is_active(data.end);
     data["state"] = data.course_state || '';
@@ -358,7 +358,7 @@ function create_course_date_html(start, self_paced, effort, course_price){
                 '<div class="col-10">'+
                     '<div class="open-course-date-text ml-3">'+
                         '<strong>'+
-                            '<span>'+gettext("Duration")+'</span>'+
+                            '<span>'+gettext("Classes Start")+'</span>'+
                         '</strong>'+
                         '<div class="course-date" aria-hidden="true">{start_date}</div>'+
                     '</div>'+
@@ -373,9 +373,9 @@ function create_course_date_html(start, self_paced, effort, course_price){
                 '<div class="col-10">'+
                     '<div class="open-course-date-text ml-3">'+
                         '<strong>'+
-                            '<span>'+gettext("Modality")+'</span>'+
+                            '<span>'+gettext("Pacing")+'</span>'+
                         '</strong>'+
-                        '<div class="course-date" aria-hidden="true">{start_date}</div>'+
+                        '<div class="course-date" aria-hidden="true">{self_pace}</div>'+
                     '</div>'+
                 '</div>'+
             '</div>'+
@@ -392,33 +392,33 @@ function create_course_date_html(start, self_paced, effort, course_price){
                         '<strong>'+
                             '<span>'+gettext("Price")+'</span>'+
                         '</strong>'+
-                        '<div class="course-date" aria-hidden="true">{start_date}</div>'+
+                        '<div class="course-date" aria-hidden="true">{price}</div>'+
                     '</div>'+
                 '</div>'+
             '</div>'+
         '</div>'+
-         '<div class="col-md-6 col-sm-12">'+
-            '<div class="row g-0 p-0">'+
-                '<div class="col-md-2 col-sm-2 m-0">'+
-                    '<div class="open-course-date-icon"><img src="/static/open-uchile-theme/images/svg-2023/fecha termino.svg"></div>'+
-                '</div>'+
-                '<div class="col-md-10 col-sm-10">'+
-                    '<div class="open-course-date-text ml-3">'+
-                        '<strong>'+
-                            '<span>'+gettext("Classes Start")+'</span>'+
-                        '</strong>'+
-                        '<div class="course-date" aria-hidden="true">{start_date}</div>'+
-                    '</div>'+
-                '</div>'+
-            '</div>'+
+        '<div class="col-md-6 col-sm-12">'+
+            duration +
         '</div>'+
     '</div>';
+    let price = course_price
+    if (course_price !== 'Free' && course_price !== 'Gratis' && course_price !== 'None' && course_price !== undefined){  
+        price_without_symbol =parseInt(course_price.slice(1));
+        price = price_without_symbol.toLocaleString('es-CL');
+        price = '$'+ price
+    }
+    else {
+        price = gettext("Free")
+    }
+
     var start_date  = new Date(start);
     var date_data = {
         'start_date': translate_date(start_date),
-        'end_date': ''
+        'self_pace': self_paced ? gettext('Student paced') : gettext('Instructor paced'),
+        'effort': effort,
+        'price': price
     };
-return edx.HtmlUtils.interpolateHtml(edx.HtmlUtils.HTML(html_new), date_data);
+    return edx.HtmlUtils.interpolateHtml(edx.HtmlUtils.HTML(html_new), date_data);
 }
 
 function translate_date(date){
