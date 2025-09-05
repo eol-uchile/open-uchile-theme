@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-07-30 19:35+0000\n"
+"POT-Creation-Date: 2025-10-02 15:48+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -417,51 +417,178 @@ msgstr ""
 msgid "Se ha producido un error en actualizar la miniatura."
 msgstr ""
 
-#: lms/templates/course.html:70 lms/templates/course_portal.html:54
-msgid "Finished course"
-msgstr "Curso finalizado"
+#: lms/templates/course.html:56 lms/templates/courseware/course_about.html:159
+msgid "Classes Start"
+msgstr "Inicio de clases"
 
-#: lms/templates/course.html:88 lms/templates/course_portal.html:72
-msgid "Permanently open"
-msgstr "Abierto permanentemente"
+#: lms/templates/course.html:71 lms/templates/courseware/course_about.html:178
+msgid "Pacing"
+msgstr "Modalidad"
 
-#: lms/templates/course.html:97 lms/templates/course_portal.html:81
-msgid "Start date"
-msgstr "Fecha de inicio"
+#: lms/templates/course.html:73 lms/templates/courseware/course_about.html:180
+msgid "Student paced"
+msgstr "Ritmo estudiante"
 
-#: lms/templates/course.html:106 lms/templates/course_portal.html:90
-msgid "End date"
-msgstr "Fecha de término"
+#: lms/templates/course.html:75 lms/templates/courseware/course_about.html:182
+msgid "Instructor paced"
+msgstr "Ritmo profesor"
 
-#: lms/templates/course.html:113 lms/templates/course_portal.html:97
+#: lms/templates/course.html:92 lms/templates/courseware/course_about.html:197
+msgid "Price"
+msgstr "Precio"
+
+#: lms/templates/course.html:116 lms/templates/courseware/course_about.html:220
+msgid "Duration"
+msgstr "Duración"
+
+#: lms/templates/course.html:127
+msgid "Enroll now"
+msgstr "Inscríbete aquí"
+
+#: lms/templates/course.html:129 lms/templates/courseware/courses.html:79
+msgid "Coming soon"
+msgstr "Próximamente"
+
+#: lms/templates/course.html:131 lms/templates/course.html:135
+#: lms/templates/course_portal.html:97
 msgid "See more"
 msgstr "Aprender más"
 
-#: lms/templates/courses_list.html:18
-msgid "Trending Courses"
-msgstr "Cursos Destacados"
+#: lms/templates/course.html:133 lms/templates/courseware/courses.html:78
+msgid "Finished"
+msgstr "Finalizado"
 
-#: lms/templates/courses_list.html:66
-msgid "No existen cursos"
+#: lms/templates/course_portal.html:54
+msgid "Finished course"
+msgstr "Curso finalizado"
+
+#: lms/templates/course_portal.html:72
+msgid "Permanently open"
+msgstr "Abierto permanentemente"
+
+#: lms/templates/course_portal.html:81
+msgid "Start date"
+msgstr "Fecha de inicio"
+
+#: lms/templates/course_portal.html:90
+msgid "End date"
+msgstr "Fecha de término"
+
+#: lms/templates/courses_list.html:17
+msgid "Top Courses"
+msgstr "Top Cursos"
+
+#: lms/templates/courses_list.html:32 lms/templates/courses_list.html:63
+msgid "There are no courses"
+msgstr "No se encontraron cursos"
+
+#: lms/templates/courses_list.html:37
+msgid "New Courses"
+msgstr "Nuevos cursos"
+
+#: lms/templates/courses_list.html:68
+msgid "About us"
+msgstr "Quiénes somos"
+
+#: lms/templates/courses_list.html:71
+msgid "How the platform works"
+msgstr "Cómo funciona la plataforma"
+
+#: lms/templates/courses_list.html:74
+msgid "About UChile"
+msgstr "Sobre UChile"
+
+#: lms/templates/courses_list.html:82
+msgid ""
+"The Online Education Office of the University of Chile (OpenUChile) is an"
+" initiative promoted by the Vice Rector's Office of Information "
+"Technologies with the aim of promoting quality online training through an"
+" offer of open courses and continuing education programs. Our team is "
+"made up of professionals from the fields of education, technology and "
+"communication, who collaborate to design, produce and disseminate "
+"innovative training experiences. We work together with various faculties "
+"and academic units to bring the knowledge of the University of Chile to "
+"people from all over the country and abroad, promoting equitable access "
+"to education and digital transformation of learning. To learn more about "
+"us click here:"
 msgstr ""
+"La Oficina de Educación Online de la Universidad de Chile (OpenUChile) es"
+" una iniciativa impulsada por la Vicerrectoría de Tecnologías de la "
+"Información con el objetivo de promover la formación en línea de calidad "
+"a través de una oferta de cursos abiertos y programas de educación "
+"continua. Nuestro equipo está conformado por profesionales del ámbito "
+"educativo, tecnológico y comunicacional, quienes colaboran para diseñar, "
+"producir y difundir experiencias formativas innovadoras. Trabajamos junto"
+" a diversas facultades y unidades académicas para acercar el conocimiento"
+" de la Universidad de Chile a personas de todo el país y el extranjero, "
+"fomentando el acceso equitativo a la educación y la transformación "
+"digital del aprendizaje. Para saber más acerca de nosotros, ingresa aquí:"
+" "
 
-#: lms/templates/footer.html:22
+#: lms/templates/courses_list.html:94
+msgid ""
+"OpenUChile's platform runs on Open edX technology, which allows it to "
+"offer online courses with an interactive and flexible learning "
+"experience. The courses are organized in thematic modules and include "
+"video lectures, readings, discussion forums, practical activities and "
+"evaluations. Some courses are free and open, while others require payment"
+" to access additional content or certification. To get started, simply "
+"register at open.uchile.cl, select a course and follow the instructions. "
+"The site also has a Frequently Asked Questions (FAQ) section and "
+"technical support to resolve doubts during the process."
+msgstr ""
+"La plataforma de OpenUChile funciona sobre la tecnología Open edX, lo que"
+" permite ofrecer cursos en línea con una experiencia de aprendizaje "
+"interactiva y flexible. Los cursos están organizados en módulos temáticos"
+" e incluyen clases en video, lecturas, foros de discusión, actividades "
+"prácticas y evaluaciones. Algunos cursos son gratuitos y abiertos, "
+"mientras que otros requieren pago para acceder a contenidos adicionales o"
+" certificación. Para comenzar, basta con registrarse en open.uchile.cl, "
+"seleccionar un curso y seguir las instrucciones. Además, el sitio cuenta "
+"con una sección de preguntas frecuentes (FAQ) y soporte técnico para "
+"resolver dudas durante el proceso."
+
+#: lms/templates/courses_list.html:106
+msgid ""
+"The Universidad de Chile is the oldest public institution of higher "
+"education in the country, founded in 1842. Recognized for its academic "
+"excellence, its commitment to society and its contribution to research "
+"and culture, it has trained outstanding professionals and national and "
+"international leaders. It has 14 faculties, multiple research centers and"
+" extension programs that promote critical knowledge and sustainable "
+"development. OpenUChile is part of this commitment, offering online "
+"training accessible to people in Chile and the world, with the academic "
+"support of one of the most prestigious universities in Latin America. "
+"Learn more at"
+msgstr ""
+"La Universidad de Chile es la institución pública de educación superior "
+"más antigua del país, fundada en 1842. Reconocida por su excelencia "
+"académica, su compromiso con la sociedad y su aporte a la investigación y"
+" la cultura, ha formado a destacados profesionales y líderes nacionales e"
+" internacionales. Cuenta con 14 facultades, múltiples centros de "
+"investigación y programas de extensión que promueven el conocimiento "
+"crítico y el desarrollo sustentable. OpenUChile es parte de este "
+"compromiso, ofreciendo formación en línea accesible para personas en "
+"Chile y el mundo, con el respaldo académico de una de las universidades "
+"más prestigiosas de América Latina. Conoce más en "
+
+#: lms/templates/footer.html:52
 msgid "Need help?"
-msgstr ""
+msgstr "Mesa de ayuda"
 
-#: lms/templates/footer.html:22
-#: lms/templates/header/navbar-authenticated.html:47
-#: lms/templates/header/navbar-authenticated.html:67
+#: lms/templates/footer.html:52
+#: lms/templates/header/navbar-authenticated.html:33
+#: lms/templates/header/navbar-authenticated.html:50
+#: lms/templates/header/navbar-not-authenticated.html:43
 #: lms/templates/header/navbar-not-authenticated.html:57
-#: lms/templates/header/navbar-not-authenticated.html:74
 msgid "Contact us"
 msgstr "Contáctanos"
 
-#: lms/templates/footer.html:29
+#: lms/templates/footer.html:59
 msgid "Términos y Condiciones"
 msgstr ""
 
-#: lms/templates/footer.html:32 lms/templates/static_templates/privacy.html:6
+#: lms/templates/footer.html:62 lms/templates/static_templates/privacy.html:6
 msgid "Privacy Policy"
 msgstr "Política de Privacidad"
 
@@ -469,13 +596,9 @@ msgstr "Política de Privacidad"
 msgid "Home"
 msgstr ""
 
-#: lms/templates/index.html:31
-msgid "Open UChile "
-msgstr "Open UChile"
-
-#: lms/templates/index.html:32
-msgid "E-Learning Platform "
-msgstr "Cursos E-Learning"
+#: lms/templates/index.html:66
+msgid "Extension and outreach lifelong online education"
+msgstr "Formación Online de Educación Continua y Extensión"
 
 #: lms/templates/main.html:192
 msgid "Skip to main content"
@@ -483,9 +606,9 @@ msgstr ""
 
 #: lms/templates/certificates/validate_certificates.html:7
 #: lms/templates/certificates/validate_certificates.html:33
-#: lms/templates/header/navbar-authenticated.html:45
-#: lms/templates/header/navbar-authenticated.html:64
-#: lms/templates/header/navbar-not-authenticated.html:55
+#: lms/templates/header/navbar-authenticated.html:31
+#: lms/templates/header/navbar-authenticated.html:47
+#: lms/templates/header/navbar-not-authenticated.html:41
 msgid "Certificate Validation "
 msgstr "Validación de certificados"
 
@@ -717,131 +840,126 @@ msgstr ""
 msgid "An error occurred. Please try again later."
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:125
-#: lms/templates/courseware/course_about.html:130
+#: lms/templates/courseware/course_about.html:84
+#: lms/templates/courseware/course_about.html:89
 msgid "You are enrolled in this course"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:127
-#: lms/templates/courseware/course_about.html:141
+#: lms/templates/courseware/course_about.html:86
+#: lms/templates/courseware/course_about.html:100
 msgid "View Course"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:133
+#: lms/templates/courseware/course_about.html:92
 msgid "Course is full"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:135
+#: lms/templates/courseware/course_about.html:94
 msgid "Curso requiere postulación"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:137
+#: lms/templates/courseware/course_about.html:96
 msgid "Enrollment is Closed"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:156
+#: lms/templates/courseware/course_about.html:115
 msgid "Inscríbase ahora"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:178
+#: lms/templates/courseware/course_about.html:136
 msgid "View About Page in studio"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:208
-msgid "Classes Start:"
-msgstr "Inicio de clases:"
-
-#: lms/templates/courseware/course_about.html:211
-msgid "Today"
-msgstr ""
-
 #: lms/templates/courseware/course_about.html:230
-msgid "Classes End:"
-msgstr "Término de clases:"
-
-#: lms/templates/courseware/course_about.html:244
-msgid "Price:"
-msgstr "Precio:"
-
-#: lms/templates/courseware/course_about.html:257
 msgid "There is one session available:"
 msgstr "Hay una edición del curso disponible:"
 
-#: lms/templates/courseware/course_about.html:258
+#: lms/templates/courseware/course_about.html:231
 msgid " already enrolled!"
 msgstr " inscritos de momento!"
 
-#: lms/templates/courseware/course_about.html:292
+#: lms/templates/courseware/course_about.html:264
 #: lms/templates/static_templates/faq.html:35
 msgid "Frequently Asked Questions"
 msgstr "Preguntas Frecuentes"
 
-#: lms/templates/courseware/course_about.html:309
+#: lms/templates/courseware/course_about.html:281
 msgctxt "self"
 msgid "Enroll"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:314
+#: lms/templates/courseware/course_about.html:286
 msgctxt "self"
 msgid "enroll"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:27
+#: lms/templates/courseware/courses.html:24
 msgid "Courses"
 msgstr "Cursos"
 
 #: lms/templates/courseware/courses.html:37
-#: lms/templates/courseware/courses.html:38
-msgid "Search for a course"
-msgstr "Buscar en nuestros cursos"
+#: lms/templates/courseware/courses.html:44
+msgid "Refine your search"
+msgstr "Refina tu búsqueda"
 
 #: lms/templates/courseware/courses.html:47
-msgid "Newer"
-msgstr "Más recientes"
-
-#: lms/templates/courseware/courses.html:48
-msgid "Older"
-msgstr "Más antiguos"
-
-#: lms/templates/courseware/courses.html:68
-#: lms/templates/courseware/courses.html:80
-msgid "Refine Your Search"
-msgstr "Refinar su búsqueda"
-
-#: lms/templates/courseware/courses.html:72
-msgid "Has seleccionado"
-msgstr ""
-
-#: lms/templates/courseware/courses.html:73
 msgid "Clear All"
 msgstr "Borrar Todo"
 
-#: lms/templates/courseware/courses.html:84
+#: lms/templates/courseware/courses.html:54
+msgid "Order"
+msgstr "Orden"
+
+#: lms/templates/courseware/courses.html:56
+#: lms/templates/courseware/courses.html:121
+msgid "Newer"
+msgstr "Más recientes"
+
+#: lms/templates/courseware/courses.html:57
+#: lms/templates/courseware/courses.html:122
+msgid "Older"
+msgstr "Más antiguos"
+
+#: lms/templates/courseware/courses.html:63
 msgid "Year"
 msgstr "Año"
 
-#: lms/templates/courseware/courses.html:105
+#: lms/templates/courseware/courses.html:65
+msgid "Select a year"
+msgstr "Seleciona un año"
+
+#: lms/templates/courseware/courses.html:74
 msgid "State"
 msgstr "Estado"
 
-#: lms/templates/courseware/courses.html:111
-#: lms/templates/courseware/courses.html:112
+#: lms/templates/courseware/courses.html:76
+msgid "Select a state"
+msgstr "Selecciona un estado"
+
+#: lms/templates/courseware/courses.html:77
 msgid "Active"
 msgstr "Activo"
 
-#: lms/templates/courseware/courses.html:115
-#: lms/templates/courseware/courses.html:116
-msgid "Finished"
-msgstr "Finalizado"
-
-#: lms/templates/courseware/courses.html:119
-#: lms/templates/courseware/courses.html:120
-msgid "Coming soon"
-msgstr "Próximamente"
-
-#: lms/templates/courseware/courses.html:126
+#: lms/templates/courseware/courses.html:83
 msgid "Organizations"
 msgstr "Organizaciones"
+
+#: lms/templates/courseware/courses.html:93
+msgid "Categories"
+msgstr "Categorías"
+
+#: lms/templates/courseware/courses.html:115
+#: lms/templates/courseware/courses.html:116
+msgid "Search for a course"
+msgstr "Buscar en nuestros cursos"
+
+#: lms/templates/courseware/courses.html:128
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: lms/templates/courseware/courses.html:133
+msgid "All courses"
+msgstr "Todos los cursos"
 
 #: lms/templates/dashboard/_dashboard_course_listing.html:71
 msgid "Course details"
@@ -1252,54 +1370,41 @@ msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lms/templates/header/header.html:100
+#: lms/templates/header/header.html:96
 #: lms/templates/widgets/footer-language-selector.html:24
 msgid "Choose Language"
 msgstr ""
 
-#: lms/templates/header/header.html:137
+#: lms/templates/header/header.html:133
 #, python-brace-format
 msgid ""
 "{begin_strong}Warning:{end_strong} Your browser is not fully supported. "
 "We strongly recommend using {chrome_link} or {ff_link}."
 msgstr ""
 
-#: lms/templates/header/navbar-authenticated.html:18
-#: lms/templates/header/navbar-not-authenticated.html:25
-msgid "Search"
-msgstr "Buscar"
-
-#: lms/templates/header/navbar-authenticated.html:27
-#: lms/templates/header/navbar-authenticated.html:55
-#: lms/templates/header/navbar-not-authenticated.html:34
-#: lms/templates/header/navbar-not-authenticated.html:62
+#: lms/templates/header/navbar-authenticated.html:15
+#: lms/templates/header/navbar-authenticated.html:41
+#: lms/templates/header/navbar-not-authenticated.html:22
+#: lms/templates/header/navbar-not-authenticated.html:48
 msgid "Explore courses"
 msgstr "Buscar Cursos"
 
-#: lms/templates/header/navbar-authenticated.html:34
-#: lms/templates/header/navbar-authenticated.html:35
-#: lms/templates/header/navbar-not-authenticated.html:46
-#: lms/templates/header/navbar-not-authenticated.html:47
+#: lms/templates/header/navbar-authenticated.html:22
+#: lms/templates/header/navbar-authenticated.html:23
+#: lms/templates/header/navbar-not-authenticated.html:34
+#: lms/templates/header/navbar-not-authenticated.html:35
 msgid "Menu"
 msgstr ""
 
-#: lms/templates/header/navbar-authenticated.html:39
-#: lms/templates/header/navbar-authenticated.html:52
+#: lms/templates/header/navbar-authenticated.html:27
+#: lms/templates/header/navbar-authenticated.html:38
 msgid "My Courses"
 msgstr ""
 
-#: lms/templates/header/navbar-authenticated.html:41
-#: lms/templates/header/navbar-authenticated.html:58
+#: lms/templates/header/navbar-authenticated.html:29
+#: lms/templates/header/navbar-authenticated.html:44
+#: lms/templates/header/navbar-not-authenticated.html:39
 #: lms/templates/header/navbar-not-authenticated.html:51
-#: lms/templates/header/navbar-not-authenticated.html:65
-#: lms/templates/static_templates/about.html:6
-msgid "About"
-msgstr ""
-
-#: lms/templates/header/navbar-authenticated.html:43
-#: lms/templates/header/navbar-authenticated.html:61
-#: lms/templates/header/navbar-not-authenticated.html:53
-#: lms/templates/header/navbar-not-authenticated.html:68
 #: lms/templates/static_templates/faq.html:6
 #: lms/templates/static_templates/faq.html:29
 #: lms/templates/static_templates/faq.html:30
@@ -1311,15 +1416,15 @@ msgstr ""
 msgid "{platform_name} Home Page"
 msgstr ""
 
-#: lms/templates/header/navbar-not-authenticated.html:38
+#: lms/templates/header/navbar-not-authenticated.html:26
 msgid "Sign in"
 msgstr ""
 
-#: lms/templates/header/navbar-not-authenticated.html:42
+#: lms/templates/header/navbar-not-authenticated.html:30
 msgid "Register"
 msgstr ""
 
-#: lms/templates/header/navbar-not-authenticated.html:71
+#: lms/templates/header/navbar-not-authenticated.html:54
 msgid "Certificate validation "
 msgstr ""
 
@@ -1671,73 +1776,6 @@ msgstr ""
 msgid "Show Email Task History"
 msgstr ""
 
-#: lms/templates/static_templates/about.html:24
-#: lms/templates/static_templates/about.html:25
-msgid "About Us"
-msgstr "Acerca de"
-
-#: lms/templates/static_templates/about.html:30
-msgid "What is Open UChile?"
-msgstr "¿Qué es OpenUChile?"
-
-#: lms/templates/static_templates/about.html:33
-msgid ""
-"Universidad de Chile (UChile) is the first University in the country, "
-"within the 500 in the World and 9th in Latin America"
-msgstr ""
-"La Universidad de Chile (UChile) es la primera universidad del país, "
-"dentro de las 500 del mundo y la 9° de América Latina"
-
-#: lms/templates/static_templates/about.html:33
-msgid ""
-"As a public university, UChile is deeply concerned about global issues, "
-"such as Climate Change and the UN2030 agenda."
-msgstr ""
-"Como universidad pública, la UChile está profundamente preocupada por los"
-" temas globales, como el Cambio Climático y la Agenda 2030 de Naciones "
-"Unidas."
-
-#: lms/templates/static_templates/about.html:34
-msgid ""
-"Chile is a natural laboratory in a really complex environment, from "
-"Atacama Desert to Antarctica, threatened by 9 (out of 10) natural hazards"
-" (Disasters and Climate Change). This condition provides us a perfect "
-"location to develop research centers in different areas, such as mining, "
-"geology, seismology, earthquake resistant infrastructure and public "
-"affairs. Our academics have deep knowledge and experience and are "
-"worldwide referents in those topics, and this MOOC platform seeks to "
-"spread those knowledge and experience."
-msgstr ""
-"Chile es un laboratorio natural en un entorno realmente complejo, desde "
-"el Desierto de Atacama hasta la Antártida, amenazado por 9 (de 10) "
-"peligros naturales (Desastres y Cambio Climático). Esta condición nos "
-"brinda una ubicación perfecta para desarrollar centros de investigación "
-"en diferentes áreas, tales como minería, geología, sismología, "
-"infraestructura sismorresistente y asuntos públicos. Nuestros académicos "
-"tienen un profundo conocimiento y experiencia y son referentes a nivel "
-"mundial en esos temas, y esta plataforma MOOC busca busca difundir esos "
-"conocimientos y experiencia."
-
-#: lms/templates/static_templates/about.html:35
-msgid ""
-"UChile is also founder member of the Global MOOC Alliance (Tsinghua "
-"University, Cornell University, Center for Research and "
-"Interdisciplinarity (CRI), Peking University, Politecnico di Milano, "
-"Saint Petersburg State University, Shanghai Jiao Tong University, The "
-"University of Auckland, The University of Manchester, University of "
-"Nairobi, University of Toronto,"
-msgstr ""
-"UChile también es miembro fundador de Global MOOC Alliance junto a "
-"diversas universidades, como Tsinghua University, Cornell University, "
-"Center for Research and Interdisciplinarity (CRI), Peking University, "
-"Politecnico di Milano, Saint Petersburg State University, Shanghai Jiao "
-"Tong University, The University of Auckland, The University of "
-"Manchester, University of Nairobi, Universidad de Toronto,"
-
-#: lms/templates/static_templates/about.html:35
-msgid "among others"
-msgstr "entre otras instituciones"
-
 #: lms/templates/student_account/login_and_register.html:14
 msgid "Sign in or Register"
 msgstr ""
@@ -1747,3 +1785,126 @@ msgstr ""
 
 #~ msgid "Next"
 #~ msgstr "Siguiente"
+
+#~ msgid "Trending Courses"
+#~ msgstr "Cursos Destacados"
+
+#~ msgid "No existen cursos"
+#~ msgstr ""
+
+#~ msgid "Open UChile "
+#~ msgstr "Open UChile"
+
+#~ msgid "E-Learning Platform "
+#~ msgstr "Cursos E-Learning"
+
+#~ msgid "Has seleccionado"
+#~ msgstr ""
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgid "About"
+#~ msgstr ""
+
+#~ msgid "About Us"
+#~ msgstr "Acerca de"
+
+#~ msgid "What is Open UChile?"
+#~ msgstr "¿Qué es OpenUChile?"
+
+#~ msgid ""
+#~ "Universidad de Chile (UChile) is the "
+#~ "first University in the country, within"
+#~ " the 500 in the World and 9th"
+#~ " in Latin America"
+#~ msgstr ""
+#~ "La Universidad de Chile (UChile) es "
+#~ "la primera universidad del país, dentro"
+#~ " de las 500 del mundo y la "
+#~ "9° de América Latina"
+
+#~ msgid ""
+#~ "As a public university, UChile is "
+#~ "deeply concerned about global issues, "
+#~ "such as Climate Change and the "
+#~ "UN2030 agenda."
+#~ msgstr ""
+#~ "Como universidad pública, la UChile está"
+#~ " profundamente preocupada por los temas "
+#~ "globales, como el Cambio Climático y "
+#~ "la Agenda 2030 de Naciones Unidas."
+
+#~ msgid ""
+#~ "Chile is a natural laboratory in a"
+#~ " really complex environment, from Atacama"
+#~ " Desert to Antarctica, threatened by "
+#~ "9 (out of 10) natural hazards "
+#~ "(Disasters and Climate Change). This "
+#~ "condition provides us a perfect location"
+#~ " to develop research centers in "
+#~ "different areas, such as mining, "
+#~ "geology, seismology, earthquake resistant "
+#~ "infrastructure and public affairs. Our "
+#~ "academics have deep knowledge and "
+#~ "experience and are worldwide referents "
+#~ "in those topics, and this MOOC "
+#~ "platform seeks to spread those knowledge"
+#~ " and experience."
+#~ msgstr ""
+#~ "Chile es un laboratorio natural en "
+#~ "un entorno realmente complejo, desde el"
+#~ " Desierto de Atacama hasta la "
+#~ "Antártida, amenazado por 9 (de 10) "
+#~ "peligros naturales (Desastres y Cambio "
+#~ "Climático). Esta condición nos brinda "
+#~ "una ubicación perfecta para desarrollar "
+#~ "centros de investigación en diferentes "
+#~ "áreas, tales como minería, geología, "
+#~ "sismología, infraestructura sismorresistente y "
+#~ "asuntos públicos. Nuestros académicos tienen"
+#~ " un profundo conocimiento y experiencia "
+#~ "y son referentes a nivel mundial "
+#~ "en esos temas, y esta plataforma "
+#~ "MOOC busca busca difundir esos "
+#~ "conocimientos y experiencia."
+
+#~ msgid ""
+#~ "UChile is also founder member of "
+#~ "the Global MOOC Alliance (Tsinghua "
+#~ "University, Cornell University, Center for "
+#~ "Research and Interdisciplinarity (CRI), Peking"
+#~ " University, Politecnico di Milano, Saint"
+#~ " Petersburg State University, Shanghai Jiao"
+#~ " Tong University, The University of "
+#~ "Auckland, The University of Manchester, "
+#~ "University of Nairobi, University of "
+#~ "Toronto,"
+#~ msgstr ""
+#~ "UChile también es miembro fundador de"
+#~ " Global MOOC Alliance junto a "
+#~ "diversas universidades, como Tsinghua "
+#~ "University, Cornell University, Center for "
+#~ "Research and Interdisciplinarity (CRI), Peking"
+#~ " University, Politecnico di Milano, Saint"
+#~ " Petersburg State University, Shanghai Jiao"
+#~ " Tong University, The University of "
+#~ "Auckland, The University of Manchester, "
+#~ "University of Nairobi, Universidad de "
+#~ "Toronto,"
+
+#~ msgid "among others"
+#~ msgstr "entre otras instituciones"
+
+#~ msgid "Classes Start:"
+#~ msgstr "Inicio de clases:"
+
+#~ msgid "Today"
+#~ msgstr ""
+
+#~ msgid "Classes End:"
+#~ msgstr "Término de clases:"
+
+#~ msgid "Price:"
+#~ msgstr "Precio:"
+
