@@ -107,8 +107,8 @@ img.openuchile-header {
     box-shadow: none !important;
     color: #ffff;
     background: none;
-    background-color: #069bdc;
-    border-color: #069bdc;
+    background-color: #004B93;
+    border-color: #004B93;
     text-shadow: none;
 }
 
@@ -146,7 +146,7 @@ footer#openuchile-footer img:hover {
 /* FAQ */
 
 #faq h1 {
-    color: #069bdc;
+    color: #004B93;
 }
 
 #faq .accordion-item {
@@ -201,8 +201,8 @@ footer#openuchile-footer img:hover {
     box-shadow: none !important;
     color: #ffff;
     background: none;
-    background-color: #069bdc;
-    border-color: #069bdc;
+    background-color: #004B93;
+    border-color: #004B93;
     text-shadow: none;
 }
 
@@ -397,15 +397,16 @@ footer#openuchile-footer img:hover {
     font-weight: bold;
     padding: 10px;
     background: none;
-    background-color: #069bdc;
-    border-color: #069bdc;
+    background-color: #004B93;
+    border-color: #004B93;
     text-shadow: none;
     width: 60%;
 }
 
 .course-info button.btn:hover {
-    background-color: #048dc9;
-    border-color: #048dc9;
+    background-color: #008852;
+    border-color: #008852;
+    border: 2px #008852 solid;
     background-image: none;
 }
 
@@ -430,7 +431,7 @@ footer#openuchile-footer img:hover {
 }
 
 .course-info .info-row {
-    background-color: #089bdb47;
+    background-color: #F7F7F7;
 }
 
 .course-info .info-row img.icon {
@@ -903,7 +904,7 @@ input[type="search"]::-ms-input-placeholder {
     text-transform: capitalize;
 }
 .trending-course-border{
-    border-top: 3px solid #069BDC;
+    border-top: 3px solid #004B93;
     width: 60px;
     display: flex;
     margin-left: auto;
@@ -1710,12 +1711,7 @@ aside h2.open-refine-search{
     font-size: 15px;
     font-weight: normal;
 }
-.breadcrumbs {
-    font-weight: lighter !important;
-}
-label {
-    font-weight: lighter !important;
-}
+
 .main-container .navbar.course-tabs{
     max-width: 1920px;
     margin: auto;

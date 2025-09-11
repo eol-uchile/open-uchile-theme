@@ -1,19 +1,19 @@
 <%page expression_filter="h"/>
 <%namespace name='static' file='../static_content.html'/>
 <%!
-from django.utils.translation import ugettext as _
-from django.utils.translation import pgettext
-from django.urls import reverse
-from lms.djangoapps.courseware.courses import get_course_about_section
-from django.conf import settings
-from six import text_type
 from common.djangoapps.edxmako.shortcuts import marketing_link
+from datetime import datetime
+from django.conf import settings
+from django.urls import reverse
+from django.utils import timezone
+from django.utils.translation import pgettext
+from django.utils.translation import ugettext as _
+from lms.djangoapps.courseware.courses import get_course_about_section
+from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.core.djangolib.js_utils import js_escaped_string
 from openedx.core.djangolib.markup import clean_dangerous_html, HTML, Text
 from openedx.core.lib.courses import course_image_url
-from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
-from six import string_types
-from django.utils import timezone
+from six import string_types, text_type
 now = timezone.now()
 %>
 
@@ -64,52 +64,11 @@ now = timezone.now()
 
 <%block name="pagetitle">${course.display_name_with_default}</%block>
 
-
 <script>
   function show_default_image() {
-    return "${static.url('open-uchile-theme/images/default-course.jpg')}";
+    return "${static.url('open-uchile-theme/images/default-course.png')}";
   }
 </script>
-<style>
-  .hero {
-    position: relative;
-  }
-  .course-info .media .icon-play {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    background-image: -webkit-linear-gradient(-90deg, rgba(0, 156, 221, 0.58), rgba(0, 156, 221, 0.28));
-    background-image: linear-gradient(-90deg, rgba(0, 156, 221, 0.58), rgba(0, 156, 221, 0.28));
-    box-shadow: 0 1px 12px 0 rgb(0 0 0 / 40%);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    border-radius: 100px;
-    height: 80px;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    width: 80px;
-  }
-  .course-info .media .icon-play:after {
-    color: rgba(255,255,255,0.8);
-    content: "\25B6";
-    display: block;
-    font: normal 2em/1em "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    left: 50%;
-    margin-left: -11px;
-    margin-top: -16px;
-    position: absolute;
-    top: 50%;
-  }
-  .modal.video-modal{
-    width: 602px !important;
-    height: auto !important;
-  }
-  .modal.video-modal .inner-wrapper{
-    width: auto !important;
-    height: auto !important;
-  }
-</style>
 <section class="course-info">
   <div class="container pb-0">
     <div class="row">
@@ -161,14 +120,13 @@ now = timezone.now()
       <div class="col-md-5 py-2">
         % if get_course_about_section(request, course, "video"):
           <a href="#video-modal" class="media" rel="leanModal">
-            <div class="hero">
-              <!--i class="fa fa-play-circle-o fa-4x"></i-->
+            <div class="position-relative">
               <div class="icon-play"></div>
               <img src="${course_image_urls['large']}" class="img-fluid course-about-image" alt="image"/>
             </div>
           </a>
         %else:
-          <img src="${course_image_urls['large']}" class="img-fluid course-about-image" alt="image" />
+          <img src="${course_image_urls['large']}" onerror="this.onerror=null; this.src=show_default_image()"  class="img-fluid course-about-image" alt="image" />
         % endif
       </div>
     </div>
@@ -178,80 +136,95 @@ now = timezone.now()
           <a class="instructor-info-action" href="${studio_url}">${_("View About Page in studio")}</a>
         </div>
       </div>
-    % endif  
-    <div class="row info-row my-3 rounded gx-0">
-      <%
-        course_start_date = 'None'
-        aux_start_date = False
-        if not course.start_date_is_still_default:
-          course_start_date = course.advertised_start or course.start
-          if not isinstance(course_start_date, string_types):
-            aux_start_date = True
-            course_start_date = course_start_date.strftime('%Y-%m-%dT%H:%M:%S%z')
-          endif
-        endif
-        course_end_date = 'None'
-        if course.end:
-          course_end_date = course.end
-          if not isinstance(course_end_date, string_types):
-            course_end_date = course_end_date.strftime('%Y-%m-%dT%H:%M:%S%z')
-          endif
-        endif
-      %>
-      <div class="col-md-4 my-3">
-        <div class="row">
-          <div class="col-5 text-right">
-            <img class="img-fluid icon" src="${static.url('open-uchile-theme/images/start_clock.png')}" alt="">
-          </div>
-          <div class="col-7 text-left pt-1 pl-0">
-            <span class="important-dates-item-title">
-              ${_("Classes Start:")}</br>
-              %if aux_start_date:
-                % if course.self_paced and course.start <= now:
-                  <span class="important-dates-item-text start-date localized_datetime" data-language="${LANGUAGE_CODE}">${_("Today")}</span>
-                %else:
-                  <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_start_date}" data-language="${LANGUAGE_CODE}"></span>
-                %endif
-              %else:
-                <span class="important-dates-item-text start-date localized_datetime" data-language="${LANGUAGE_CODE}">${course_start_date}</span>
-              %endif
-            </span>
+    % endif
+    <%
+      show_start_date = True
+      advertised_start_test = course.advertised_start
+      if course.advertised_start is None:
+        course_start_date = (course.start).strftime('%Y-%m-%dT%H:%M:%S%z')
+      else:
+        show_start_date = False
+        course_start_date = course.advertised_start 
+    %>
+    <div class="row ct3 info-row my-4 rounded gx-0 p-3">
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Classes Start")}</span></strong>
+                %if show_start_date:
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course_start_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+                % else:
+                  <div class="course-date localized_datetime" aria-hidden="true">${course_start_date}</div>
+                % endif
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      %if course_end_date != "None":
-      <div class="col-md-4 my-3">
-        <div class="row">
-          <div class="col-5 text-right">
-            <img class="img-fluid icon" src="${static.url('open-uchile-theme/images/end_clock.png')}" alt="">
-          </div>
-          <div class="col-7 text-left pt-1 pl-0">
-            <span class="important-dates-item-title">
-              ${_("Classes End:")}</br>
-              <span class="important-dates-item-text start-date localized_datetime" data-format="shortDate" data-datetime="${course_end_date}" data-language="${LANGUAGE_CODE}"></span>
-            </span>
-          </div>
-        </div>
-      </div>
-      %endif
-      <div class="col-md-4 my-3">
-        <div class="row">
-          <div class="col-5 text-right">
-            <img class="img-fluid icon" src="${static.url('open-uchile-theme/images/course_price.png')}" alt="">
-          </div>
-          <div class="col-7 text-left pt-1 pl-0">
-            <span class="important-dates-item-title">
-              ${_("Price:")}</br>
-              %if course_price not in ['Gratis', 'Free', None, "None"]:
-                <% aux_price = int(course_price[1:]) %>
-                $ ${f'{aux_price:,}'.replace(',', '.')}
-              %else:
-                  ${course_price}
-              %endif
-            </span>
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Pacing")}</span></strong>
+                %if bool(course_details.self_paced) == True:
+                <div class="course-date" aria-hidden="true">${_("Student paced")}</div>
+                % else:
+                <div class="course-date" aria-hidden="true">${_("Instructor paced")}</div>
+                % endif
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/precio.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Price")}</span></strong>
+                <div class="course-date" aria-hidden="true">
+                    %if course_price not in ['Gratis', 'Free', None, "None"]:
+                      <% aux_price = int(course_price[1:]) %>
+                      $ ${f'{aux_price:,}'.replace(',', '.')}
+                    %else:
+                        ${course_price}
+                    %endif
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          %if course_details.effort != None:
+            <div class="row g-0 p-0">
+              <div class="col-2 m-0">
+                <div class="open-course-date-icon">
+                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha inicio.svg')}">
+                </div>
+              </div>
+              <div class="col-10">
+                <div class="open-course-date-text ml-3">
+                  <strong><span>${_("Duration")}</span></strong>
+                    <div class="course-date" aria-hidden="true">${course_details.effort}</div>
+                </div>
+              </div>
+            </div>
+          % endif
+        </div>
+
     </div>
     <div class="row">
       <h3 class="text-right">${_("There is one session available:")}</h3>
@@ -260,13 +233,12 @@ now = timezone.now()
 
   </div>
   <div id="open-course-about" class="container pb-0">
-      <div class="details" style="width: auto; float:none;">
+      <div class="details float-none w-auto">
         <div class="inner-wrapper">
           ${HTML(get_course_about_section(request, course, "overview"))}
         </div>
         <script>
           $(function() {
-            //$('.faq').prependTo("#accordionFAQS");
             $("#accordionFAQS").append($('.course-faqs').contents());
             if($('.course-faqs').length == 0) {
               $(".faqs-row").hide();
@@ -303,7 +275,7 @@ now = timezone.now()
 ## Since it's no harm to display a hidden form, we display it with the most permissive conditional
 ## which is when the student is not registered.
 %if active_reg_button or is_shib_course:
-  <div style="display: none;">
+  <div class="d-none">
     <form id="class_enroll_form" method="post" data-remote="true" action="${reverse('change_enrollment')}">
       <fieldset class="enroll_fieldset">
         <legend class="sr">${pgettext("self","Enroll")}</legend>
