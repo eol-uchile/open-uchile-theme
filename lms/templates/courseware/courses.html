@@ -2,6 +2,7 @@
 <%!
   from django.utils.translation import ugettext as _
   from datetime import datetime, timedelta
+  from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 %>
 <%inherit file="../main.html" />
 <%
@@ -21,6 +22,9 @@
   <script type="text/javascript" src="${static.url('open-uchile-theme/js/open_search.js')}"></script>
 </%block>
 <%block name="pagetitle">${_("Courses")}</%block>
+<%
+  use_year_filter = configuration_helpers.get_value('USE_YEAR_FILTER', False)
+%>
 <script>
   function show_default_image() {
     return "${static.url('open-uchile-theme/images/default-course.png')}";
@@ -54,17 +58,18 @@
               </select>
             </div>
             <br>
-            <div class="list-group">
-              <label for="year-select" class="form-label">${_('Year')}</label>
-              
-              <select class="form-select" id="year-select" data-facet="year">
-                <option value="" data-value="" disabled selected>${_('Select a year')}</option>
-                %for val_year in years:
-                  <option value="${ val_year }" data-value="${ val_year }" data-text="${ val_year }">${ val_year }</option>
-                %endfor
-              </select>
-            </div>
-            <br>
+            % if use_year_filter == "True":
+              <div class="list-group">
+                <label for="year-select" class="form-label">${_('Year')}</label>
+                <select class="form-select" id="year-select" data-facet="year">
+                  <option value="" data-value="" disabled selected>${_('Select a year')}</option>
+                  %for val_year in years:
+                    <option value="${ val_year }" data-value="${ val_year }" data-text="${ val_year }">${ val_year }</option>
+                  %endfor
+                </select>
+              </div>
+              <br>
+            % endif
             <div class="list-group">
              <label for="state-select" class="form-label"> ${_('State')}</label>
               <select class="form-select" id="state-select" data-facet="state" class="form-check-input">

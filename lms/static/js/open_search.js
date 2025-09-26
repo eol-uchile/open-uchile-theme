@@ -162,7 +162,7 @@ function clearFilter(){
     let select = document.getElementById('state-select');
     select.selectedIndex = 0;
     select = document.getElementById('year-select');
-    select.selectedIndex = 0;
+    if (select) select.selectedIndex = 0;
     select = document.getElementById('order-select');
     select.selectedIndex = 0;
 }
