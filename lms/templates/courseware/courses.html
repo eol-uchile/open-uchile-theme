@@ -90,6 +90,16 @@
                 </label>
               %endfor
             </div>
+            <label for="category-select" class="form-label"> ${_('Categories')}</label>
+            <div class="list-group">
+              <%! from course_classification.helpers import get_all_course_categories %>
+              %for category in get_all_course_categories():
+                <label class="list-group-item d-flex" >
+                  <input class="form-check-input me-1" type="checkbox" value="" data-facet="category" data-value="${category[0]}" data-text="${category[1]}">
+                  ${_(category[1])}
+                </label>
+              %endfor
+            </div>
           </section>
       </div>
       <div class="col-sm-12 col-md-9" id="section-courses">

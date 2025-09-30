@@ -8,7 +8,8 @@ var filters = {
     "order_by": "",
     "year": "",
     "state": "",
-    "classification": ""
+    "classification": "",
+    "category": ""
 }
 
 $(window).load(function() {
@@ -38,7 +39,8 @@ function initDiscovery(search_string=""){
         "order_by": "",
         "year": "",
         "state": "",
-        "classification":""
+        "classification":"",
+        "category":""
     };
     clearFilter();
     getData();
