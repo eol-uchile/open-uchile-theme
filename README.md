@@ -13,6 +13,22 @@ Open UChile MOOCs theme for  OpenedX. This theme must be used as open-uchile-the
         "EOL_OG_SITE_DESCRIPTION":"Somos la plataforma de educación online de la Universidad de Chile. Nuestro objetivo es ofrecer programas de alta calidad académica que combinen el prestigio de nuestra universidad con la flexibilidad del aprendizaje digital.""
         ```
 
+# Set social network Variables in footer
+- Enter location `/admin/site_configuration/siteconfiguration/`
+    * In subdomain lms you must add the next two variables:
+        * FOOTER_URL is use to contain instagram, youtube and linkedin url. It is not mandatory for all variables to be present. 
+        ```
+        "FOOTER_URL":{"instagram":"https://www.instagram.com/vti_uchile/","youtube":"https://www.youtube.com/@educaciononlineuniversidad8305","linkedin":"https://www.linkedin.com/company/open-uchile/posts/"}
+        ```
+
+# Set show filter courses by year
+- Enter location `/admin/site_configuration/siteconfiguration/`
+    * In subdomain lms you must add the next two variables:
+        * USE_YEAR_FILTER is use to show or not the year filter in explorer courses view.
+        ```
+        "USE_YEAR_FILTER":"True"
+        ```
+
 ### Creating translation catalogues:
 
 Create this folder structure in your theme folder: your-theme-folder/conf/locale.
