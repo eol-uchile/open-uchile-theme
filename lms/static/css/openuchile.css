@@ -2105,3 +2105,7 @@ body .wrapper-preview-menu .preview-menu {
         width: 140px;
     }
 }
+
+.details .wrapper-course-image .course-image{
+    aspect-ratio: 16 / 9;
+}
