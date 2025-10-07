@@ -31,20 +31,20 @@ should_show_order_history = should_redirect_to_order_history_microfrontend() and
     <span class="sr-only">${_("Profile:")}</span>
     <img src="${static.url('open-uchile-theme/images/svg-2023/user-menu.svg')}" width="28">
 </a>
-<div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+<div id="userDropdownMenu" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
     <h6 class="dropdown-header" style="font: inherit;">
         <img class="user-image-frame" src="${profile_image_url}" alt="" height="32px;">
         <span class="sr-only">${_("Dashboard for:")}</span>
         <span class="username">${displayname}</span>
     </h6>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="${reverse('learner_profile', kwargs={'username': username})}">${_("Profile")}</a>
+    <a class="dropdown-item profile" href="${reverse('learner_profile', kwargs={'username': username})}">${_("Profile")}</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="${reverse('account_settings')}">${_("Account")}</a>
+    <a class="dropdown-item account" href="${reverse('account_settings')}">${_("Account")}</a>
     <div class="dropdown-divider"></div>
     % if should_show_order_history:
-        <a class="dropdown-item" href="${settings.ORDER_HISTORY_MICROFRONTEND_URL}">${_("Order History")}</a>
+        <a class="dropdown-item order-history" href="${settings.ORDER_HISTORY_MICROFRONTEND_URL}">${_("Order History")}</a>
         <div class="dropdown-divider"></div>
     % endif
-    <a class="dropdown-item" href="${reverse('logout')}">${_("Sign Out")}</a>
+    <a class="dropdown-item sing-out" href="${reverse('logout')}">${_("Sign Out")}</a>
 </div>

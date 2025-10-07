@@ -2,118 +2,141 @@
 <%namespace name='static' file='static_content.html'/>
 <%! from django.utils.translation import ugettext as _ %>
 <%! from portal_api.utils import get_active_enroll_courses, get_platform_names %>
+<%! from datetime import datetime %>
+<%! from django.utils import timezone %>
 
 <%
-  from django.utils import timezone
-  now = timezone.now()
   courses_portal_api = get_active_enroll_courses()
+  now = timezone.now()
   platforms_name = get_platform_names()
 %>
-<%! from course_classification.helpers import get_course_ctgs %>
-% if settings.FEATURES.get('SHOW_COURSES_BY_CLASS'):
-<%  course_class, main_class = get_course_ctgs(courses) %>
-  % if 'featured' in course_class and len(course_class['featured']) > 0 :
-    <section class="courses-container">
-      <div class="trending-course-title-container">
-        <h2 class="trending-course-tittle-institution">${_("Trending Courses").upper()}</h2>
-        <div class="trending-course-border"></div>
-      </div>
-      <section class="highlighted-courses">
-        % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-          <ul class="courses-list">
-            %for course in course_class['featured']:
-              %if course.end is not None and course.end > now:
-                <li class="mb-3">
-                  <%include file="course.html" args="course=course,main_class=main_class" />
-                </li>
-              %elif course.end is None:
-                <li class="mb-3">
-                  <%include file="course.html" args="course=course,main_class=main_class" />
-                </li>
-              %endif
-            %endfor
-          </ul>
-        % endif
-      </section>
-    </section>
-  %else:
-    %for categ in course_class.values():
-      %if (categ['show_opt'] == 2 or (categ['show_opt'] == 1 and len(categ['courses']) > 0)):
-        <section class="courses-container">
-          <div class="course-title-container">
-            <h2 class="course-tittle">${categ['name'].capitalize()}</h2> 
+<%! from course_classification.utils import get_course_ctgs, get_courses_filtered_by_course_state %>
+<% course_class = get_course_ctgs() %>
+% if len(course_class) > 0 :
+  <div class="trending-course-title-container open-carousel-top-courses-title p-5">
+    <h2 class="trending-course-tittle-institution">${_("Top Courses").upper()}</h2>
+    <div class="trending-course-border"></div>
+  </div>
+  <div class="open-carousel-top-courses ml-0">
+    <div class="carousel-wrap m-0">
+      <div class="owl-carousel-top-courses owl-carousel owl-theme courses-list m-0">
+        %for course in course_class:
+          <div class="item" >
+            <%include file="course.html" args="course=course" />
           </div>
-          <section class="highlighted-courses">
-            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-              <ul class="courses-list">
-                %for course in course_class[categ['id']]['courses']:
-                  %if course.end is not None and course.end > now:
-                    <li class="mb-3">
-                      <%include file="course.html" args="course=course,main_class=main_class" />
-                    </li>
-                  %elif course.end is None:
-                    <li class="mb-3">
-                      <%include file="course.html" args="course=course,main_class=main_class" />
-                    </li>
-                  %endif
-                %endfor
-              </ul>
-            % endif
-          </section>
-        </section>
-      %endif
-      %if (categ['show_opt'] == 2 and len(course_class[categ['id']]['courses']) == 0):
-        <p class="without-courses" style="padding-bottom: 10px;"> ${_("No existen cursos")}</p>
-      %endif
-    %endfor
-  %endif
+        %endfor
+      </div>
+    </div>
+  </div>
 %else:
-<section class="courses-container">
-  <section class="highlighted-courses">
-    % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-      <ul class="courses-list">
-          ## limiting the course number by using HOMEPAGE_COURSE_MAX as the maximum number of courses
-          %for course in courses:
-            %if course.end is not None and course.end > now:
-              %if course.enrollment_start is not None and course.enrollment_end is not None:
-                %if course.enrollment_end > now:
-                  <li class="mb-3">
-                    <%include file="course.html" args="course=course,main_class={}" />
-                  </li>
-                %endif
-              %endif
-            %elif course.end is None:
-              %if course.enrollment_start is not None and course.enrollment_end is not None:
-                %if course.enrollment_end > now:
-                  <li class="mb-3">
-                    <%include file="course.html" args="course=course,main_class={}" />
-                  </li>
-                %endif
-              %endif
+  <p class="without-courses" style="padding-bottom: 10px;"> ${_("There are no courses")}</p>
+%endif
+<% course_filtered = get_courses_filtered_by_course_state(["upcoming_notenrollable","ongoing_enrollable"]) %>
+% if len(course_filtered) > 0 :
+  <div class="new-courses-title-container p-5">
+    <h2 class="new-courses-title-container">${_("New Courses").upper()}</h2>
+    <div class="new-courses-border"></div>
+  </div>
+  <section class="courses-container">
+    <section class="highlighted-courses">
+        <div class="courses-list">
+          <% displayed_courses = 0 %>
+          %for course in course_filtered[0:4]:
+            %if displayed_courses %4 == 0:
+              <div class="row px-5 m-0">
+            %endif
+              <div class=" col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 p-2">
+                <%include file="course.html" args="course=course" />
+              </div>
+            <% displayed_courses = displayed_courses + 1 %>
+            %if displayed_courses %4 == 0:
+              </div>
             %endif
           %endfor
-      </ul>
-    % endif
-  </section>
-</section>
-  %for platform in courses_portal_api:
-    % if len(courses_portal_api[platform]) > 0:
-      <section class="courses-container">
-        <div class="course-title-container">
-          <h2 class="course-tittle">${platforms_name[platform]}</h2>
+          % if displayed_courses < 4:
+            </div>
+          %endif
         </div>
-        <section class="highlighted-courses">
-          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-            <ul class="courses-list">
-              %for course_portal in courses_portal_api[platform]:
-                <li class="mb-3">
-                  <%include file="course_portal.html" args="course=course_portal" />
-                </li>
-              %endfor
-            </ul>
-          % endif
-        </section>
-      </section>
-    % endif
-  %endfor
-% endif
+    </section>
+  </section>
+%else:
+  <p class="without-courses" style="padding-bottom: 10px;"> ${_("There are no courses")}</p>
+%endif
+<section class="tab-container courses-container pt-5">
+  <ul class="nav nav-tabs nav-justified flex-column flex-lg-row" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link flex-sm-fill text-sm-center active" id="about_us-tab" data-toggle="tab" href="#about_us" role="tab" aria-controls="about_us" aria-selected="true">${_("About us")}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link flex-sm-fill text-sm-center" id="platform_works-tab" data-toggle="tab" href="#platform_works" role="tab" aria-controls="platform_works" aria-selected="false">${_("How the platform works")}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link flex-sm-fill text-sm-center" id="about_uchile-tab" data-toggle="tab" href="#about_uchile" role="tab" aria-controls="about_uchile" aria-selected="false">${_("About UChile")}</a>
+    </li>
+  </ul>
+  <div class="tab-content m-0 row">
+    <div class="tab-pane active" id="about_us" role="tabpanel" aria-labelledby="about_us-tab">
+      <div class="about-us-tab image-tab m-3 m-sm-3 m-md-5 m-lg-5 m-xl-5 p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 ">
+        <div class="d-flex justify-content-md-end justify-content-sm-center tab-content-text">
+          <p class=" text-justify p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 m-2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
+            ${_("The Online Education Office of the University of Chile (OpenUChile) is an initiative promoted by the Vice Rector's Office of Information Technologies with the aim of promoting quality online training through an offer of open courses and continuing education programs. Our team is made up of professionals from the fields of education, technology and communication, who collaborate to design, produce and disseminate innovative training experiences. We work together with various faculties and academic units to bring the knowledge of the University of Chile to people from all over the country and abroad, promoting equitable access to education and digital transformation of learning. To learn more about us click here:")}
+            <a class="text-decoration-none" href="https://oficinaeol.uchile.cl/we" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            https://oficinaeol.uchile.cl/we
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="platform_works" role="tabpanel" aria-labelledby="platform_works-tab">
+      <div class="platform-works-tab image-tab m-3 m-sm-3 m-md-5 m-lg-5 m-xl-5 p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 ">
+        <div class="d-flex justify-content-md-end justify-content-sm-center tab-content-text">
+          <p class="text-justify p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 m-2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
+            ${_("OpenUChile's platform runs on Open edX technology, which allows it to offer online courses with an interactive and flexible learning experience. The courses are organized in thematic modules and include video lectures, readings, discussion forums, practical activities and evaluations. Some courses are free and open, while others require payment to access additional content or certification. To get started, simply register at open.uchile.cl, select a course and follow the instructions. The site also has a Frequently Asked Questions (FAQ) section and technical support to resolve doubts during the process.")}
+            <a class="text-decoration-none" href=". https://open.uchile.cl/faq" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            https://open.uchile.cl/faq
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="about_uchile" role="tabpanel" aria-labelledby="about_uchile-tab">
+      <div class="about-uchile-tab image-tab m-3 m-sm-3 m-md-5 m-lg-5 m-xl-5 p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 ">
+        <div class="d-flex justify-content-md-end justify-content-sm-center tab-content-text">
+          <p class="text-justify p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 m-2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
+            ${_("The Universidad de Chile is the oldest public institution of higher education in the country, founded in 1842. Recognized for its academic excellence, its commitment to society and its contribution to research and culture, it has trained outstanding professionals and national and international leaders. It has 14 faculties, multiple research centers and extension programs that promote critical knowledge and sustainable development. OpenUChile is part of this commitment, offering online training accessible to people in Chile and the world, with the academic support of one of the most prestigious universities in Latin America. Learn more at")}
+            <a class="text-decoration-none" href=" https://uchile.cl/" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            https://uchile.cl/
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  $('#myTab a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+  $(document).ready(function(){
+    $('.owl-carousel-top-courses .owl-carousel').owlCarousel({
+    loop:true,
+    center: false,
+    autoWidth:true,
+    margin:10,
+    nav:false,
+    dotsEach:4,
+    responsive:{
+      0:{
+        items:2
+      },
+      600:{
+        items:4
+      },
+      1000:{
+        items:6
+      }
+    }
+    })
+  });
+</script>

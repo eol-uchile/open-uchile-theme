@@ -11,20 +11,8 @@ from django.utils.translation import ugettext as _
 <div class="collapse navbar-collapse pt-3" id="navbar">
   <ul class="navbar-nav mr-auto"></ul>
   <ul class="navbar-nav">
-    % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-    <li class="nav-item my-auto">
-        <div class="search-container">
-            <form action="/courses" method="get">
-              <input class="search expandright" id="searchright" type="search" name="search_query" placeholder="${_('Search')}">          
-              <button class="searchbutton" type="submit" for="searchright">
-                <span class="mglass">&#9906;</span>
-              </button>
-            </form>
-        </div>
-    </li>
-    % endif
     <li class="open-desktop-view nav-item my-auto">
-      <a class="nav-link my-auto " href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
+      <a class="nav-link my-auto explore-courses-authenthicated" href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
     </li>
     <li class="nav-item dropdown my-auto mx-0 ml-xl-3 py-1">
         <%include file="user_dropdown.html"/>
@@ -37,8 +25,6 @@ from django.utils.translation import ugettext as _
         </a>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="openMenu">
             <a class="dropdown-item" href="${reverse('dashboard')}">${_("My Courses")}</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/about">${_('About')}</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/faq">${_('FAQ')}</a>
             <div class="dropdown-divider"></div>
@@ -53,9 +39,6 @@ from django.utils.translation import ugettext as _
       </li>
       <li class="nav-item my-auto">
         <a class="nav-link my-auto ${'active ' if '/courses' == request.path else ''}" href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
-      </li>
-      <li class="nav-item my-auto">
-        <a class="nav-link my-auto ${'active ' if '/about' == request.path else ''}" href="/about">${_('About')}</a>
       </li>
       <li class="nav-item my-auto">
           <a class="nav-link my-auto ${'active ' if '/faq' == request.path else ''}" href="/faq">${_('FAQ')}</a>

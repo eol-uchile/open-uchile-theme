@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-07-30 19:35+0000\n"
+"POT-Creation-Date: 2025-10-02 15:48+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -164,32 +164,56 @@ msgstr ""
 msgid "Click to add a new %(xblock_type)s"
 msgstr ""
 
-#: lms/static/js/open_search.js:61
+#: lms/static/js/open_search.js:92
 msgid "Showing"
 msgstr ""
 
-#: lms/static/js/open_search.js:61
+#: lms/static/js/open_search.js:92
 msgid "courses"
 msgstr ""
 
-#: lms/static/js/open_search.js:324
+#: lms/static/js/open_search.js:379
+msgid "Enroll now"
+msgstr ""
+
+#: lms/static/js/open_search.js:381
+msgid "Coming soon"
+msgstr ""
+
+#: lms/static/js/open_search.js:383
 msgid "See more"
 msgstr ""
 
-#: lms/static/js/open_search.js:346
-msgid "Start date"
+#: lms/static/js/open_search.js:385
+msgid "Finished"
 msgstr ""
 
-#: lms/static/js/open_search.js:349
-msgid "End date"
+#: lms/static/js/open_search.js:435
+msgid "Duration"
 msgstr ""
 
-#: lms/static/js/open_search.js:359
-msgid "Finished course"
+#: lms/static/js/open_search.js:452
+msgid "Classes Start"
 msgstr ""
 
-#: lms/static/js/open_search.js:362
-msgid "Permanently open"
+#: lms/static/js/open_search.js:467
+msgid "Pacing"
+msgstr ""
+
+#: lms/static/js/open_search.js:484
+msgid "Price"
+msgstr ""
+
+#: lms/static/js/open_search.js:502
+msgid "Free"
+msgstr ""
+
+#: lms/static/js/open_search.js:508
+msgid "Student paced"
+msgstr ""
+
+#: lms/static/js/open_search.js:508
+msgid "Instructor paced"
 msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:15
@@ -705,3 +729,16 @@ msgstr ""
 #: lms/templates/student_account/register.underscore:63
 msgid "Support education research by providing additional information"
 msgstr ""
+
+#~ msgid "Start date"
+#~ msgstr ""
+
+#~ msgid "End date"
+#~ msgstr ""
+
+#~ msgid "Finished course"
+#~ msgstr ""
+
+#~ msgid "Permanently open"
+#~ msgstr ""
+

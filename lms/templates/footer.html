@@ -5,37 +5,67 @@
   from django.utils.translation import ugettext as _
   from lms.djangoapps.branding.api import get_footer
   from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
+  from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+  import json
 %>
 <% footer = get_footer(is_secure=is_secure) %>
 <% icp_license_info = getattr(settings, 'ICP_LICENSE_INFO', {})%>
 <%namespace name='static' file='static_content.html'/>
+<%
+footer_url_config = configuration_helpers.get_value('FOOTER_URL', {})
+instagram_url = footer_url_config.get('instagram', '')
+youtube_url = footer_url_config.get('youtube', '')
+linkedin_url = footer_url_config.get('linkedin', '')
+%>
 
-<footer id="openuchile-footer" class="openuchile-bg mt-auto text-center mx-auto py-4" style="background-image: url(${static.url('open-uchile-theme/images/svg-2023/nodos_transparentes.png')});">
-  <div class="container border-0 mb-3 px-5 text-center">
-    <a href="https://www.uchile.cl/" target="_blank" class="text-decoration-none">
-      <img src="${static.url('open-uchile-theme/images/logo_uchile.png')}" class="img-fluid my-auto py-2 px-5" alt="UChile" style="max-height: 80px;">
-    </a>
-    <a href="https://oficinaeol.uchile.cl/" target="_blank" class="text-decoration-none">
-      <img src="${static.url('open-uchile-theme/images/logo_eol.png')}" class="img-fluid my-auto py-2 px-5" alt="EOL" style="max-height: 70px;">
-    </a>
+<footer id="openuchile-footer" class="openuchile-bg mt-auto text-center mx-auto py-4">
+  <div class="border-0 mb-3 text-center">
+    <div class="row m-0 mb-4">
+      <a href="https://www.uchile.cl/" target="_blank" class="text-decoration-none col-md-6 col-sm-12 align-self-end d-flex justify-content-center justify-content-sm-center justify-content-md-end justify-content-xl-end">
+        <img src="${static.url('open-uchile-theme/images/logo_uchile.png')}" class="img-fluid my-auto p-0 pr-xl-5 pl-md-5" alt="UChile" style="max-height: 110px;">
+      </a>
+      <a href="https://oficinaeol.uchile.cl/" target="_blank" class="text-decoration-none col-md-6 col-sm-12 align-self-end d-flex justify-content-center justify-content-sm-center justify-content-md-start justify-content-xl-start">
+        <img src="${static.url('open-uchile-theme/images/logo_eol.png')}" class="img-fluid my-auto p-0 pl-xl-5 pr-md-5" alt="EOL" style="max-height: 80px;">
+      </a>
+    </div>
+    % if footer_url_config != {}:
+      <div class="border-0 mb-0 p-0 pt-4 text-center">
+        % if linkedin_url  != '':
+          <a class="text-decoration-none" href="${linkedin_url}" role="button" aria-expanded="false" alt="linkedIn OpenUchile" title="LinkedIn">
+            <span class="icon fa fa-linkedin-square icon-footer linkedin-hover-color" aria-hidden="true"></span>
+          </a>
+        % endif
+        % if youtube_url != '':
+          <a class="text-decoration-none" href="${youtube_url}" role="button" aria-expanded="false" alt="Youtube oficina EOL" title="Youtube">
+            <span class="icon fa fa-youtube-play icon-footer youtube-hover-color" aria-hidden="true"></span>
+          </a>
+        % endif
+        % if instagram_url != '': 
+          <a class="text-decoration-none" href="${instagram_url}" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            <span class="icon fa fa-instagram icon-footer instagram-hover-color" aria-hidden="true"></span>
+          </a>
+        % endif
+      </div>
+    % endif
   </div>
+
   <p class="text-center">${_('Need help?')} <a href="/contact_form">${_('Contact us')}</a></p>
   <p class="text-center">
     <small class="text-muted">
       ${footer['copyright']}
       </br>
-      <ul style="padding: 0;">
-        <li style="display: inline-block;font-size: inherit;">
+      <ul class="p-0">
+        <li class="fw-bolder d-inline-block">
           <a href="/honor">${_('Términos y Condiciones')}</a>    -
         </li>
-        <li style="display: inline-block;font-size: inherit;">
+        <li class="fw-bolder d-inline-block">
           <a href="/privacy">${_('Privacy Policy')}</a>
         </li>
       </ul>
       
       % if icp_license_info.get('icp_license'):
         ${u" | {text}".format(text=icp_license_info.get('text'))}
-        <a href="${icp_license_info.get('icp_license_link', '#')}">
+        <a href="${icp_license_info.get('icp_license_link', '#')}" class="fw-bolder">
             ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
         </a>
       % endif
@@ -46,7 +76,7 @@
 % if context.get('include_language_selector', footer_language_selector_is_enabled()):
     <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
 % endif
-<img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.png')}" alt="">
+<img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.svg')}" alt="">
 
 % if include_dependencies:
   <%static:js group='base_vendor'/>

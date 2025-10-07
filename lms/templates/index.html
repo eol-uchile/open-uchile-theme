@@ -59,32 +59,33 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
   </script>
 %endif
 </%block>
-<section class="container-fluid px-0" id="main">
-  <div class="container-center">
-    <img src="${static.url('open-uchile-theme/images/svg-2023/bannerOpenUchile.jpg')}" class="mx-auto openuchile-header d-block">
-      <!--div class="title-1">${_("Open UChile ")}</div>
-      <div class="title-2">${_("E-Learning Platform ")}</div-->
+<section class="container-fluid px-0 pb-5" id="main">
+  <div class="container-center row p-0 m-0 index-front-page">
+    <div class="d-flex justify-content-lg-end justify-content-md-center justify-content-sm-center">
+      <p class="text-md-start text-lg-start p-0 p-sm-0 p-md-5 p-lg-5 m-0 m-sm-0 m-dm-5 m-lg-5 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 fw-bold index-text-presentation align-self-center">
+        ${_("Extension and outreach lifelong online education")}
+      </p>
+    </div>
   </div>
-  <img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.png')}" alt="">
   % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
-  <%!
-   from course_classification.helpers import get_all_logos
-  %>
-    <div class="open-carousel-orgs">
+    <%!
+    from course_classification.helpers import get_all_logos
+    %>
+    <div class="open-carousel-orgs p-2">
       <div class="carousel-wrap">
-        <div class="owl-carousel">
+        <div class="owl-carousel owl-theme">
           %for logo in get_all_logos():
-           %if logo[1]:
+            %if logo[1]:
             <div class="item"><a href="${logo[1]}" target="_blank"><img src="${logo[0]}"></div></a>
-           %else:
-           <div class="item"><a href="/" target="_blank"><img src="${logo[0]}"></div></a>
-           %endif
+            %else:
+            <div class="item"><img src="${logo[0]}"></div></a>
+            %endif
           %endfor
         </div>
       </div>
     </div>
   % endif
-  <div class="px-3" style="margin-top: 25px;">
+  <div class="px-0" >
     <%include file="${courses_list}" />
   </div>
 </section>
@@ -98,34 +99,22 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
       })
       $(document).ready(function(){
         $('.owl-carousel').owlCarousel({
-          loop: true,
-          margin: 40,
-          nav: true,
-          autoWidth: true,
-          slideTransition: 'linear',
-          autoplayTimeout: 3000,
-          autoplaySpeed: 3000,
-          dots: false,
-          navText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-          ],
-          autoplay: true,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            600: {
-              items: 2
-            },
-            1000: {
-              items: 4
-            },
-            1500: {
-              items: 5
+            loop:true,
+            center: true,
+            margin:40,
+            nav:false,
+            autoWidth:true,
+            responsive:{
+                0:{
+                    items:5
+                },
+                600:{
+                    items:4
+                },
+                1000:{
+                    items:6
+                }
             }
-          },
         })
       });
    </script>
