@@ -652,6 +652,9 @@ a.nav-link.user-menu:hover,
     .explore-courses-authenthicated{
         display: none;
     }
+    .my-courses-authenthicated{
+        display: none;
+    }
 }
 
 
