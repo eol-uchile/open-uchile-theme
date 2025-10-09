@@ -31,17 +31,17 @@ linkedin_url = footer_url_config.get('linkedin', '')
     % if footer_url_config != {}:
       <div class="border-0 mb-0 p-0 pt-4 text-center">
         % if linkedin_url  != '':
-          <a class="text-decoration-none" href="${linkedin_url}" role="button" aria-expanded="false" alt="linkedIn OpenUchile" title="LinkedIn">
+          <a class="text-decoration-none" href="${linkedin_url}" role="button" aria-expanded="false" alt="linkedIn OpenUchile" title="LinkedIn" target="_blank">
             <span class="icon fa fa-linkedin-square icon-footer linkedin-hover-color" aria-hidden="true"></span>
           </a>
         % endif
         % if youtube_url != '':
-          <a class="text-decoration-none" href="${youtube_url}" role="button" aria-expanded="false" alt="Youtube oficina EOL" title="Youtube">
+          <a class="text-decoration-none" href="${youtube_url}" role="button" aria-expanded="false" alt="Youtube oficina EOL" title="Youtube" target="_blank">
             <span class="icon fa fa-youtube-play icon-footer youtube-hover-color" aria-hidden="true"></span>
           </a>
         % endif
         % if instagram_url != '': 
-          <a class="text-decoration-none" href="${instagram_url}" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+          <a class="text-decoration-none" href="${instagram_url}" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol" target="_blank">
             <span class="icon fa fa-instagram icon-footer instagram-hover-color" aria-hidden="true"></span>
           </a>
         % endif
