@@ -5,9 +5,10 @@ ${_("Hi {full_name},").format(full_name=full_name)}
 
 
 ${_("Thanks for submitting your photos!")}
-${_("Hemos recibido su información y el proceso de verificación de ID ha empezado."
-"Revise si recibe un correo electrónico de OpenUChile en los próximos días para confirmar si su verificación fue exitosa."
-"También puede revisar el estado del proceso de verificación en su página de inicio.")}
+${_("We have received your information and the ID verification process has "
+"begun.check if you receive an email from OpenUChile in the next few days "
+"to confirm if your verification was successful.you can also check the "
+"status of the verification process on your home page.")}
 
 ${_("Thank you,")}
 ${_("{platform_name} team").format(platform_name=platform_name)}

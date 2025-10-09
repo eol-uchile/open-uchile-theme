@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-02 15:48+0000\n"
+"POT-Creation-Date: 2025-10-09 20:00+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: cms/templates/js/course-outline.underscore:160
 #: cms/templates/js/course-outline.underscore:162
-msgid "Duplicar a otro Curso"
+msgid "Duplicate to another course"
 msgstr ""
 
 #: cms/templates/js/course-outline.underscore:166
@@ -164,61 +164,61 @@ msgstr ""
 msgid "Click to add a new %(xblock_type)s"
 msgstr ""
 
-#: lms/static/js/open_search.js:92
+#: lms/static/js/open_search.js:101
 msgid "Showing"
 msgstr ""
 
-#: lms/static/js/open_search.js:92
+#: lms/static/js/open_search.js:101
 msgid "courses"
 msgstr ""
 
-#: lms/static/js/open_search.js:379
+#: lms/static/js/open_search.js:311
 msgid "Enroll now"
 msgstr ""
 
-#: lms/static/js/open_search.js:381
+#: lms/static/js/open_search.js:313
 msgid "Coming soon"
 msgstr ""
 
-#: lms/static/js/open_search.js:383
+#: lms/static/js/open_search.js:315
 msgid "See more"
 msgstr ""
 
-#: lms/static/js/open_search.js:385
+#: lms/static/js/open_search.js:317
 msgid "Finished"
 msgstr ""
 
-#: lms/static/js/open_search.js:435
+#: lms/static/js/open_search.js:367
 msgid "Duration"
 msgstr ""
 
-#: lms/static/js/open_search.js:452
+#: lms/static/js/open_search.js:384
 msgid "Classes Start"
 msgstr ""
 
-#: lms/static/js/open_search.js:467
+#: lms/static/js/open_search.js:399
 msgid "Pacing"
 msgstr ""
 
-#: lms/static/js/open_search.js:484
+#: lms/static/js/open_search.js:416
 msgid "Price"
 msgstr ""
 
-#: lms/static/js/open_search.js:502
+#: lms/static/js/open_search.js:434
 msgid "Free"
 msgstr ""
 
-#: lms/static/js/open_search.js:508
+#: lms/static/js/open_search.js:440
 msgid "Student paced"
 msgstr ""
 
-#: lms/static/js/open_search.js:508
+#: lms/static/js/open_search.js:440
 msgid "Instructor paced"
 msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:15
-msgid "Responder"
-msgstr "Reply"
+msgid "Reply"
+msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:22
 msgid "Add a response:"
@@ -230,8 +230,8 @@ msgstr ""
 #: lms/templates/eoldiscussion/templates2.underscore:278
 #: lms/templates/eoldiscussion/templates2.underscore:334
 #: lms/templates/eoldiscussion/templates2.underscore:509
-msgid "Caracteres restantes"
-msgstr "Remaining characters"
+msgid "Remaining characters"
+msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:36
 #: lms/templates/eoldiscussion/templates2.underscore:201
@@ -385,13 +385,13 @@ msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:413
 #: lms/templates/eoldiscussion/templates2.underscore:414
-msgid "Creación"
-msgstr "Creation"
+msgid "Creation"
+msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:416
 #: lms/templates/eoldiscussion/templates2.underscore:417
-msgid "Última actividad"
-msgstr "Last activity"
+msgid "Last activity"
+msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:434
 #, python-format
@@ -414,8 +414,8 @@ msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:462
 #: lms/templates/eoldiscussion/templates2.underscore:612
-msgid "Crear publicación"
-msgstr "Create publication"
+msgid "Create publication"
+msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:477
 msgid "Visible to"
@@ -432,8 +432,8 @@ msgid "All Groups"
 msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:507
-msgid "Tu pregunta o idea (requerido)"
-msgstr "Your question or idea (required)"
+msgid "Your question or idea (required)"
+msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:523
 msgid "follow this post"
@@ -741,4 +741,7 @@ msgstr ""
 
 #~ msgid "Permanently open"
 #~ msgstr ""
+
+#~ msgid "Responder"
+#~ msgstr "Reply"
 

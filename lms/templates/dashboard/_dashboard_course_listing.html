@@ -210,7 +210,7 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
                     % if share_settings.get('DASHBOARD_FACEBOOK', False):
                         <%
                           facebook_share_url = u"{url}?{utm_params}".format(url=share_url, utm_params=encoded_utm_parameters['facebook'])
-                          share_text = _("¡Te invito a matricularte a este curso! {course_name}").format(course_name=course_overview.display_name_with_default)
+                          share_text = _("I invite you to enroll in this course! {course_name}").format(course_name=course_overview.display_name_with_default)
                           query_params = urlencode((('u', facebook_share_url), ('quote', share_text),))
                           facebook_url = 'https://www.facebook.com/sharer/sharer.php?{query}'.format(query=query_params)
                           share_msg = _("Share {course_name} on Facebook").format(course_name=course_overview.display_name_with_default)
@@ -232,7 +232,7 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
                     % if share_settings.get('DASHBOARD_TWITTER', False):
                         <%
                           twitter_share_url = u"{url}?{utm_params}".format(url=share_url, utm_params=encoded_utm_parameters['twitter'])
-                          default_share_text = _("¡Te invito a matricularte a este curso! {course_name}").format(course_name=course_overview.display_name_with_default)
+                          default_share_text = _("I invite you to enroll in this course! {course_name}").format(course_name=course_overview.display_name_with_default)
                           share_text = urlquote_plus(share_settings.get('DASHBOARD_TWITTER_TEXT', default_share_text))
                           twitter_url = u'https://twitter.com/intent/tweet?text=' + share_text + u'%20' + urlquote_plus(twitter_share_url)
                           share_msg = _("Share {course_name} on Twitter").format(course_name=course_overview.display_name_with_default)
@@ -254,7 +254,7 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
                     % if share_settings.get('DASHBOARD_LINKEDIN', False):
                         <%
                           linkedin_share_url = u"{url}".format(url=share_url)
-                          default_share_text = _("¡Te invito a matricularte a este curso! {course_name} {url}").format(course_name=course_overview.display_name_with_default, url=linkedin_share_url)
+                          default_share_text = _("I invite you to enroll in this course! {course_name} {url}").format(course_name=course_overview.display_name_with_default, url=linkedin_share_url)
                           linkedin_url = 'https://www.linkedin.com/sharing/share-offsite/?url=' + urlquote_plus(linkedin_share_url)
                           share_msg = _("Share {course_name} on Linkedin").format(course_name=course_overview.display_name_with_default)
                         %>
@@ -430,8 +430,8 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
                   ${_("Pursue a {cert_name_long} to highlight the knowledge and skills you gain in this course.").format(cert_name_long=cert_name_long)}
                 </b><br>
                   ${Text(_(
-                      "Es oficial. Es fácil de compartir. "
-                      "Es comprobado como motivador para la finalización del curso. "))
+                      "It's official. It's easy to share. It is proven as a motivator for course"
+                      " completion. "))
                       }
               </p>
               <div class="action-upgrade-container">

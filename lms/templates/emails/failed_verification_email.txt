@@ -1,12 +1,12 @@
 <%! from django.utils.translation import ugettext as _ %>
 
 
-${_("¡Lo lamentamos! Las fotos que enviaste para verificar tu identidad no fueron aceptadas, detalle(s) a continuación:")}
+${_("Sorry! The photos you submitted to verify your identity were not accepted, detail(s) below:")}
 
 
 %for reason in reasons:
     %if reason.get('userPhotoReasons'):
-        ${_("Tu fotografía:")}
+        ${_("Your photo:")}
         <ul>
         %for item in reason.get('userPhotoReasons'):
             <li>${item}</li>
@@ -14,7 +14,7 @@ ${_("¡Lo lamentamos! Las fotos que enviaste para verificar tu identidad no fuer
         </ul>
     %endif
     %if reason.get('photoIdReasons'):
-        ${_("La fotografía de tu ID:")}
+        ${_("Your photo ID:")}
         <ul>
         %for item in reason.get('photoIdReasons'):
             <li>${item}</li>
@@ -22,7 +22,7 @@ ${_("¡Lo lamentamos! Las fotos que enviaste para verificar tu identidad no fuer
         </ul>
     %endif
     %if reason.get('generalReasons'):
-        ${_("Otras razones:")}
+        ${_("Other reasons:")}
         <ul>
         %for item in reason.get('generalReasons'):
             <li>${item}</li>
