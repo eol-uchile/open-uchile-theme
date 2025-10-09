@@ -626,6 +626,9 @@ a.nav-link.user-menu:hover,
     .explore-courses-authenthicated{
         display: none;
     }
+    .my-courses-authenthicated{
+        display: none;
+    }
 }
 
 
@@ -683,8 +686,6 @@ a.nav-link.user-menu:hover,
 #open-navbar{
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.09);
     background-color: white;
-    padding-top: 1rem;
-    margin-top: 1rem;
     padding-bottom: 1rem;
     font-family: 'Raleway', sans-serif !important;
     flex-direction: column;

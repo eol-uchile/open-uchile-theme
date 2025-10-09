@@ -19,7 +19,7 @@ from django.utils.translation import ugettext as _
   <ul class="navbar-nav mr-auto"></ul>
   <ul class="navbar-nav ml-auto">
     <li class="open-desktop-view nav-item my-auto">
-      <a class="nav-link my-auto " href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
+      <a class="nav-link my-auto explore-courses-authenthicated" href="${marketing_link('COURSES')}">${_('Explore courses')}</a>
     </li>
     %if allows_login:
       <li class="open-desktop-view nav-item my-auto">
