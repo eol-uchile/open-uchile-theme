@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-02 15:48+0000\n"
+"POT-Creation-Date: 2025-10-09 20:00+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -325,8 +325,8 @@ msgstr ""
 
 #: cms/templates/studio_xblock_wrapper.html:94
 #: cms/templates/studio_xblock_wrapper.html:96
-msgid "Duplicar a otro Curso"
-msgstr "Duplicate to another Course"
+msgid "Duplicate to another course"
+msgstr ""
 
 #: cms/templates/studio_xblock_wrapper.html:100
 #: cms/templates/studio_xblock_wrapper.html:102
@@ -365,62 +365,57 @@ msgstr ""
 
 #: cms/templates/videos_index.html:51 cms/templates/videos_index.html:55
 msgid ""
-"Los tiempos de procesamiento una vez subido el video puede demorar varios"
-" minutos/horas en completarse, dependiendo del tamaño del archivo. Una "
-"vez subido el video, espere unos minutos y recargue la página."
-msgstr ""
 "Processing times once the video is uploaded may take several "
 "minutes/hours to complete, depending on the size of the file. Once the "
 "video has been uploaded, please wait a few minutes and reload the page."
+msgstr ""
 
 #: cms/templates/videos_index.html:57
-msgid "EN PROGRESO"
-msgstr "IN PROGRESS"
+msgid "IN PROGRESS"
+msgstr ""
 
 #: cms/templates/videos_index.html:77
 msgid "Course Video Settings"
 msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:112
-msgid "Seleccione un video"
-msgstr "Select a video"
+msgid "Select a video"
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:115
 msgid ""
-"Seleccione un video previamente cargado al curso o inserte un enlace "
-"externo de YouTube en el campo correspondiente."
-msgstr ""
 "Select a video previously uploaded to the course or insert an external "
 "YouTube link in the corresponding field."
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:122
-msgid "Enlace externo de YouTube"
-msgstr "External YouTube link"
+msgid "External YouTube link"
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:126
-msgid "Enlace externo de YouTube (URL de video por defecto)"
-msgstr "External link from YouTube (default video URL)"
+msgid "External link from YouTube (default video URL)"
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:143
-msgid "Actualizar miniatura desde Vimeo"
-msgstr "Update thumbnail from Vimeo"
+msgid "Update thumbnail from Vimeo"
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:144
-msgid "Actualizar"
-msgstr "Update"
+msgid "Update"
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:147
-msgid "Actualizando"
-msgstr "Updating"
+msgid "Updating"
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:203
-msgid "Miniatura actualizada."
-msgstr "Updated miniature."
+msgid "Updated miniature."
+msgstr ""
 
 #: cms/templates/widgets/video/transcripts.html:207
 #: cms/templates/widgets/video/transcripts.html:213
-msgid "Se ha producido un error en actualizar la miniatura."
-msgstr "There was an error updating the thumbnail."
+msgid "There was an error updating the thumbnail."
+msgstr ""
 
 #: lms/templates/course.html:56 lms/templates/courseware/course_about.html:159
 msgid "Classes Start"
@@ -446,7 +441,7 @@ msgstr ""
 msgid "Duration"
 msgstr ""
 
-#: lms/templates/course.html:127
+#: lms/templates/course.html:127 lms/templates/courseware/course_about.html:115
 msgid "Enroll now"
 msgstr ""
 
@@ -479,31 +474,31 @@ msgstr ""
 msgid "End date"
 msgstr ""
 
-#: lms/templates/courses_list.html:17
+#: lms/templates/courses_list.html:14
 msgid "Top Courses"
 msgstr ""
 
-#: lms/templates/courses_list.html:32 lms/templates/courses_list.html:63
+#: lms/templates/courses_list.html:29 lms/templates/courses_list.html:60
 msgid "There are no courses"
 msgstr ""
 
-#: lms/templates/courses_list.html:37
+#: lms/templates/courses_list.html:34
 msgid "New Courses"
 msgstr ""
 
-#: lms/templates/courses_list.html:68
+#: lms/templates/courses_list.html:65
 msgid "About us"
 msgstr ""
 
-#: lms/templates/courses_list.html:71
+#: lms/templates/courses_list.html:68
 msgid "How the platform works"
 msgstr ""
 
-#: lms/templates/courses_list.html:74
+#: lms/templates/courses_list.html:71
 msgid "About UChile"
 msgstr ""
 
-#: lms/templates/courses_list.html:82
+#: lms/templates/courses_list.html:79
 msgid ""
 "The Online Education Office of the University of Chile (OpenUChile) is an"
 " initiative promoted by the Vice Rector's Office of Information "
@@ -518,7 +513,7 @@ msgid ""
 "us click here:"
 msgstr ""
 
-#: lms/templates/courses_list.html:94
+#: lms/templates/courses_list.html:91
 msgid ""
 "OpenUChile's platform runs on Open edX technology, which allows it to "
 "offer online courses with an interactive and flexible learning "
@@ -531,7 +526,7 @@ msgid ""
 "technical support to resolve doubts during the process."
 msgstr ""
 
-#: lms/templates/courses_list.html:106
+#: lms/templates/courses_list.html:103
 msgid ""
 "The Universidad de Chile is the oldest public institution of higher "
 "education in the country, founded in 1842. Recognized for its academic "
@@ -558,8 +553,8 @@ msgid "Contact us"
 msgstr ""
 
 #: lms/templates/footer.html:59
-msgid "Términos y Condiciones"
-msgstr "Terms and Conditions"
+msgid "Terms and Conditions"
+msgstr ""
 
 #: lms/templates/footer.html:62 lms/templates/static_templates/privacy.html:6
 msgid "Privacy Policy"
@@ -824,16 +819,12 @@ msgid "Course is full"
 msgstr ""
 
 #: lms/templates/courseware/course_about.html:94
-msgid "Curso requiere postulación"
-msgstr "Enrollment in this course is by invitation only"
+msgid "Enrollment in this course is by invitation only"
+msgstr ""
 
 #: lms/templates/courseware/course_about.html:96
 msgid "Enrollment is Closed"
 msgstr ""
-
-#: lms/templates/courseware/course_about.html:115
-msgid "Inscríbase ahora"
-msgstr "Enroll now"
 
 #: lms/templates/courseware/course_about.html:136
 msgid "View About Page in studio"
@@ -930,201 +921,201 @@ msgstr ""
 msgid "All courses"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:71
+#: lms/templates/dashboard/_dashboard_course_listing.html:75
 msgid "Course details"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:76
+#: lms/templates/dashboard/_dashboard_course_listing.html:80
 #, python-brace-format
 msgid "{course_number} {course_name} Home Page"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:80
-#: lms/templates/dashboard/_dashboard_course_listing.html:85
+#: lms/templates/dashboard/_dashboard_course_listing.html:84
+#: lms/templates/dashboard/_dashboard_course_listing.html:89
 #, python-brace-format
 msgid "{course_number} {course_name} Cover Image"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:90
+#: lms/templates/dashboard/_dashboard_course_listing.html:94
 msgid "Enrolled as: "
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:116
+#: lms/templates/dashboard/_dashboard_course_listing.html:120
 msgid "Coming Soon"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:122
+#: lms/templates/dashboard/_dashboard_course_listing.html:126
 #, python-brace-format
 msgid "Ended - {date}"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:125
+#: lms/templates/dashboard/_dashboard_course_listing.html:129
 #, python-brace-format
 msgid "Started - {date}"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:131
 #: lms/templates/dashboard/_dashboard_course_listing.html:135
+#: lms/templates/dashboard/_dashboard_course_listing.html:139
 #, python-brace-format
 msgid "Starts - {date}"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:146
+#: lms/templates/dashboard/_dashboard_course_listing.html:150
 #, python-brace-format
 msgid "for {course_display_name}"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:154
+#: lms/templates/dashboard/_dashboard_course_listing.html:158
 #, python-brace-format
 msgid "You must select a session by {expiration_date} to access the course."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:156
+#: lms/templates/dashboard/_dashboard_course_listing.html:160
 msgid "You must select a session to access the course."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:169
+#: lms/templates/dashboard/_dashboard_course_listing.html:173
 msgid "Change or Leave Session"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:177
+#: lms/templates/dashboard/_dashboard_course_listing.html:181
 msgid "You can no longer change sessions."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:179
+#: lms/templates/dashboard/_dashboard_course_listing.html:183
 #, python-brace-format
 msgid "You can change sessions until {entitlement_expiration_date}."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:189
+#: lms/templates/dashboard/_dashboard_course_listing.html:193
 msgid "View Archived Course"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:209
-#: lms/templates/dashboard/_dashboard_course_listing.html:231
+#: lms/templates/dashboard/_dashboard_course_listing.html:213
+#: lms/templates/dashboard/_dashboard_course_listing.html:235
 #, python-brace-format
-msgid "¡Te invito a matricularte a este curso! {course_name}"
-msgstr "I invite you to enroll in this course! {course_name}"
+msgid "I invite you to enroll in this course! {course_name}"
+msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:212
+#: lms/templates/dashboard/_dashboard_course_listing.html:216
 #, python-brace-format
 msgid "Share {course_name} on Facebook"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:215
-#: lms/templates/dashboard/_dashboard_course_listing.html:221
+#: lms/templates/dashboard/_dashboard_course_listing.html:219
+#: lms/templates/dashboard/_dashboard_course_listing.html:225
 msgid "Share on Facebook"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:234
+#: lms/templates/dashboard/_dashboard_course_listing.html:238
 #, python-brace-format
 msgid "Share {course_name} on Twitter"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:237
-#: lms/templates/dashboard/_dashboard_course_listing.html:243
+#: lms/templates/dashboard/_dashboard_course_listing.html:241
+#: lms/templates/dashboard/_dashboard_course_listing.html:247
 msgid "Share on Twitter"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:253
+#: lms/templates/dashboard/_dashboard_course_listing.html:257
 #, python-brace-format
-msgid "¡Te invito a matricularte a este curso! {course_name} {url}"
-msgstr "I invite you to enroll in this course! {course_name} {url}"
+msgid "I invite you to enroll in this course! {course_name} {url}"
+msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:255
+#: lms/templates/dashboard/_dashboard_course_listing.html:259
 #, python-brace-format
 msgid "Share {course_name} on Linkedin"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:258
-#: lms/templates/dashboard/_dashboard_course_listing.html:264
+#: lms/templates/dashboard/_dashboard_course_listing.html:262
+#: lms/templates/dashboard/_dashboard_course_listing.html:268
 msgid "Share on Linkedin"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:282
+#: lms/templates/dashboard/_dashboard_course_listing.html:286
 msgid "Course options for"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:289
+#: lms/templates/dashboard/_dashboard_course_listing.html:293
 msgid "Available Actions"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:302
+#: lms/templates/dashboard/_dashboard_course_listing.html:306
 msgid "Unenroll"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:308
+#: lms/templates/dashboard/_dashboard_course_listing.html:312
 msgid ""
 "You are enrolled by your institution and you should reach out to your "
 "institution to drop this course."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:314
+#: lms/templates/dashboard/_dashboard_course_listing.html:318
 msgid "Email Settings"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:353
+#: lms/templates/dashboard/_dashboard_course_listing.html:357
 msgid "Related Programs"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:382
+#: lms/templates/dashboard/_dashboard_course_listing.html:386
 msgid "Verification not yet complete."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:384
+#: lms/templates/dashboard/_dashboard_course_listing.html:388
 #, python-brace-format
 msgid "You only have {days} day left to verify for this course."
 msgid_plural "You only have {days} days left to verify for this course."
 msgstr[0] ""
 msgstr[1] ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:389
+#: lms/templates/dashboard/_dashboard_course_listing.html:393
 msgid "Almost there!"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:390
+#: lms/templates/dashboard/_dashboard_course_listing.html:394
 msgid "You still need to verify for this course."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:394
+#: lms/templates/dashboard/_dashboard_course_listing.html:398
 msgid "Verify Now"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:397
+#: lms/templates/dashboard/_dashboard_course_listing.html:401
 msgid "You have submitted your verification information."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:398
+#: lms/templates/dashboard/_dashboard_course_listing.html:402
 msgid ""
 "You will see a message on your dashboard when the verification process is"
 " complete (usually within 5-7 days)."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:400
+#: lms/templates/dashboard/_dashboard_course_listing.html:404
 msgid "Your current verification will expire soon!"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:401
+#: lms/templates/dashboard/_dashboard_course_listing.html:405
 msgid ""
 "You have submitted your reverification information. You will see a "
 "message on your dashboard when the verification process is complete "
 "(usually within 5-7 days)."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:403
+#: lms/templates/dashboard/_dashboard_course_listing.html:407
 msgid "You have successfully verified your ID with edX"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:405
+#: lms/templates/dashboard/_dashboard_course_listing.html:409
 #, python-brace-format
 msgid "Your current verification is effective until {date}."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:408
+#: lms/templates/dashboard/_dashboard_course_listing.html:412
 msgid "Your current verification will expire soon."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:411
+#: lms/templates/dashboard/_dashboard_course_listing.html:415
 #, python-brace-format
 msgid ""
 "Your current verification will expire in {days} days. {start_link}Re-"
@@ -1132,26 +1123,24 @@ msgid ""
 " photo ID."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:426
+#: lms/templates/dashboard/_dashboard_course_listing.html:430
 #, python-brace-format
 msgid ""
 "Pursue a {cert_name_long} to highlight the knowledge and skills you gain "
 "in this course."
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:429
+#: lms/templates/dashboard/_dashboard_course_listing.html:433
 msgid ""
-"Es oficial. Es fácil de compartir. Es comprobado como motivador para la "
-"finalización del curso. "
-msgstr ""
 "It's official. It's easy to share. It is proven as a motivator for course"
 " completion. "
+msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:441
+#: lms/templates/dashboard/_dashboard_course_listing.html:445
 msgid "Upgrade to Verified"
 msgstr ""
 
-#: lms/templates/dashboard/_dashboard_course_listing.html:455
+#: lms/templates/dashboard/_dashboard_course_listing.html:459
 #, python-brace-format
 msgid ""
 "You must successfully complete {link_start}{prc_display}{link_end} before"
@@ -1160,23 +1149,21 @@ msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:4
 msgid ""
-"¡Lo lamentamos! Las fotos que enviaste para verificar tu identidad no "
-"fueron aceptadas, detalle(s) a continuación:"
-msgstr ""
 "Sorry! The photos you submitted to verify your identity were not "
 "accepted, detail(s) below:"
+msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:9
-msgid "Tu fotografía:"
-msgstr "Your photo:"
+msgid "Your photo:"
+msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:17
-msgid "La fotografía de tu ID:"
-msgstr "Your photo ID:"
+msgid "Your photo ID:"
+msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:25
-msgid "Otras razones:"
-msgstr "Other reasons:"
+msgid "Other reasons:"
+msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:34
 #, python-brace-format
@@ -1185,38 +1172,32 @@ msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:37
 #: lms/templates/emails/passed_verification_email.txt:9
-#: lms/templates/emails/photo_submission_confirmation.txt:12
+#: lms/templates/emails/photo_submission_confirmation.txt:13
 msgid "Thank you,"
 msgstr ""
 
 #: lms/templates/emails/failed_verification_email.txt:38
 #: lms/templates/emails/passed_verification_email.txt:10
-#: lms/templates/emails/photo_submission_confirmation.txt:13
+#: lms/templates/emails/photo_submission_confirmation.txt:14
 #, python-brace-format
 msgid "{platform_name} team"
 msgstr ""
 
 #: lms/templates/emails/passed_verification_email.txt:4
+#: lms/templates/emails/photo_submission_confirmation.txt:4
 #, python-brace-format
-msgid "Hola {full_name},"
-msgstr "Hello {full_name},"
+msgid "Hi {full_name},"
+msgstr ""
 
 #: lms/templates/emails/passed_verification_email.txt:6
-msgid "¡Felicitaciones! Tu verificación de identidad fue exitosa."
-msgstr "Congratulations! Your ID verification was successful."
+msgid "Congratulations! Your ID verification was successful."
+msgstr ""
 
 #: lms/templates/emails/passed_verification_email.txt:7
 #, python-brace-format
 msgid ""
-"Tu verificación es válida durante un año. Esta expirará el "
-"{expiration_datetime}."
-msgstr ""
 "Your verification is valid for one year. It will expire on "
 "{expiration_datetime}."
-
-#: lms/templates/emails/photo_submission_confirmation.txt:4
-#, python-brace-format
-msgid "Hi {full_name},"
 msgstr ""
 
 #: lms/templates/emails/photo_submission_confirmation.txt:7
@@ -1225,32 +1206,28 @@ msgstr ""
 
 #: lms/templates/emails/photo_submission_confirmation.txt:8
 msgid ""
-"Hemos recibido su información y el proceso de verificación de ID ha "
-"empezado.Revise si recibe un correo electrónico de OpenUChile en los "
-"próximos días para confirmar si su verificación fue exitosa.También puede"
-" revisar el estado del proceso de verificación en su página de inicio."
-msgstr ""
 "We have received your information and the ID verification process has "
 "begun.check if you receive an email from OpenUChile in the next few days "
 "to confirm if your verification was successful.you can also check the "
 "status of the verification process on your home page."
+msgstr ""
 
 #: lms/templates/eoldiscussion/_discussion_inline.html:40
 msgid "Topic:"
 msgstr ""
 
 #: lms/templates/eoldiscussion/_discussion_inline.html:51
-msgid "El foro termina el"
-msgstr "The forum ends on"
+msgid "The forum ends on"
+msgstr ""
 
 #: lms/templates/eoldiscussion/_discussion_inline.html:55
-msgid "El foro inicia el"
-msgstr "The forum starts on"
+msgid "The forum starts on"
+msgstr ""
 
 #: lms/templates/eoldiscussion/_discussion_inline.html:59
 #: lms/templates/eoldiscussion/_discussion_inline.html:65
-msgid "El foro ha finalizado."
-msgstr "The forum has ended."
+msgid "The forum has ended."
+msgstr ""
 
 #: lms/templates/eoldiscussion/_discussion_inline.html:71
 #: lms/templates/eoldiscussion/_discussion_inline.html:81
@@ -1324,16 +1301,16 @@ msgid "Sort:"
 msgstr ""
 
 #: lms/templates/eoldiscussion/_thread_list_template.html:40
-msgid "Por actividad reciente"
-msgstr "By recent activity"
+msgid "By recent activity"
+msgstr ""
 
 #: lms/templates/eoldiscussion/_thread_list_template.html:42
-msgid "Por mayor actividad"
-msgstr "For increased activity"
+msgid "For increased activity"
+msgstr ""
 
 #: lms/templates/eoldiscussion/_thread_list_template.html:44
-msgid "Por mayor número de votos"
-msgstr "By highest number of votes"
+msgid "By highest number of votes"
+msgstr ""
 
 #: lms/templates/eoldiscussion/_user_profile.html:8
 #, python-format
@@ -1576,12 +1553,12 @@ msgid "Generate Submission Files Archive"
 msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:121
-msgid "Analítica de encuestas"
-msgstr "Survey analytics"
+msgid "Survey analytics"
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:125
-msgid "Generar"
-msgstr "Generate"
+msgid "Generate"
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/data_download.html:137
 msgid "Reports Available for Download"
@@ -1631,16 +1608,16 @@ msgid "View Course in Studio"
 msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/instructor_dashboard_2.html:124
-msgid "Correo de bienvenida"
-msgstr "Welcome mail"
+msgid "Welcome mail"
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:16
-msgid "Habilitar:"
-msgstr "Enable:"
+msgid "Enable:"
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:23
-msgid "Habilitar correo de bienvenida"
-msgstr "Enable welcome mail"
+msgid "Enable welcome mail"
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:30
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:34
@@ -1681,18 +1658,15 @@ msgid "(Maximum 128 characters)"
 msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:97
-msgid "Responder a (opcional): "
-msgstr "Reply to (optional): "
+msgid "Reply to (optional): "
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:104
 msgid ""
-"(Ingrese el/los correos al que los estudiantes podrán responder. Si "
-"ingresa más de un correo separelos con una coma, ejemplo: "
-"correo1@correo.cl, correo2@correo.cl)"
-msgstr ""
 "(Enter the email(s) to which students may respond. If you enter more than"
 " one email, separate them with a comma, e.g.: correo1@correo.cl, "
 "correo2@correo.cl)"
+msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:109
 msgid "Message:"
@@ -1721,7 +1695,7 @@ msgid "Send Email"
 msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:128
-msgid "Guardar Cambios"
+msgid "Save changes"
 msgstr ""
 
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:139

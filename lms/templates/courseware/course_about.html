@@ -91,7 +91,7 @@ now = timezone.now()
           % elif is_course_full:
             <button class="btn my-auto pt-2 enroll-button" disabled>${_("Course is full")}</button>
           % elif invitation_only and not can_enroll:
-            <button class="btn my-auto pt-2 enroll-button" disabled>${_("Curso requiere postulación")}</button>
+            <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment in this course is by invitation only")}</button>
           % elif not is_shib_course and not can_enroll:
             <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
           %elif allow_anonymous:
@@ -112,7 +112,7 @@ now = timezone.now()
                 href_class = "register"
             %>
             <a href="${reg_href}" class="${href_class} my-auto pt-2">
-              <button class="btn">${_("Inscríbase ahora")}</button>
+              <button class="btn">${_("Enroll now")}</button>
             </a>
             <div id="register_error"></div>
           %endif

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-02 15:48+0000\n"
+"POT-Creation-Date: 2025-10-09 20:00+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -97,8 +97,8 @@ msgstr ""
 
 #: cms/templates/js/course-outline.underscore:160
 #: cms/templates/js/course-outline.underscore:162
-msgid "Duplicar a otro Curso"
-msgstr ""
+msgid "Duplicate to another course"
+msgstr "Duplicar a otro Curso"
 
 #: cms/templates/js/course-outline.underscore:166
 #: cms/templates/js/course-outline.underscore:168
@@ -164,61 +164,61 @@ msgstr ""
 msgid "Click to add a new %(xblock_type)s"
 msgstr ""
 
-#: lms/static/js/open_search.js:92
+#: lms/static/js/open_search.js:101
 msgid "Showing"
 msgstr "Mostrando"
 
-#: lms/static/js/open_search.js:92
+#: lms/static/js/open_search.js:101
 msgid "courses"
 msgstr "cursos"
 
-#: lms/static/js/open_search.js:379
+#: lms/static/js/open_search.js:311
 msgid "Enroll now"
 msgstr "Inscríbete aquí"
 
-#: lms/static/js/open_search.js:381
+#: lms/static/js/open_search.js:313
 msgid "Coming soon"
 msgstr "Próximamente"
 
-#: lms/static/js/open_search.js:383
+#: lms/static/js/open_search.js:315
 msgid "See more"
 msgstr "Aprender más"
 
-#: lms/static/js/open_search.js:385
+#: lms/static/js/open_search.js:317
 msgid "Finished"
 msgstr "Finalizado"
 
-#: lms/static/js/open_search.js:435
+#: lms/static/js/open_search.js:367
 msgid "Duration"
 msgstr "Duración"
 
-#: lms/static/js/open_search.js:452
+#: lms/static/js/open_search.js:384
 msgid "Classes Start"
 msgstr "Inicio de clases"
 
-#: lms/static/js/open_search.js:467
+#: lms/static/js/open_search.js:399
 msgid "Pacing"
 msgstr "Modalidad"
 
-#: lms/static/js/open_search.js:484
+#: lms/static/js/open_search.js:416
 msgid "Price"
 msgstr "Precio"
 
-#: lms/static/js/open_search.js:502
+#: lms/static/js/open_search.js:434
 msgid "Free"
 msgstr "Gratis"
 
-#: lms/static/js/open_search.js:508
+#: lms/static/js/open_search.js:440
 msgid "Student paced"
 msgstr "Ritmo estudiante"
 
-#: lms/static/js/open_search.js:508
+#: lms/static/js/open_search.js:440
 msgid "Instructor paced"
 msgstr "Ritmo instructor"
 
 #: lms/templates/eoldiscussion/templates2.underscore:15
-msgid "Responder"
-msgstr ""
+msgid "Reply"
+msgstr "Responder"
 
 #: lms/templates/eoldiscussion/templates2.underscore:22
 msgid "Add a response:"
@@ -230,8 +230,8 @@ msgstr ""
 #: lms/templates/eoldiscussion/templates2.underscore:278
 #: lms/templates/eoldiscussion/templates2.underscore:334
 #: lms/templates/eoldiscussion/templates2.underscore:509
-msgid "Caracteres restantes"
-msgstr ""
+msgid "Remaining characters"
+msgstr "Carácteres restantes"
 
 #: lms/templates/eoldiscussion/templates2.underscore:36
 #: lms/templates/eoldiscussion/templates2.underscore:201
@@ -385,13 +385,13 @@ msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:413
 #: lms/templates/eoldiscussion/templates2.underscore:414
-msgid "Creación"
-msgstr ""
+msgid "Creation"
+msgstr "Creación"
 
 #: lms/templates/eoldiscussion/templates2.underscore:416
 #: lms/templates/eoldiscussion/templates2.underscore:417
-msgid "Última actividad"
-msgstr ""
+msgid "Last activity"
+msgstr "Última actividad"
 
 #: lms/templates/eoldiscussion/templates2.underscore:434
 #, python-format
@@ -414,8 +414,8 @@ msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:462
 #: lms/templates/eoldiscussion/templates2.underscore:612
-msgid "Crear publicación"
-msgstr ""
+msgid "Create publication"
+msgstr "Crear publicación"
 
 #: lms/templates/eoldiscussion/templates2.underscore:477
 msgid "Visible to"
@@ -432,8 +432,8 @@ msgid "All Groups"
 msgstr ""
 
 #: lms/templates/eoldiscussion/templates2.underscore:507
-msgid "Tu pregunta o idea (requerido)"
-msgstr ""
+msgid "Your question or idea (required)"
+msgstr "Tu pregunta o idea (requerido)"
 
 #: lms/templates/eoldiscussion/templates2.underscore:523
 msgid "follow this post"

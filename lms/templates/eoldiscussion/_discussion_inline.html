@@ -48,21 +48,21 @@ if not is_staff and is_dated:
             <div class="discussion-module-date">
                 % if started and not finished:
                     <img src="${icon2_url}">
-                    <span class="date-text">${_("El foro termina el")} <div class="eolforum-format-date" data-date="${finish}"></div>.</span>
+                    <span class="date-text">${_("The forum ends on")} <div class="eolforum-format-date" data-date="${finish}"></div>.</span>
                 % else:
                     %if not started:
                         <img src="${icon1_url}">
-                        <span class="date-text">${_("El foro inicia el")} <div class="eolforum-format-date" data-date="${start}"></div>.</span>
+                        <span class="date-text">${_("The forum starts on")} <div class="eolforum-format-date" data-date="${start}"></div>.</span>
                     %endif
                     %if finished:
                         <img src="${icon3_url}">
-                        <span class="date-text">${_("El foro ha finalizado.")}</span>
+                        <span class="date-text">${_("The forum has ended.")}</span>
                     %endif
                 %endif
             </div>
             <div class="discussion-module-date-finished">
                 <img src="${icon3_url}">
-                <span class="date-text">${_("El foro ha finalizado.")}</span>
+                <span class="date-text">${_("The forum has ended.")}</span>
             </div>
         %endif
         <button class="eol-notification-btn btn" id="eol-notification-btn-${discussion_id}"
