@@ -25,6 +25,6 @@ update_translations: ## update strings to be translated
 	rm conf/locale/django.pot
 	rm conf/locale/django-js.pot
 
-compile_translations: ## compile .mo files into .po files
+compile_translations: ## compile .mo files from .po files
 	pybabel compile -f -D django -d conf/locale/; \
 	pybabel compile -f -D djangojs -d conf/locale/
