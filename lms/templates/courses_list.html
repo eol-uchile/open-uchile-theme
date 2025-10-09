@@ -1,14 +1,11 @@
 <%page expression_filter="h"/>
 <%namespace name='static' file='static_content.html'/>
 <%! from django.utils.translation import ugettext as _ %>
-<%! from portal_api.utils import get_active_enroll_courses, get_platform_names %>
 <%! from datetime import datetime %>
 <%! from django.utils import timezone %>
 
 <%
-  courses_portal_api = get_active_enroll_courses()
   now = timezone.now()
-  platforms_name = get_platform_names()
 %>
 <%! from course_classification.utils import get_course_ctgs, get_courses_filtered_by_course_state %>
 <% course_class = get_course_ctgs() %>
