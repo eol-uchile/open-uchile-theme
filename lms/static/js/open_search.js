@@ -13,13 +13,37 @@ var filters = {
 }
 
 $(window).load(function() {
+    clearFilter();
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    if (urlParams.has('search_query')){ 
-        initDiscovery(urlParams.get('search_query'));
-        $("#discovery-input").val(urlParams.get('search_query'))
+    // get different types of url params
+    if (urlParams.has('search_string')){ 
+        filters["search_string"]=urlParams.get('search_string')
+        $("#discovery-input").val(urlParams.get('search_string'))
     }
-    else initDiscovery();
+    if (urlParams.has('order')){ 
+        filters["order"]=urlParams.get('order')
+        $("#order-select").val(urlParams.get('order'))
+    }
+    if (urlParams.has('year')){ 
+        filters["year"]=urlParams.get('year')
+        $("#year-select").val(urlParams.get('year'))
+    }
+    if (urlParams.has('state')){ 
+        filters["state"]=urlParams.get('state')
+        $("#state-select").val(urlParams.get('state'))
+    }
+    if (urlParams.has('organization')){ 
+        const selectedOrganization = urlParams.get('organization');
+        filters["classification"] = selectedOrganization;
+        $(`input[type="checkbox"][data-facet="classification"][data-value="${selectedOrganization}"]`).prop('checked', true);
+    }
+    if (urlParams.has('category')){ 
+        const selectedCategory = urlParams.get('category');
+        filters["category"] = selectedCategory;
+        $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
+    }
+    initDiscovery();
     // TODO: create pagination
     // $(window).scroll(function() {
     // if($(window).scrollTop()  > $(window).height() / 2) {
@@ -30,19 +54,10 @@ $(window).load(function() {
     // }
     // })
 });
-function initDiscovery(search_string=""){
+function initDiscovery(){
     index = 0;
     currentTotal = 0;
     state = 1;
-    filters = {
-        "search_string": search_string,
-        "order_by": "newer",
-        "year": "",
-        "state": "",
-        "classification":"",
-        "category":""
-    };
-    clearFilter();
     getData();
 }
 
@@ -115,7 +130,6 @@ $('.open-filter-bar .search-facets-lists input[type="checkbox"]').live('change',
     }
     else{
         filters[facet] = "";
-        add_btn = false;
     }
 
     let list_course1 = getCourses();
