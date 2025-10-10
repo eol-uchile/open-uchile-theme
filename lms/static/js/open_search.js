@@ -5,7 +5,7 @@ var currentTotal = 0;
 var state = 0 //0:can get data 1:waiting data 2: no more data
 var filters = {
     "search_string": "",
-    "order_by": "",
+    "order_by": "newer",
     "year": "",
     "state": "",
     "classification": "",
@@ -36,7 +36,7 @@ function initDiscovery(search_string=""){
     state = 1;
     filters = {
         "search_string": search_string,
-        "order_by": "",
+        "order_by": "newer",
         "year": "",
         "state": "",
         "classification":"",
@@ -112,8 +112,6 @@ $('#advance-button').live('click', function(e) {
 $('.open-filter-bar .search-facets-lists input[type="checkbox"]').live('change', function(e) {
     e.preventDefault();
     let facet = $(this).data("facet");
-    let display_name = gettext($(this).data("text"));
-    let add_btn = true;
     if (this.checked){
         filters[facet] = $(this).data("value");
         $('.open-filter-bar .search-facets-lists input[data-facet="'+facet+'"]').not(this).prop( "checked", false );
@@ -158,15 +156,19 @@ $('#state-select, #year-select, #order-select').live('change', function(e) {
 });
 
 function clearFilter(){
+    filters["search_string"] = ""
+    filters["classification"] = ""
+    filters["category"] = ""
     filters["state"] = ""
     filters["year"] = ""
-    filters["order_by"] = ""
+    filters["order_by"] = "newer"
     let select = document.getElementById('state-select');
     select.selectedIndex = 0;
     select = document.getElementById('year-select');
     if (select) select.selectedIndex = 0;
     select = document.getElementById('order-select');
     select.selectedIndex = 0;
+    $("#discovery-input").val("")
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
