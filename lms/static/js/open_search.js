@@ -62,6 +62,8 @@ function initDiscovery(){
 }
 
 function getData(){
+    $("#loadingCircles").css("display","block");
+    $("#list-courses").css("display","none");
     var pages = {"page_size": 100, "page_index": index }
     var copy = {...filters, ...pages};
     $.post( "/course_classification/search/", copy )
@@ -90,6 +92,8 @@ function getData(){
                 edx.HtmlUtils.append(row, courseHtml);
                 edx.HtmlUtils.append(row, courseHtml2);
             }
+            $("#loadingCircles").css("display","none");
+            $("#list-courses").css("display","block");
         }else{
             console.log("ERROR:" + data.error)
         }
@@ -100,6 +104,7 @@ function getData(){
             state = 0;
         }
         else state = 2;
+        
         $(".open-filter-bar #discovery-message").text(gettext("Showing")+" " + data.results.length  + " "+ gettext("courses"));
     });
 }
