@@ -1184,7 +1184,7 @@ ul.courses-list{
     }
 }
 .courses-list .card-button button.ongoing_enrollable_color,
-.courses-list .card-button button.upcoming_enrollable {
+.courses-list .card-button button.upcoming_enrollable_color {
     background: #008852;
     border: #008852;
     text-shadow: none;
