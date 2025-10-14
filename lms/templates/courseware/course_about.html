@@ -15,8 +15,8 @@ from openedx.core.djangolib.markup import clean_dangerous_html, HTML, Text
 from openedx.core.lib.courses import course_image_url
 from six import string_types, text_type
 now = timezone.now()
+import traceback
 %>
-
 <%inherit file="../main.html" />
 <%block name="headextra">
   ## OG (Open Graph) title and description added below to give social media info to display
@@ -64,6 +64,27 @@ now = timezone.now()
 
 <%block name="pagetitle">${course.display_name_with_default}</%block>
 
+<%
+course_active_state = ''
+if not (course.end is None):
+  if course.end< now:
+    course_active_state = 'inactive'
+
+%>
+
+<%
+  eolcontactform_url = None
+  eolcontactform_traceback = None
+  try:
+    eolcontactform_url = '{}'.format(reverse('contact_form_view'))
+  except Exception as e:
+    eolcontactform_traceback = traceback.format_exc()
+%>
+% if eolcontactform_traceback and settings.DEBUG:
+    <div class="eolcontactform_traceback" hidden>
+      <pre>${eolcontactform_traceback}</pre>
+    </div>
+  % endif
 <script>
   function show_default_image() {
     return "${static.url('open-uchile-theme/images/default-course.png')}";
@@ -72,21 +93,38 @@ now = timezone.now()
 <section class="course-info">
   <div class="container pb-0">
     <div class="row">
-      <div class="col-md-7 course-header py-2">
+      <div class="col-md-7 course-header py-2 d-flex flex-column justify-content-between">
+        <div class="align-self-start w-100">
           <h1 class="text-left mb-0 pb-2">
             ${course.display_name_with_default}
           </h1>
           <h3>
             ${course.display_org_with_default}
           </h3>
+          </div>
+          <div class="align-self-end w-100">
           %if user.is_authenticated and registered:
             %if show_courseware_link:
-              <p class="font-italic lead enroll-message">${_("You are enrolled in this course")}</p>
+              <p class="font-italic lead enroll-message d-flex justify-content-center pb-3">${_("You are enrolled in this course")}</p>
               <a href="${course_target}" class="pt-2 enroll-button-2">
                 <button class="btn">${_("View Course")}</button>
               </a>
             %else:
               <button class="btn my-auto pt-2 enroll-button" disabled>${_("You are enrolled in this course")}</button>
+            %endif
+          %elif course_active_state == 'inactive':
+            %if eolcontactform_url:
+              <%
+                reg_href = ''
+                if course.end< now:
+                  reg_href = "/contact_form?course=" + str(course.display_name_with_default) + "&course_id=" + str(course.id)
+              %>
+              <p class="font-italic lead enroll-message d-flex justify-content-center pb-3">${_("Would you like it to be offered again?")}</p>
+              <a href="${reg_href}" class="my-auto pt-2">
+                <button class="btn text-uppercase w-100">${_("Yes, I would like to")}</button>
+              </a>
+            %else:
+              <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
             %endif
           % elif is_course_full:
             <button class="btn my-auto pt-2 enroll-button" disabled>${_("Course is full")}</button>
@@ -99,7 +137,22 @@ now = timezone.now()
               <a href="${course_target}" class="my-auto pt-2">
                 <button class="btn">${_("View Course")}</button>
               </a>
-            %endif
+            %elif course_active_state == 'inactive':
+              
+              %if eolcontactform_url:
+                <%
+                  reg_href = ''
+                  if course.end< now:
+                    reg_href = "/contact_form?course=" + str(course.display_name_with_default) + "&course_id=" + str(course.id)
+                %>
+                <p class="font-italic lead enroll-message d-flex justify-content-center">${_("Would you like it to be offered again?")}</p>
+                <a href="${reg_href}" class="my-auto pt-2">
+                  <button class="btn text-uppercase w-100">${_("Yes, I would like to")}</button>
+                </a>
+              %else:
+                <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
+              %endif
+          %endif
           %else:
             <%
               if ecommerce_checkout:
@@ -116,17 +169,18 @@ now = timezone.now()
             </a>
             <div id="register_error"></div>
           %endif
+        </div>
       </div>
       <div class="col-md-5 py-2">
         % if get_course_about_section(request, course, "video"):
           <a href="#video-modal" class="media" rel="leanModal">
             <div class="position-relative">
               <div class="icon-play"></div>
-              <img src="${course_image_urls['large']}" class="img-fluid course-about-image" alt="image"/>
+              <img src="${course_image_urls['large']}" class="img-fluid course-about-image ${course_active_state}" alt="image"/>
             </div>
           </a>
         %else:
-          <img src="${course_image_urls['large']}" onerror="this.onerror=null; this.src=show_default_image()"  class="img-fluid course-about-image" alt="image" />
+          <img src="${course_image_urls['large']}" onerror="this.onerror=null; this.src=show_default_image()"  class="img-fluid course-about-image ${course_active_state}" alt="image" />
         % endif
       </div>
     </div>
@@ -145,6 +199,19 @@ now = timezone.now()
       else:
         show_start_date = False
         course_start_date = course.advertised_start 
+      show_extra_data = False
+      course_end_date = 'None'
+      if not (course.end is None):
+        course_end_date = (course.end).strftime('%Y-%m-%dT%H:%M:%S%z')
+        show_extra_data = True
+      enrollment_start_date = 'None'
+      if not (course_details.enrollment_start is None):
+        enrollment_start_date = (course.enrollment_start).strftime('%Y-%m-%dT%H:%M:%S%z')
+        show_extra_data = True
+      enrollment_end_date = 'None'
+      if not (course_details.enrollment_end is None):
+        enrollment_end_date = (course.enrollment_end).strftime('%Y-%m-%dT%H:%M:%S%z')
+        show_extra_data = True
     %>
     <div class="row ct3 info-row my-4 rounded gx-0 p-3">
         <div class="col-md-3 col-sm-12">
@@ -224,8 +291,65 @@ now = timezone.now()
             </div>
           % endif
         </div>
-
-    </div>
+      </div>
+      %if staff_access and show_extra_data:
+      <h2>${_("Extra data")}</h2>
+      <div class="row ct3 info-row my-4 rounded gx-0 p-3">
+        %if course_end_date != "None":
+          <div class="col-md-3 col-sm-12">
+            <div class="row g-0 p-0">
+              <div class="col-2 m-0">
+                <div class="open-course-date-icon">
+                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                </div>
+              </div>
+              <div class="col-10">
+                <div class="open-course-date-text ml-3">
+                  <strong><span>${_("Classes End")}</span></strong>
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course_end_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        %endif
+        %if enrollment_start_date != "None":
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Enrollment Start")}</span></strong>
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${enrollment_start_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        %endif
+        %if enrollment_end_date != "None":
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Enrollment End")}</span></strong>
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${enrollment_end_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        %endif
+        <div class="col-md-3 col-sm-12">
+        </div>
+      </div>
+      % endif
     <div class="row">
       <h3 class="text-right">${_("There is one session available:")}</h3>
       <p class="text-right lead">${total_enrolled if total_enrolled else None}${_(" already enrolled!")}</p>

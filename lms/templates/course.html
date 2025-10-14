@@ -38,10 +38,12 @@ now = timezone.now()
         </div>
        <strong><h5 class="card-title fw-bold my-2" title="${course['content']['display_name']}">${course['content']['display_name']}</h5></strong> 
         <%
-          if course["start"] is not None:
-              course_date_string = datetime.fromisoformat(course["start"]).strftime('%Y-%m-%dT%H:%M:%S%z')
+          show_start_date = True
+          if course.get("advertised_start",None) is None:
+            course_start_date = datetime.fromisoformat(course["start"]).strftime('%Y-%m-%dT%H:%M:%S%z')
           else:
-            course_date_string = ''
+            show_start_date = False
+            course_start_date = course["advertised_start"]
         %>
         <div class="row ct3 my-2">
           <div class="col-md-6 col-sm-12">
@@ -54,7 +56,11 @@ now = timezone.now()
               <div class="col-10">
                 <div class="open-course-date-text ml-3">
                   <strong><span>${_("Classes Start")}</span></strong>
-                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course_date_string}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+                   %if show_start_date:
+                      <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course_start_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+                    % else:
+                      <div class="course-date localized_datetime" aria-hidden="true">${course_start_date}</div>
+                    % endif
                 </div>
               </div>
             </div>
