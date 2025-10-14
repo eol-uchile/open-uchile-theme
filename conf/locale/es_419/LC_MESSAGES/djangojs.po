@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-09 20:00+0000\n"
+"POT-Creation-Date: 2025-11-10 18:11+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -164,55 +164,71 @@ msgstr ""
 msgid "Click to add a new %(xblock_type)s"
 msgstr ""
 
-#: lms/static/js/open_search.js:101
+#: lms/static/js/open_search.js:75
+msgid "ERROR loading organizations"
+msgstr "Error al cargar las organizaciones"
+
+#: lms/static/js/open_search.js:90
+msgid "ERROR loading categories"
+msgstr "Error al cargar las categorías"
+
+#: lms/static/js/open_search.js:198
+msgid "No results were found for your search"
+msgstr "No se encontraron resultados en tu busqueda"
+
+#: lms/static/js/open_search.js:230
 msgid "Showing"
 msgstr "Mostrando"
 
-#: lms/static/js/open_search.js:101
-msgid "courses"
-msgstr "cursos"
+#: lms/static/js/open_search.js:230
+msgid "courses out of"
+msgstr "cursos de"
 
-#: lms/static/js/open_search.js:311
+#: lms/static/js/open_search.js:232
+msgid "Showing 0 courses"
+msgstr "Mostrando 0 cursos"
+
+#: lms/static/js/open_search.js:391
 msgid "Enroll now"
 msgstr "Inscríbete aquí"
 
-#: lms/static/js/open_search.js:313
+#: lms/static/js/open_search.js:393
 msgid "Coming soon"
 msgstr "Próximamente"
 
-#: lms/static/js/open_search.js:315
+#: lms/static/js/open_search.js:395
 msgid "See more"
 msgstr "Aprender más"
 
-#: lms/static/js/open_search.js:317
+#: lms/static/js/open_search.js:397
 msgid "Finished"
 msgstr "Finalizado"
 
-#: lms/static/js/open_search.js:367
+#: lms/static/js/open_search.js:447
 msgid "Duration"
 msgstr "Duración"
 
-#: lms/static/js/open_search.js:384
+#: lms/static/js/open_search.js:472
 msgid "Classes Start"
 msgstr "Inicio de clases"
 
-#: lms/static/js/open_search.js:399
+#: lms/static/js/open_search.js:487
 msgid "Pacing"
 msgstr "Modalidad"
 
-#: lms/static/js/open_search.js:416
+#: lms/static/js/open_search.js:504
 msgid "Price"
 msgstr "Precio"
 
-#: lms/static/js/open_search.js:434
+#: lms/static/js/open_search.js:522
 msgid "Free"
 msgstr "Gratis"
 
-#: lms/static/js/open_search.js:440
+#: lms/static/js/open_search.js:527
 msgid "Student paced"
 msgstr "Ritmo estudiante"
 
-#: lms/static/js/open_search.js:440
+#: lms/static/js/open_search.js:527
 msgid "Instructor paced"
 msgstr "Ritmo instructor"
 
