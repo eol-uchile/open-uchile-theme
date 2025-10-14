@@ -445,7 +445,8 @@ msgstr ""
 msgid "Enroll now"
 msgstr ""
 
-#: lms/templates/course.html:135 lms/templates/courseware/courses.html:79
+#: lms/templates/course.html:135 lms/templates/courseware/courses.html:99
+#: lms/templates/courseware/courses.html:100
 msgid "Coming soon"
 msgstr ""
 
@@ -454,7 +455,8 @@ msgstr ""
 msgid "See more"
 msgstr ""
 
-#: lms/templates/course.html:139 lms/templates/courseware/courses.html:78
+#: lms/templates/course.html:139 lms/templates/courseware/courses.html:95
+#: lms/templates/courseware/courses.html:96
 msgid "Finished"
 msgstr ""
 
@@ -860,71 +862,86 @@ msgctxt "self"
 msgid "enroll"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:24
+#: lms/templates/courseware/courses.html:22
 msgid "Courses"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:37
-#: lms/templates/courseware/courses.html:44
+#: lms/templates/courseware/courses.html:35
+#: lms/templates/courseware/courses.html:41
 msgid "Refine your search"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:47
-msgid "Clear All"
-msgstr ""
-
-#: lms/templates/courseware/courses.html:54
+#: lms/templates/courseware/courses.html:50
 msgid "Order"
 msgstr ""
 
 #: lms/templates/courseware/courses.html:56
-#: lms/templates/courseware/courses.html:121
+#: lms/templates/courseware/courses.html:57
+#: lms/templates/courseware/courses.html:187
 msgid "Newer"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:57
-#: lms/templates/courseware/courses.html:122
+#: lms/templates/courseware/courses.html:60
+#: lms/templates/courseware/courses.html:61
+#: lms/templates/courseware/courses.html:188
 msgid "Older"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:63
+#: lms/templates/courseware/courses.html:70
 msgid "Year"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:65
-msgid "Select a year"
-msgstr ""
-
-#: lms/templates/courseware/courses.html:74
+#: lms/templates/courseware/courses.html:84
 msgid "State"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:76
-msgid "Select a state"
-msgstr ""
-
-#: lms/templates/courseware/courses.html:77
+#: lms/templates/courseware/courses.html:91
+#: lms/templates/courseware/courses.html:92
 msgid "Active"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:83
+#: lms/templates/courseware/courses.html:108
 msgid "Organizations"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:93
+#: lms/templates/courseware/courses.html:121
 msgid "Categories"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:115
-#: lms/templates/courseware/courses.html:116
+#: lms/templates/courseware/courses.html:134
+msgid "Price range"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:142
+msgid "From"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:149
+msgid "To"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:158
+msgid "Show free courses only"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:166
+msgid "Clear Filters"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:167
+msgid "Apply Filters"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:181
+#: lms/templates/courseware/courses.html:182
 msgid "Search for a course"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:128
+#: lms/templates/courseware/courses.html:194
 msgid "Advanced"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:133
+#: lms/templates/courseware/courses.html:199
 msgid "All courses"
 msgstr ""
 
@@ -1714,9 +1731,6 @@ msgstr ""
 #~ msgid "Classes End:"
 #~ msgstr ""
 
-#~ msgid "Price:"
-#~ msgstr ""
-
 #~ msgid ""
 #~ "{begin_strong}Warning:{end_strong} Your browser is"
 #~ " not fully supported. We strongly "
@@ -1809,6 +1823,30 @@ msgstr ""
 #~ msgstr[1] ""
 
 #~ msgid "Survey analytics"
+#~ msgstr ""
+
+#~ msgid "Clear All"
+#~ msgstr ""
+
+#~ msgid "Select a year"
+#~ msgstr ""
+
+#~ msgid "Select a state"
+#~ msgstr ""
+
+#~ msgid "Certificates validation"
+#~ msgstr ""
+
+#~ msgid "Certificate ID number"
+#~ msgstr ""
+
+#~ msgid "Certificate was not found"
+#~ msgstr ""
+
+#~ msgid "Validate"
+#~ msgstr ""
+
+#~ msgid "Price:"
 #~ msgstr ""
 
 #~ msgid "Generate"

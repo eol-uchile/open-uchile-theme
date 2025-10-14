@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2026-05-12 20:36+0000\n"
+"POT-Creation-Date: 2026-05-08 14:28+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -450,7 +450,8 @@ msgstr "Duración"
 msgid "Enroll now"
 msgstr "Inscríbete aquí"
 
-#: lms/templates/course.html:135 lms/templates/courseware/courses.html:79
+#: lms/templates/course.html:135 lms/templates/courseware/courses.html:99
+#: lms/templates/courseware/courses.html:100
 msgid "Coming soon"
 msgstr "Próximamente"
 
@@ -459,7 +460,8 @@ msgstr "Próximamente"
 msgid "See more"
 msgstr "Aprender más"
 
-#: lms/templates/course.html:139 lms/templates/courseware/courses.html:78
+#: lms/templates/course.html:139 lms/templates/courseware/courses.html:95
+#: lms/templates/courseware/courses.html:96
 msgid "Finished"
 msgstr "Finalizado"
 
@@ -901,71 +903,86 @@ msgctxt "self"
 msgid "enroll"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:24
+#: lms/templates/courseware/courses.html:22
 msgid "Courses"
 msgstr "Cursos"
 
-#: lms/templates/courseware/courses.html:37
-#: lms/templates/courseware/courses.html:44
+#: lms/templates/courseware/courses.html:35
+#: lms/templates/courseware/courses.html:41
 msgid "Refine your search"
 msgstr "Refina tu búsqueda"
 
-#: lms/templates/courseware/courses.html:47
-msgid "Clear All"
-msgstr "Borrar Todo"
-
-#: lms/templates/courseware/courses.html:54
+#: lms/templates/courseware/courses.html:50
 msgid "Order"
 msgstr "Orden"
 
 #: lms/templates/courseware/courses.html:56
-#: lms/templates/courseware/courses.html:121
+#: lms/templates/courseware/courses.html:57
+#: lms/templates/courseware/courses.html:187
 msgid "Newer"
 msgstr "Más recientes"
 
-#: lms/templates/courseware/courses.html:57
-#: lms/templates/courseware/courses.html:122
+#: lms/templates/courseware/courses.html:60
+#: lms/templates/courseware/courses.html:61
+#: lms/templates/courseware/courses.html:188
 msgid "Older"
 msgstr "Más antiguos"
 
-#: lms/templates/courseware/courses.html:63
+#: lms/templates/courseware/courses.html:70
 msgid "Year"
 msgstr "Año"
 
-#: lms/templates/courseware/courses.html:65
-msgid "Select a year"
-msgstr "Seleciona un año"
-
-#: lms/templates/courseware/courses.html:74
+#: lms/templates/courseware/courses.html:84
 msgid "State"
 msgstr "Estado"
 
-#: lms/templates/courseware/courses.html:76
-msgid "Select a state"
-msgstr "Selecciona un estado"
-
-#: lms/templates/courseware/courses.html:77
+#: lms/templates/courseware/courses.html:91
+#: lms/templates/courseware/courses.html:92
 msgid "Active"
 msgstr "Activo"
 
-#: lms/templates/courseware/courses.html:83
+#: lms/templates/courseware/courses.html:108
 msgid "Organizations"
 msgstr "Organizaciones"
 
-#: lms/templates/courseware/courses.html:93
+#: lms/templates/courseware/courses.html:121
 msgid "Categories"
 msgstr "Categorías"
 
-#: lms/templates/courseware/courses.html:115
-#: lms/templates/courseware/courses.html:116
+#: lms/templates/courseware/courses.html:134
+msgid "Price range"
+msgstr "Rango de precios"
+
+#: lms/templates/courseware/courses.html:142
+msgid "From"
+msgstr "Desde"
+
+#: lms/templates/courseware/courses.html:149
+msgid "To"
+msgstr "Hasta"
+
+#: lms/templates/courseware/courses.html:158
+msgid "Show free courses only"
+msgstr "Mostrar solo cursos gratuitos"
+
+#: lms/templates/courseware/courses.html:166
+msgid "Clear Filters"
+msgstr "Limpiar Filtros"
+
+#: lms/templates/courseware/courses.html:167
+msgid "Apply Filters"
+msgstr "Aplicar Filtros"
+
+#: lms/templates/courseware/courses.html:181
+#: lms/templates/courseware/courses.html:182
 msgid "Search for a course"
 msgstr "Buscar en nuestros cursos"
 
-#: lms/templates/courseware/courses.html:128
+#: lms/templates/courseware/courses.html:194
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: lms/templates/courseware/courses.html:133
+#: lms/templates/courseware/courses.html:199
 msgid "All courses"
 msgstr "Todos los cursos"
 
