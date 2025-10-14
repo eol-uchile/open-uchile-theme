@@ -315,7 +315,7 @@ function createCourse(data, extra_data){
             '</div>'+
         '</div>'+
     '</div>';
-    data['course_date_html'] = create_course_date_html(data.start, extra_data.self_paced, extra_data.effort, extra_data.price)
+    data['course_date_html'] = create_course_date_html(data.start, data.advertised_start, extra_data.self_paced, extra_data.effort, extra_data.price)
     data["course_display_name"] = data.content.display_name;
     data["is_active"] = course_is_active(data.end);
     data["state"] = data.course_state || '';
@@ -331,8 +331,9 @@ function course_is_active(end){
     return ''
 }
 
-function create_course_date_html(start, self_paced, effort, course_price){
+function create_course_date_html(start, advertised_start, self_paced, effort, course_price){
     let duration = '';
+    let start_date = '';
     if (effort != undefined){
         duration =
         '<div class="row g-0 p-0">'+
@@ -349,6 +350,14 @@ function create_course_date_html(start, self_paced, effort, course_price){
             '</div>'+
         '</div>'
     }
+
+    if (advertised_start === null || advertised_start === undefined) {
+        var aux_date = new Date(start)
+        start_date = translate_date( aux_date);
+    } else {
+        start_date = advertised_start
+    }
+
     const html_new = 
     '<div class="row ct3 my-2">'+
         '<div class="col-md-6 col-sm-12">'+
@@ -412,9 +421,8 @@ function create_course_date_html(start, self_paced, effort, course_price){
         price = gettext("Free")
     }
 
-    var start_date  = new Date(start);
     var date_data = {
-        'start_date': translate_date(start_date),
+        'start_date': start_date,
         'self_pace': self_paced ? gettext('Student paced') : gettext('Instructor paced'),
         'effort': effort,
         'price': price
