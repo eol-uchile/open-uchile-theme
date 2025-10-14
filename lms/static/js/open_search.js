@@ -12,6 +12,61 @@ var filters = {
     "category": ""
 }
 
+function createCheckboxOptions(container, object, facet) {
+    
+    const label = $('<label>')
+        .addClass('list-group-item d-flex')
+        .appendTo(container);
+
+    $('<input>')
+        .addClass('form-check-input me-1')
+        .attr({
+            type: 'checkbox',
+            'data-facet': facet,
+            'value':'',
+            'data-value': object.id,
+            'data-text': object.name
+        })
+        .appendTo(label);
+
+    $('<span>').text(object.name).appendTo(label);
+}
+
+function loadOrganizations() {
+    $.get("/course_classification/get_main_classifications")
+        .done(function(data) {
+            const container = $("#organizations");
+            container.empty();
+            data.forEach(
+                function(classification) {
+                    createCheckboxOptions(container, classification, 'classification')
+            });
+        })
+        .fail(function() {
+            console.error(gettext('ERROR loading organizations'));
+        });
+}
+
+function loadCategories() {
+    $.get("/course_classification/get_course_categories")
+        .done(function(data) {
+            const container = $("#categories");
+            container.empty();
+            data.forEach(
+                function(category) {
+                    createCheckboxOptions(container, category, 'category')
+            });
+        })
+        .fail(function() {
+            console.error(gettext('ERROR loading categories'));
+        });
+}
+
+$(document).ready(function() {
+    loadOrganizations();
+    loadCategories();
+});
+
 $(window).load(function() {
     clearFilter();
     const queryString = window.location.search;
@@ -129,8 +184,7 @@ $('#advance-button').live('click', function(e) {
     }
 });
 
-$('.open-filter-bar .search-facets-lists input[type="checkbox"]').live('change', function(e) {
-    e.preventDefault();
+$(document).on('change', '[data-facet="category"], [data-facet="classification"]', function() {
     let facet = $(this).data("facet");
     if (this.checked){
         filters[facet] = $(this).data("value");
