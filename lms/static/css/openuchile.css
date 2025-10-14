@@ -2288,3 +2288,21 @@ body .wrapper-preview-menu .preview-menu {
 		background-color:rgb(255,255,255);
 	}
 }
+
+@media (max-width: 1000px) {
+    #empty-courses-image{
+        width: 50vw;
+    }
+}
+@media (max-width: 600px) {
+    #empty-courses-message p{
+        font-size: 5vw;
+    }
+}
+
+#empty-courses-message{
+    font-size: 40px;
+    font-weight: 500;
+    color: #494949;
+    opacity: 50%;
+}
