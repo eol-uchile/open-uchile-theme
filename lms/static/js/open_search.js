@@ -12,6 +12,61 @@ var filters = {
     "category": ""
 }
 
+function createSelectOptions(container, objectList, facet, translate_text) {
+    const select = $('<select>')
+        .addClass('form-select mb-4')
+        .attr({
+            'data-facet': facet,
+            'id':facet+'-select'
+        })
+        .appendTo(container);
+
+    $('<option>')
+        .attr('value', '')
+        .text(translate_text)
+        .appendTo(select);
+
+    objectList.forEach(object => {
+        $('<option>')
+            .attr({
+                'value': object.id,
+                'data-value': object.id,
+                'data-text': object.name
+            })
+            .text(object.name)
+            .appendTo(select);
+    });
+}
+
+function loadOrganizations() {
+    $.get("/course_classification/get_main_classifications")
+        .done(function(data) {
+            const container = $("#organizations");
+            container.empty();
+            createSelectOptions(container, data, 'classification', gettext('Select an organization'));
+        })
+        .fail(function() {
+            console.error(gettext('ERROR loading organizations'));
+        });
+}
+
+function loadCategories() {
+    $.get("/course_classification/get_course_categories")
+        .done(function(data) {
+            const container = $("#categories");
+            container.empty();
+            createSelectOptions(container, data, 'category',  gettext('Select a category'))
+        })
+        .fail(function() {
+            console.error(gettext('ERROR loading categories'));
+        });
+}
+
+$(document).ready(function() {
+    loadOrganizations();
+    loadCategories();
+});
+
 $(window).load(function() {
     clearFilter();
     const queryString = window.location.search;
@@ -36,12 +91,12 @@ $(window).load(function() {
     if (urlParams.has('organization')){ 
         const selectedOrganization = urlParams.get('organization');
         filters["classification"] = selectedOrganization;
-        $(`input[type="checkbox"][data-facet="classification"][data-value="${selectedOrganization}"]`).prop('checked', true);
+        $("#classification-select").val(urlParams.get('classification'))
     }
     if (urlParams.has('category')){ 
         const selectedCategory = urlParams.get('category');
         filters["category"] = selectedCategory;
-        $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
+        $("#category-select").val(urlParams.get('category'))
     }
     initDiscovery();
     // TODO: create pagination
@@ -126,17 +181,11 @@ $('#advance-button').live('click', function(e) {
     }
 });
 
-$('.open-filter-bar .search-facets-lists input[type="checkbox"]').live('change', function(e) {
-    e.preventDefault();
+$(document).on('change', '[data-facet="category"], [data-facet="classification"]', function() {
     let facet = $(this).data("facet");
-    if (this.checked){
-        filters[facet] = $(this).data("value");
-        $('.open-filter-bar .search-facets-lists input[data-facet="'+facet+'"]').not(this).prop( "checked", false );
-    }
-    else{
-        filters[facet] = "";
-    }
-
+    filters[facet] = gettext($(this)[0].value);
+    filters["current_page"] = 1;
+    current_page = 1;
     let list_course1 = getCourses();
     // executes when promise is resolved successfully
     list_course1.then(
@@ -151,8 +200,7 @@ $('.open-filter-bar .search-facets-lists input[type="checkbox"]').live('change',
         }
     );
 });
-
-$('#state-select, #year-select, #order-select').live('change', function(e) {
+$('#state-select, #year-select, #order-select, #category-select, #classification-select').on('change', function(e) {
     e.preventDefault();
     let facet = $(this).data("facet");
     filters[facet] = gettext($(this)[0].value);
@@ -183,6 +231,10 @@ function clearFilter(){
     select = document.getElementById('year-select');
     if (select) select.selectedIndex = 0;
     select = document.getElementById('order-select');
+    select.selectedIndex = 0;
+    select = document.getElementById('category-select');
+    select.selectedIndex = 0;
+    select = document.getElementById('classification-select');
     select.selectedIndex = 0;
     $("#discovery-input").val("")
 }
