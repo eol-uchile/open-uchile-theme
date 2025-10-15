@@ -212,27 +212,22 @@ footer#openuchile-footer img:hover {
 }
 
 /* Contact Form */
-
-#eol-contact .contact-card, #eol-contact input, #eol-contact select, #eol-contact textarea {
-    background-color: #00000017 !important;
-}
-
 #eol-contact .form-submit {
     width: auto;
 }
 
 #eol-contact .btn {
-    box-shadow: none !important;
+    box-shadow: none ;
     color: #ffff;
     background: none;
-    background-color: #0075b4 !important;
-    border-color: #0075b4;
+    background-color: #004B93;
+    border-color: #004B93;
     text-shadow: none;
 }
 
 #eol-contact .btn:hover {
-    background-color: #0075b4 !important;
-    border-color: #0075b4;
+    background-color: #008852;
+    border-color: #008852;
 }
 
 /* LOGIN */
