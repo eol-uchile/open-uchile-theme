@@ -192,10 +192,6 @@ footer#openuchile-footer img:hover {
     color: black;
 }
 
-#certificate_validation .card, #certificate_validation input {
-    background-color: #00000021;
-    border: none;
-}
 
 #certificate_validation .btn {
     box-shadow: none !important;
@@ -207,8 +203,8 @@ footer#openuchile-footer img:hover {
 }
 
 #certificate_validation .btn:hover {
-    background-color: #048dc9;
-    border-color: #048dc9;
+    background-color: #008852;
+    border-color: #008852;
 }
 
 /* Contact Form */
