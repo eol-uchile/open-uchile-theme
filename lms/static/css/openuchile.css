@@ -214,31 +214,6 @@ footer#openuchile-footer img:hover {
     background-color: #048dc9;
     border-color: #048dc9;
 }
-
-/* Contact Form */
-
-#eol-contact .contact-card, #eol-contact input, #eol-contact select, #eol-contact textarea {
-    background-color: #00000017 !important;
-}
-
-#eol-contact .form-submit {
-    width: auto;
-}
-
-#eol-contact .btn {
-    box-shadow: none !important;
-    color: #ffff;
-    background: none;
-    background-color: #0075b4 !important;
-    border-color: #0075b4;
-    text-shadow: none;
-}
-
-#eol-contact .btn:hover {
-    background-color: #0075b4 !important;
-    border-color: #0075b4;
-}
-
 /* LOGIN */
 
 #login-and-registration-container {
