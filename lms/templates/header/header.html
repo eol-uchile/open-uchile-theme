@@ -81,34 +81,36 @@ if site_status_message:
 %endif
 
 <img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.svg')}" alt="">
-% if header_language_selector_is_enabled():
-    <% 
-    languages = released_languages() 
-    %>
-    % if len(languages) > 1:
-        <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
-            <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
-            % if user.is_authenticated:
-                <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
-            % else:
-                <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
-            % endif
-            <label><span class="sr">${_("Choose Language")}</span>
-            <select class="input select language-selector header-lang-selector" id="settings-language-value" name="language">
-                % for language in languages:
-                    % if language[0] == LANGUAGE_CODE:
-                        <option value="${language[0]}" selected="selected">${language[1]}</option>
+<nav id="open-navbar" class="navbar navbar-expand-lg navbar-light px-3 max-course-container mx-auto" >
+    <div class="w-100">
+        % if header_language_selector_is_enabled():
+            <% 
+            languages = released_languages() 
+            %>
+            % if len(languages) > 1:
+                <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
+                    <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
+                    % if user.is_authenticated:
+                        <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
                     % else:
-                        <option value="${language[0]}">${language[1]}</option>
+                        <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
                     % endif
-                % endfor
-            </select>
-            </label>
-        </form>
-    % endif
-% endif
-<nav id="open-navbar" class="navbar navbar-expand-lg navbar-light px-3" >
-    <div class="container-fluid">
+                    <label><span class="sr">${_("Choose Language")}</span>
+                    <select class="input select language-selector header-lang-selector" id="settings-language-value" name="language">
+                        % for language in languages:
+                            % if language[0] == LANGUAGE_CODE:
+                                <option value="${language[0]}" selected="selected">${language[1]}</option>
+                            % else:
+                                <option value="${language[0]}">${language[1]}</option>
+                            % endif
+                        % endfor
+                    </select>
+                    </label>
+                </form>
+            % endif
+        % endif
+    </div>
+    <div class="container-fluid w-100">
         % if use_cookie_banner:
             ${static.renderReact(
                 component="CookiePolicyBanner",
