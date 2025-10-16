@@ -1,3 +1,7 @@
+:root {
+  --page-max-width: 1765px;
+}
+
 p, h1, h2, h3, h4, h5, ul, ol, li, div, button, a, label, input, select, option, textarea, .btn {
     font-family: 'Inter', sans-serif;
     font-weight: normal;
@@ -256,6 +260,7 @@ footer#openuchile-footer img:hover {
 .courses-list {
     margin-left: 0px;
     margin-right: 0px;
+    max-width: var(--page-max-width);
 }
 .courses-list li:nth-child(2n+1) {
     margin-right: 1em;
@@ -931,14 +936,14 @@ input[type="search"]::-ms-input-placeholder {
 }
 .courses-container .highlighted-courses{
     display: flex;
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 }
 .courses-container .highlighted-courses .courses-list{
     margin-left: auto;
     margin-right: auto;
 }
 .courses-container {
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 }
 /* New course card */
 
@@ -1710,7 +1715,7 @@ aside h2.open-refine-search{
 }
 
 .main-container .navbar.course-tabs{
-    max-width: 1765px;
+    max-width: var(--page-max-width);
     margin: auto;
     padding-left: 0;
 }
@@ -1750,7 +1755,7 @@ body .wrapper-preview-menu .preview-menu {
 }
 .wrapper-course-material .course-material, .wrapper-preview-menu .preview-menu {
     margin: 0 auto;
-    max-width: 1765px;
+    max-width: var(--page-max-width);
     width: 100%;
 }
 .breadcrumbs-header {
@@ -2111,7 +2116,7 @@ body .wrapper-preview-menu .preview-menu {
     justify-content: center;
 } */
 /* #main{
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 } */
 #loadingCircles{
 	position:relative;
@@ -2309,14 +2314,14 @@ body .wrapper-preview-menu .preview-menu {
 .page-content-container,
 .eolcompletion-content,
 .eolcompletion-wrapper{
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 }
 
 body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.view-in-course .instructor-dashboard-wrapper-2, body.view-in-course .wiki-wrapper, body.view-in-course .teams-wrapper, body.view-in-course .static_tab_wrapper{
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 }
 #dashboard-main{
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 }
 
 #content  main#main{
@@ -2366,4 +2371,30 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
     background-color: #008852;
     border-color: #008852;
     color: white;
+}
+.page-content-container,
+.eolcompletion-content,
+.eolcompletion-wrapper{
+    max-width: var(--page-max-width);
+}
+
+body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.view-in-course .instructor-dashboard-wrapper-2, body.view-in-course .wiki-wrapper, body.view-in-course .teams-wrapper, body.view-in-course .static_tab_wrapper{
+    max-width: var(--page-max-width);
+}
+#dashboard-main{
+    max-width: var(--page-max-width);
+}
+
+#content  main#main{
+    display: flex;
+    justify-content: center;
+}
+
+.course-info .courses-container .wrap-instructor-info .instructor-info-action{
+    float: right;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    text-align: right;
+    color: #c2387d;
 }

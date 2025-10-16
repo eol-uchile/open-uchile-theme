@@ -135,8 +135,8 @@ function createPagination(){
 }
 
 function getData(){
-    $("#loadingCircles").css("display","block");
-    $("#list-courses").css("display","none");
+    $("#loadingCircles").show();
+    $("#list-courses").hide();
     return $.post( "/course_classification/search/", filters )
     .done(function( data ) {
         if (data.error == undefined) {
@@ -168,8 +168,8 @@ function getData(){
                 edx.HtmlUtils.append(row, courseHtml);
                 edx.HtmlUtils.append(row, courseHtml2);
             }
-            $("#loadingCircles").css("display","none");
-            $("#list-courses").css("display","block");
+            $("#loadingCircles").hide();
+            $("#list-courses").show();
         }else{
             console.log("ERROR:" + data.error)
         }

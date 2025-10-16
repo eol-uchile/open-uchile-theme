@@ -15,8 +15,8 @@
     <div class="trending-course-border"></div>
   </div>
   <div class="open-carousel-top-courses ml-0">
-    <div class="carousel-wrap m-0">
-      <div class="owl-carousel-top-courses owl-carousel owl-theme courses-list m-0">
+    <div class="carousel-wrap m-0 d-flex justify-content-center">
+      <div class="owl-carousel-top-courses owl-carousel owl-theme courses-list m-0 courses-container">
         %for course in course_class:
           <div class="item" >
             <%include file="course.html" args="course=course" />

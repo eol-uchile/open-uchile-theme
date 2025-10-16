@@ -70,7 +70,7 @@ now = timezone.now()
   }
 </script>
 <section class="course-info">
-  <div class="container pb-0">
+  <div class="courses-container pb-0">
     <div class="row">
       <div class="col-md-7 course-header py-2">
           <h1 class="text-left mb-0 pb-2">
@@ -302,7 +302,7 @@ now = timezone.now()
     </div>
 
   </div>
-  <div id="open-course-about" class="container pb-0">
+  <div id="open-course-about" class="courses-container pb-0">
       <div class="details float-none w-auto">
         <div class="inner-wrapper">
           ${HTML(get_course_about_section(request, course, "overview"))}
@@ -329,7 +329,7 @@ now = timezone.now()
         });
       </script>
       <div class="row my-2 faqs-row">
-        <div class="col-lg-8 p-3">
+        <div class="col-lg-12 p-3">
             <div class="course-about-card m-2">
               <h3 class="px-4">${_("Frequently Asked Questions")}</h3>
               <div class="accordion text-justify mt-3" id="accordionFAQS">
