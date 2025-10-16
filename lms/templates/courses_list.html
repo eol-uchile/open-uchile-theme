@@ -15,8 +15,8 @@
     <div class="trending-course-border"></div>
   </div>
   <div class="open-carousel-top-courses ml-0">
-    <div class="carousel-wrap m-0">
-      <div class="owl-carousel-top-courses owl-carousel owl-theme courses-list m-0">
+    <div class="carousel-wrap m-0 d-flex justify-content-center">
+      <div class="owl-carousel-top-courses owl-carousel owl-theme courses-list m-0 max-course-container">
         %for course in course_class:
           <div class="item" >
             <%include file="course.html" args="course=course" />
@@ -34,7 +34,7 @@
     <h2 class="new-courses-title-container">${_("New Courses").upper()}</h2>
     <div class="new-courses-border"></div>
   </div>
-  <section class="courses-container">
+  <section class="courses-container max-course-container">
     <section class="highlighted-courses">
         <div class="courses-list">
           <% displayed_courses = 0 %>
@@ -59,7 +59,7 @@
 %else:
   <p class="without-courses" style="padding-bottom: 10px;"> ${_("There are no courses")}</p>
 %endif
-<section class="tab-container courses-container pt-5">
+<section class="tab-container max-course-container pt-5 m-5">
   <ul class="nav nav-tabs nav-justified flex-column flex-lg-row" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link flex-sm-fill text-sm-center active" id="about_us-tab" data-toggle="tab" href="#about_us" role="tab" aria-controls="about_us" aria-selected="true">${_("About us")}</a>
