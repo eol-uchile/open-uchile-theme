@@ -145,6 +145,19 @@ now = timezone.now()
       else:
         show_start_date = False
         course_start_date = course.advertised_start 
+      show_extra_data = False
+      course_end_date = 'None'
+      if not (course.end is None):
+        course_end_date = (course.end).strftime('%Y-%m-%dT%H:%M:%S%z')
+        show_extra_data = True
+      enrollment_start_date = 'None'
+      if not (course_details.enrollment_start is None):
+        enrollment_start_date = (course.enrollment_start).strftime('%Y-%m-%dT%H:%M:%S%z')
+        show_extra_data = True
+      enrollment_end_date = 'None'
+      if not (course_details.enrollment_end is None):
+        enrollment_end_date = (course.enrollment_end).strftime('%Y-%m-%dT%H:%M:%S%z')
+        show_extra_data = True
     %>
     <div class="row ct3 info-row my-4 rounded gx-0 p-3">
         <div class="col-md-3 col-sm-12">
@@ -224,8 +237,65 @@ now = timezone.now()
             </div>
           % endif
         </div>
-
-    </div>
+      </div>
+      %if staff_access and show_extra_data:
+      <h2>${_("Extra data")}</h2>
+      <div class="row ct3 info-row my-4 rounded gx-0 p-3">
+        %if course_end_date != "None":
+          <div class="col-md-3 col-sm-12">
+            <div class="row g-0 p-0">
+              <div class="col-2 m-0">
+                <div class="open-course-date-icon">
+                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                </div>
+              </div>
+              <div class="col-10">
+                <div class="open-course-date-text ml-3">
+                  <strong><span>${_("Classes End")}</span></strong>
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${course_end_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        %endif
+        %if enrollment_start_date != "None":
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Enrollment Start")}</span></strong>
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${enrollment_start_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        %endif
+        %if enrollment_end_date != "None":
+        <div class="col-md-3 col-sm-12">
+          <div class="row g-0 p-0">
+            <div class="col-2 m-0">
+              <div class="open-course-date-icon">
+                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+              </div>
+            </div>
+            <div class="col-10">
+              <div class="open-course-date-text ml-3">
+                <strong><span>${_("Enrollment End")}</span></strong>
+                  <div class="course-date localized_datetime" aria-hidden="true" data-format="shortDate" data-datetime="${enrollment_end_date}" data-language="${LANGUAGE_CODE}" data-string=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        %endif
+        <div class="col-md-3 col-sm-12">
+        </div>
+      </div>
+      % endif
     <div class="row">
       <h3 class="text-right">${_("There is one session available:")}</h3>
       <p class="text-right lead">${total_enrolled if total_enrolled else None}${_(" already enrolled!")}</p>
