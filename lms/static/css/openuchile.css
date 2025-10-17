@@ -701,12 +701,15 @@ a.nav-link.user-menu:hover,
 }
 
 #open-navbar{
-    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 9px 5px -5px rgba(0, 0, 0, 0.09);
     background-color: white;
     padding-top: 1rem;
     margin-top: 1rem;
     padding-bottom: 1rem;
     font-family: 'Raleway', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 #open-navbar .nav-link {
     color: #004B93;
@@ -1707,7 +1710,7 @@ aside h2.open-refine-search{
 }
 
 .main-container .navbar.course-tabs{
-    max-width: 1920px;
+    max-width: 1765px;
     margin: auto;
     padding-left: 0;
 }
@@ -1747,7 +1750,7 @@ body .wrapper-preview-menu .preview-menu {
 }
 .wrapper-course-material .course-material, .wrapper-preview-menu .preview-menu {
     margin: 0 auto;
-    max-width: 1920px;
+    max-width: 1765px;
     width: 100%;
 }
 .breadcrumbs-header {
@@ -2103,7 +2106,13 @@ body .wrapper-preview-menu .preview-menu {
 .details .wrapper-course-image .course-image{
     aspect-ratio: 16 / 9;
 }
-
+/* #content{
+    display: flex;
+    justify-content: center;
+} */
+/* #main{
+    max-width: 1765px;
+} */
 #loadingCircles{
 	position:relative;
 	width:115px;
@@ -2296,4 +2305,34 @@ body .wrapper-preview-menu .preview-menu {
     font-weight: 500;
     color: #494949;
     opacity: 50%;
+}
+
+.link-new-courses{
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: bolder;
+    position: relative;
+    right: 0px;
+    margin-bottom: 2%;
+    justify-content: center;
+    display: flex;
+}
+
+.link-new-courses,
+.link-new-courses a,
+.link-new-courses a:not(.btn), a:visited:not(.btn){
+    color: #172C6B;
+}
+.a:not(.btn):hover, a:not(.btn):focus, a:visited:not(.btn):hover, a:visited:not(.btn):focus{
+    color: #008852;
+}
+
+@media screen  and (min-width: 600px) {
+    .link-new-courses{
+
+        position: absolute;
+        z-index: 1;
+        right: 1.25rem;
+        margin-right: 2.5%;
+    }
 }

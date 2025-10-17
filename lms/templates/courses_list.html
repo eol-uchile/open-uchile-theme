@@ -30,9 +30,13 @@
 %endif
 <% course_filtered = get_courses_filtered_by_course_state(["upcoming_notenrollable","ongoing_enrollable"]) %>
 % if len(course_filtered) > 0 :
-  <div class="new-courses-title-container p-5">
-    <h2 class="new-courses-title-container">${_("New Courses").upper()}</h2>
-    <div class="new-courses-border"></div>
+  <div class="p-5 courses-container position-relative">
+    <div class="link-new-courses">
+      <a  href="${marketing_link('COURSES')}?state=active">${_("See more")}</a>
+    </div>
+    <div> 
+      <h2 class="new-courses-title-container">${_("New Courses").upper()}</h2>
+    <div class="new-courses-border"></div></div>
   </div>
   <section class="courses-container">
     <section class="highlighted-courses">
