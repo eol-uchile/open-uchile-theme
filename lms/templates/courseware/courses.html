@@ -20,6 +20,7 @@
 % endif
 <%block name="js_extra">
   <script type="text/javascript" src="${static.url('open-uchile-theme/js/open_search.js')}"></script>
+  <script type="text/javascript" src="${static.url('open-uchile-theme/pagination/jquery.twbsPagination.js')}"></script>
 </%block>
 <%block name="pagetitle">${_("Courses")}</%block>
 <%
@@ -129,6 +130,9 @@
           <div class="f_circleG" id="frotateG_08"></div>
         </div>
         <div id="list-courses"></div>
+        <div class=" d-flex justify-content-center">
+          <ul id="pagination-explorer" class="pagination pagination-explorer-class"></ul>
+        </div>
       </div>
     </div>
   </section>
