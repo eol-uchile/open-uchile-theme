@@ -124,7 +124,6 @@ function getData(){
     $.post( "/course_classification/search/", copy )
     .done(function( data ) {
         if (data.error == undefined) {
-            let element_added = 0
             const container = document.getElementById("list-courses");
             if (data.results.length == 0){
                 const courseHtml = edx.HtmlUtils.HTML( '<div class="text-center font-italic" id="empty-courses-message"><p>'+gettext("No results were found for your search")+'</p><img id="empty-courses-image" src="static/open-uchile-theme/images/svg-2023/empty_courses.svg"></div>')
@@ -137,12 +136,9 @@ function getData(){
                 for (let i = 0; i < data.results.length -1; i += 2) {
                     const courseHtml = createCourse(data.results[i], data.results[i].extra_data);
                     const courseHtml2 = createCourse(data.results[i+1], data.results[i+1].extra_data);
-                    if (element_added % 2 === 0) {
-                        row = document.createElement('div');
-                        row.className = 'row d-flex justify-content-center w-100';
-                        container.appendChild(row);
-                    }
-                    element_added = element_added + 1
+                    row = document.createElement('div');
+                    row.className = 'row d-flex justify-content-center w-100';
+                    container.appendChild(row);
                     edx.HtmlUtils.append(row, courseHtml);
                     edx.HtmlUtils.append(row, courseHtml2);
                 }
