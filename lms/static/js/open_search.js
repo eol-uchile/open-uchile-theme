@@ -58,12 +58,9 @@ function getData(){
                     const container = document.getElementById("list-courses"); 
                     const courseHtml = createCourse(data.results[i], data.results[i].extra_data);
                     const courseHtml2 = createCourse(data.results[i+1], data.results[i+1].extra_data);
-                    if (element_added % 2 === 0) {
-                        row = document.createElement('div');
-                        row.className = 'row d-flex justify-content-center w-100';
-                        container.appendChild(row);
-                    }
-                    element_added = element_added + 1
+                    row = document.createElement('div');
+                    row.className = 'row d-flex justify-content-center w-100';
+                    container.appendChild(row);
                     edx.HtmlUtils.append(row, courseHtml);
                     edx.HtmlUtils.append(row, courseHtml2);
                 }
