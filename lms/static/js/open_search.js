@@ -1,15 +1,25 @@
 var now = new Date();
-
-var index = 0;
-var currentTotal = 0;
-var state = 0 //0:can get data 1:waiting data 2: no more data
+var current_page = 1;
+var total_pages = 20;
+var page_size = 20;
 var filters = {
     "search_string": "",
     "order_by": "newer",
     "year": "",
     "state": "",
     "classification": "",
-    "category": ""
+    "category": "",
+    "current_page": 1
+}
+var $pagination = $('#pagination-explorer');
+
+var defaultOpts = {
+    totalPages: total_pages,
+    first: '<<',
+    prev: '<',
+    next: '>',
+    last: '>>',
+    visiblePages: 5
 }
 
 function createCheckboxOptions(container, object, facet) {
@@ -65,10 +75,10 @@ function loadCategories() {
 $(document).ready(function() {
     loadOrganizations();
     loadCategories();
+    clearFilter();
 });
 
-$(window).load(function() {
-    clearFilter();
+$(window).on('load',function() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     // get different types of url params
@@ -99,29 +109,35 @@ $(window).load(function() {
         $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
     }
     initDiscovery();
-    // TODO: create pagination
-    // $(window).scroll(function() {
-    // if($(window).scrollTop()  > $(window).height() / 2) {
-    //     if (state == 0){
-    //         state = 1;
-    //         getData();
-    //     }
-    // }
-    // })
 });
 function initDiscovery(){
-    index = 0;
-    currentTotal = 0;
-    state = 1;
-    getData();
+    getData().then(function() {
+        createPagination();
+    });
+}
+
+function createPagination(){
+    var $pagination = $('#pagination-explorer');
+    $pagination.twbsPagination('destroy');
+    if (total_pages !== 0){
+        $pagination.twbsPagination($.extend({}, defaultOpts, {
+        startPage: current_page,
+        totalPages: total_pages,
+        initiateStartPageClick:false,
+        onPageClick: function (event, page) {
+            filters["current_page"] = page
+            current_page = page;
+            cleanCourses();
+            getData();
+        }
+        }));
+    }
 }
 
 function getData(){
     $("#loadingCircles").css("display","block");
     $("#list-courses").css("display","none");
-    var pages = {"page_size": 100, "page_index": index }
-    var copy = {...filters, ...pages};
-    $.post( "/course_classification/search/", copy )
+    return $.post( "/course_classification/search/", filters )
     .done(function( data ) {
         if (data.error == undefined) {
             const container = document.getElementById("list-courses");
@@ -145,7 +161,7 @@ function getData(){
             }
             if (data.results.length % 2 !== 0){
                 const courseHtml = createCourse(data.results[data.results.length - 1], data.results[data.results.length - 1].extra_data);
-                const courseHtml2 = edx.HtmlUtils.HTML('<div class="col-xl-4 col-lg-10 col-md-12 col-sm-12 mb-3 mx-3 p-2"></div>') 
+                const courseHtml2 = edx.HtmlUtils.HTML('<div class="col-xl-4 col-lg-10 col-md-12 col-sm-12 mb-3 mx-3 p-2"></div>')
                 row = document.createElement('div');
                 row.className = 'row d-flex justify-content-center w-100';
                 container.appendChild(row);
@@ -157,19 +173,13 @@ function getData(){
         }else{
             console.log("ERROR:" + data.error)
         }
-
-        currentTotal = currentTotal + data.results.length;
-        if (data.total > currentTotal){
-            index = index + 1;
-            state = 0;
-        }
-        else state = 2;
-        
-        $(".open-filter-bar #discovery-message").text(gettext("Showing")+" " + data.results.length  + " "+ gettext("courses"));
-    });
+        $(".open-filter-bar #discovery-message").text(gettext("Showing") + " " + data.results.length  + " " + gettext("courses out of") + " " + data.total);
+        page_size = data.page_size;
+        total_pages = Math.ceil(data.total/page_size);
+    })
 }
 
-$('#advance-button').live('click', function(e) {
+$(document).on('click', '#advance-button', function(e) {
     const $div_filter = $('#filter-bar');
     const $div_courses = $('#section-courses');
 
@@ -211,10 +221,12 @@ $(document).on('change', '[data-facet="category"], [data-facet="classification"]
     );
 });
 
-$('#state-select, #year-select, #order-select').live('change', function(e) {
+$('#state-select, #year-select, #order-select').on('change', function(e) {
     e.preventDefault();
     let facet = $(this).data("facet");
     filters[facet] = gettext($(this)[0].value);
+    filters["current_page"] = 1;
+    current_page = 1;
 
     let list_course1 = getCourses();
     // executes when promise is resolved successfully
@@ -235,6 +247,7 @@ function clearFilter(){
     filters["classification"] = ""
     filters["category"] = ""
     filters["state"] = ""
+    filters["current_page"] = 1
     filters["year"] = ""
     filters["order_by"] = "newer"
     let select = document.getElementById('state-select');
@@ -269,7 +282,6 @@ $('.open-order-by-btn').live('click', function(e) {
         $(this).addClass( "open-order-by-selected" );
         filters[facet] = value;
     }
-    
     let list_course4 = getCourses();
     // executes when promise is resolved successfully
     list_course4.then(
@@ -307,12 +319,11 @@ $('.open-filter-bar #filter-bar #active-filters span.fa-times').live('click', fu
     )
     .finally(
         function greet() {
-        
         }
     );
 });
 
-$('#discovery-submit').live('click', function(e) {
+$(document).on('click', '#discovery-submit', function(e) {
     e.preventDefault();
     filters["search_string"] = $("#discovery-input").val();
     getCourses();
@@ -331,8 +342,9 @@ function getCourses(){
     cleanCourses();
     // returns a promise
     return new Promise(function (resolve, reject) {
-        getData();
-        //pasar datos a resolve
+        getData().then(function() {
+            createPagination();
+        });
         resolve('Promise success');
         reject('Promise rejected');
     });
@@ -397,7 +409,6 @@ function createCourse(data, extra_data){
     data["course_display_name"] = data.content.display_name;
     data["is_active"] = course_is_active(data.end);
     data["state"] = data.course_state || '';
-   
     return edx.HtmlUtils.interpolateHtml(edx.HtmlUtils.HTML(coursehtml), data);
 }
 
@@ -517,9 +528,6 @@ function translate_date(date){
 }
 
 function cleanCourses(){
-    index = 0;
-    currentTotal = 0;
-    state = 1;
     $(".open-filter-bar #discovery-message").text("");
     $("#list-courses").empty();
 }
