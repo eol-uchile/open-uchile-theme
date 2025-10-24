@@ -36,16 +36,13 @@
     <div class="row m-0">
       <div class="col-md-3 open-filter-bar" id="filter-bar">
         <aside aria-label="${_('Refine your search')}" class="search-facets phone-menu pl-5">
-          <div class="d-flex justify-content-end"> 
-             <button type="button" class="btn-advanced-open border-0 p-0 mb-4" id="advance-button"> <span class="icon fa fa-times" aria-hidden="true"></span> </button>
-          </div>
-         
-          <div class="row p-0 m-0">
-            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 p-0 align-content-center m-0"> 
-              <h2 class="header-search-facets open-refine-search align-content-center m-0">${_('Refine your search')}</h2>
-            </div>
-            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 d-flex justify-content-start justify-content-lg-start justify-content-xl-center p-0 py-4 py-lg-4 py-xl-0 m-0"> 
+          <div class="d-flex justify-content-between mb-4"> 
               <a id="clear-filters" class="d-flex justify-content-center p-1 m-0 align-items-center" href="#">${_('Clear All')}</a>
+             <button type="button" class="btn-advanced-open border-0 p-0" id="advance-button"> <span class="icon fa fa-times" aria-hidden="true"></span> </button> 
+          </div>
+          <div class="row p-0 m-0">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 p-0 align-content-center m-0"> 
+              <h2 class="header-search-facets open-refine-search align-content-center m-0">${_('Refine your search')}</h2>
             </div>
           </div>
           <h2 class="header-search-facets" id="discovery-message"></h2>
