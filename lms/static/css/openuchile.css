@@ -1604,6 +1604,15 @@ aside h2.open-refine-search{
         margin-right: 20px !important;
     }
   }
+    @media (min-width: 1200px) {
+     #filter-bar {
+        position: sticky;
+        top: 1rem;
+        height: fit-content;
+        align-self: flex-start;
+        z-index: 100;
+    }
+  }
 
 .open-carousel-orgs .carousel-wrap .owl-theme .owl-dots .owl-dot.active span{
     background: #004B93 ;
@@ -2398,3 +2407,4 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
     text-align: right;
     color: #c2387d;
 }
+
