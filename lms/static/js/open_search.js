@@ -188,14 +188,14 @@ $(document).on('click', '#advance-button', function(e) {
 
     if ($div_filter.css('display') === 'none' || $div_filter.css('display') === '') {
         $div_filter.css('display', 'block');
-        $div_filter.addClass("col-md-3");
-        $div_courses.removeClass("col-md-12");
-        $div_courses.addClass("col-md-9");
+        $div_filter.addClass("col-xl-3");
+        $div_courses.removeClass("col-xl-12");
+        $div_courses.addClass("col-xl-9");
     } else {
         $div_filter.css('display', 'none');
-        $div_filter.removeClass("col-md-3");
-        $div_courses.removeClass("col-md-9");
-        $div_courses.addClass("col-md-12");
+        $div_filter.removeClass("col-xl-3");
+        $div_courses.removeClass("col-xl-9");
+        $div_courses.addClass("col-xl-12");
     }
 });
 
