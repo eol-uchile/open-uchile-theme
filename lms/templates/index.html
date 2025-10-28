@@ -16,6 +16,10 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 </%block>
 <%block name="pagetitle">${_("Home")}</%block>
 <%block name="headextra">
+
+<meta name="title" content="${self.pagetitle()}">
+<meta name="description" content="${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}">
+
 ## OG (Open Graph) title and description added below to give social media info to display
 <meta property="og:title" content="${self.pagetitle()}">
 <meta property="og:description" content="${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}">
@@ -39,7 +43,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
     "address":"${configuration_helpers.get_value('EOL_SITE_ADDRESS', '')}",
     "email":"${configuration_helpers.get_value('EOL_SITE_EMAIL', '')}",
     "latitude": "-33.44269461021022",
-    "longitude" "-70.63765775193981",
+    "longitude": "-70.63765775193981",
     "keywords":"educación, educación continua, cursos",
     "logo":
     {
@@ -49,7 +53,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
       "contentUrl": "${static.url('open-uchile-theme/images/svg-2023/Logo-OpenUchile.svg')}",
       "author": "Oficina EOL"
     },
-    "description":"${configuration_helpers.get_value('EOL_SITE_DESCRIPTION', '')}",
+    "description":"${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}",
     "parentOrganization":{
       "@id":"https://uchile.cl/",
       "name":"Universidad de Chile",
