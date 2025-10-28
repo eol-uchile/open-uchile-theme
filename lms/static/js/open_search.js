@@ -176,7 +176,11 @@ function getData(){
         }else{
             console.log("ERROR:" + data.error)
         }
-        $(".open-filter-bar #discovery-message").text(gettext("Showing") + " " + data.results.length  + " " + gettext("courses out of") + " " + data.total);
+        if(data.results.length > 0){
+            $(".open-filter-bar #discovery-message").text(gettext("Showing") + " " + (data.page_size*(current_page-1)+1)+'-'+ (data.page_size*(current_page-1)+data.results.length)  + " " + gettext("out of") + " " + data.total + " " + gettext("courses") );
+        }else{
+            $(".open-filter-bar #discovery-message").text(gettext("Showing 0 courses"));
+        }
         page_size = data.page_size;
         total_pages = Math.ceil(data.total/page_size);
     })
