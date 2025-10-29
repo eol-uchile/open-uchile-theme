@@ -22,24 +22,30 @@ var defaultOpts = {
     visiblePages: 5
 }
 
-function createCheckboxOptions(container, object, facet) {
-    
-    const label = $('<label>')
-        .addClass('list-group-item d-flex')
+function createSelectOptions(container, objectList, facet, translate_text) {
+    const select = $('<select>')
+        .addClass('form-select mb-4')
+        .attr({
+            'data-facet': facet,
+            'id':facet+'-select'
+        })
         .appendTo(container);
 
-    $('<input>')
-        .addClass('form-check-input me-1')
-        .attr({
-            type: 'checkbox',
-            'data-facet': facet,
-            'value':'',
-            'data-value': object.id,
-            'data-text': object.name
-        })
-        .appendTo(label);
+    $('<option>')
+        .attr('value', '')
+        .text(translate_text)
+        .appendTo(select);
 
-    $('<span>').text(object.name).appendTo(label);
+    objectList.forEach(object => {
+        $('<option>')
+            .attr({
+                'value': object.id,
+                'data-value': object.id,
+                'data-text': object.name
+            })
+            .text(object.name)
+            .appendTo(select);
+    });
 }
 
 function loadOrganizations() {
@@ -47,10 +53,7 @@ function loadOrganizations() {
         .done(function(data) {
             const container = $("#organizations");
             container.empty();
-            data.forEach(
-                function(classification) {
-                    createCheckboxOptions(container, classification, 'classification')
-            });
+            createSelectOptions(container, data, 'classification', gettext('Select an organization'));
         })
         .fail(function() {
             console.error(gettext('ERROR loading organizations'));
@@ -62,10 +65,7 @@ function loadCategories() {
         .done(function(data) {
             const container = $("#categories");
             container.empty();
-            data.forEach(
-                function(category) {
-                    createCheckboxOptions(container, category, 'category')
-            });
+            createSelectOptions(container, data, 'category',  gettext('Select a category'))
         })
         .fail(function() {
             console.error(gettext('ERROR loading categories'));
@@ -75,7 +75,6 @@ function loadCategories() {
 $(document).ready(function() {
     loadOrganizations();
     loadCategories();
-    clearFilter();
 });
 
 $(window).on('load',function() {
@@ -101,12 +100,12 @@ $(window).on('load',function() {
     if (urlParams.has('organization')){ 
         const selectedOrganization = urlParams.get('organization');
         filters["classification"] = selectedOrganization;
-        $(`input[type="checkbox"][data-facet="classification"][data-value="${selectedOrganization}"]`).prop('checked', true);
+        $("#classification-select").val(urlParams.get('classification'))
     }
     if (urlParams.has('category')){ 
         const selectedCategory = urlParams.get('category');
         filters["category"] = selectedCategory;
-        $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
+        $("#category-select").val(urlParams.get('category'))
     }
     initDiscovery();
 });
@@ -202,14 +201,9 @@ $(document).on('click', '#advance-button', function(e) {
 
 $(document).on('change', '[data-facet="category"], [data-facet="classification"]', function() {
     let facet = $(this).data("facet");
-    if (this.checked){
-        filters[facet] = $(this).data("value");
-        $('.open-filter-bar .search-facets-lists input[data-facet="'+facet+'"]').not(this).prop( "checked", false );
-    }
-    else{
-        filters[facet] = "";
-    }
-
+    filters[facet] = gettext($(this)[0].value);
+    filters["current_page"] = 1;
+    current_page = 1;
     let list_course1 = getCourses();
     // executes when promise is resolved successfully
     list_course1.then(
@@ -224,8 +218,7 @@ $(document).on('change', '[data-facet="category"], [data-facet="classification"]
         }
     );
 });
-
-$('#state-select, #year-select, #order-select').on('change', function(e) {
+$('#state-select, #year-select, #order-select, #category-select, #classification-select').on('change', function(e) {
     e.preventDefault();
     let facet = $(this).data("facet");
     filters[facet] = gettext($(this)[0].value);
@@ -259,6 +252,10 @@ function clearFilter(){
     select = document.getElementById('year-select');
     if (select) select.selectedIndex = 0;
     select = document.getElementById('order-select');
+    select.selectedIndex = 0;
+    select = document.getElementById('category-select');
+    select.selectedIndex = 0;
+    select = document.getElementById('classification-select');
     select.selectedIndex = 0;
     $("#discovery-input").val("")
 }
