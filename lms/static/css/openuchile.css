@@ -139,7 +139,7 @@ footer#openuchile-footer img {
     /* IE6-9 */
     -webkit-filter: grayscale(100%);
     /* Chrome 19+ & Safari 6+ */
-    max-width: 50vw;
+    max-width: 40vw;
 }
 
 footer#openuchile-footer img:hover {
