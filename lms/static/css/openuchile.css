@@ -139,7 +139,7 @@ footer#openuchile-footer img {
     /* IE6-9 */
     -webkit-filter: grayscale(100%);
     /* Chrome 19+ & Safari 6+ */
-    max-width: 50vw;
+    max-width: 40vw;
 }
 
 footer#openuchile-footer img:hover {
@@ -1992,4 +1992,28 @@ body .wrapper-preview-menu .preview-menu {
 
 .details .wrapper-course-image .course-image{
     aspect-ratio: 16 / 9;
+}
+
+.course-info .course-about-image.inactive{
+     filter: grayscale(90%);
+
+}
+.openedx-logo{
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: bolder;
+    justify-content: center;
+    display: flex;
+    bottom: 1rem;
+}
+.openedx-logo a img{
+    max-width: 40vw;
+}
+
+@media screen  and (min-width: 600px) {
+    .openedx-logo{
+        position: absolute;
+        z-index: 1;
+        right: 1.25rem;
+    }
 }
