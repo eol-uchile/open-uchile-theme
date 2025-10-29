@@ -2409,3 +2409,7 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
     color: #c2387d;
 }
 
+.course-info .course-about-image.inactive{
+     filter: grayscale(90%);
+
+}

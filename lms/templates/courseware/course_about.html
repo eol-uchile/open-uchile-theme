@@ -64,6 +64,13 @@ now = timezone.now()
 
 <%block name="pagetitle">${course.display_name_with_default}</%block>
 
+<%
+is_course_active = ''
+if not (course.end is None):
+  if course.end< now:
+    is_course_active = 'inactive'
+
+%>
 <script>
   function show_default_image() {
     return "${static.url('open-uchile-theme/images/default-course.png')}";
@@ -122,11 +129,11 @@ now = timezone.now()
           <a href="#video-modal" class="media" rel="leanModal">
             <div class="position-relative">
               <div class="icon-play"></div>
-              <img src="${course_image_urls['large']}" class="img-fluid course-about-image" alt="image"/>
+              <img src="${course_image_urls['large']}" class="img-fluid course-about-image ${is_course_active}" alt="image"/>
             </div>
           </a>
         %else:
-          <img src="${course_image_urls['large']}" onerror="this.onerror=null; this.src=show_default_image()"  class="img-fluid course-about-image" alt="image" />
+          <img src="${course_image_urls['large']}" onerror="this.onerror=null; this.src=show_default_image()"  class="img-fluid course-about-image ${is_course_active}" alt="image" />
         % endif
       </div>
     </div>
