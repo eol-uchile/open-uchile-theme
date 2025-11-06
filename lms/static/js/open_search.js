@@ -9,7 +9,10 @@ var filters = {
     "state": "",
     "classification": "",
     "category": "",
-    "current_page": 1
+    "current_page": 1,
+    "only_free": false,
+    "min_price": undefined,
+    "max_price": undefined
 }
 var $pagination = $('#pagination-explorer');
 
@@ -77,6 +80,35 @@ $(document).ready(function() {
     loadCategories();
     clearFilter();
 });
+
+$('#freeCourses').on('change', function() {
+    if ($(this).is(':checked')) {
+        $('#min-input').prop('disabled', true);
+        $('#max-input').prop('disabled', true);
+        $('.range-slider').css('cursor', 'not-allowed');
+        $('.range-slider').css('opacity', '50%');
+        $('.slider-handle.handle-min').css('pointer-events', 'none');
+        $('.slider-handle.handle-max').css('pointer-events', 'none');
+        $('#min-input').val(undefined);
+        $('#max-input').val(undefined);
+        filters["only_free"] = true;
+        filters["current_page"] = 1;
+    } else {
+        $('#min-input').prop('disabled', false);
+        $('#max-input').prop('disabled', false);
+        $('.range-slider').css('cursor', 'inherit');
+        $('.range-slider').css('opacity', '100%');
+        $('.slider-handle.handle-min').css('pointer-events', 'inherit');
+        $('.slider-handle.handle-max').css('pointer-events', 'inherit');
+        filters["only_free"] = false;
+        filters["current_page"] = 1;
+    }
+    current_page = 1;
+    filters["max_price"] = $('#max-input').val();
+    filters["min_price"] = $('#min-input').val();
+    getCourses();
+});
+
 
 $(window).on('load',function() {
     const queryString = window.location.search;
@@ -222,8 +254,26 @@ $(document).on('change', '[data-facet="category"], [data-facet="classification"]
         }
     );
 });
-
-$('#state-select, #year-select, #order-select').on('change', function(e) {
+$(document).on('change', '[id="min-input"], [id="max-input"]', function() {
+    filters["min_price"] = $('#min-input').val();
+    filters["max_price"] = $('#max-input').val();
+    filters["current_page"] = 1;
+    current_page = 1;
+    let list_course1 = getCourses();
+    // executes when promise is resolved successfully
+    list_course1.then(
+        function successValue(result) {
+            console.log(result);
+        },
+    )
+    // executes if there is an error
+    .catch(
+        function errorValue(result) {
+            console.log(result);
+        }
+    );
+});
+$('#state-select, #year-select, #order-select, #category-select, #classification-select').on('change', function(e) {
     e.preventDefault();
     let facet = $(this).data("facet");
     filters[facet] = gettext($(this)[0].value);
@@ -252,6 +302,8 @@ function clearFilter(){
     filters["current_page"] = 1
     filters["year"] = ""
     filters["order_by"] = "newer"
+    filters["min_price"] = undefined
+    filters["max_price"] = undefined
     let select = document.getElementById('state-select');
     select.selectedIndex = 0;
     select = document.getElementById('year-select');
@@ -263,6 +315,8 @@ function clearFilter(){
     select = document.getElementById('classification-select');
     select.selectedIndex = 0;
     $("#discovery-input").val("")
+    $("#min-input").val("")
+    $("#max-input").val("")
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
@@ -272,7 +326,14 @@ $('.open-filter-bar #clear-filters').live('click', function(e) {
     $('.open-filter-bar .search-facets-lists input').prop( "checked", false );
     clearFilter();
     cleanCourses();
-    initDiscovery();
+    getCourses();
+});
+
+$('.open-filter-bar #apply-filters').live('click', function(e) {
+    e.preventDefault();
+    $('.open-filter-bar #filter-bar').css("display", "none");
+    cleanCourses();
+    getCourses();
 });
 
 $('.open-order-by-btn').live('click', function(e) {

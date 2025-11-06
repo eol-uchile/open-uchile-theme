@@ -1365,6 +1365,11 @@ aside .search-facets-lists .form-check-input[type=checkbox] {
     color: #98A0B4;
     margin-top: 2px;
     border-radius: 2em;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 0px;
+    margin-top: .15rem;
+    padding: 0px
 }
 aside .search-facets-lists .form-check-input[type=checkbox]:checked {
     background-color: #004e98;
@@ -1417,7 +1422,7 @@ aside span#title-filter{
     background-color:  rgba(34, 99, 227, 1);
     color: white;
 }
-aside a#clear-filters{
+aside a#apply-filters{
     display: contents;
     color: #2263E3;
     font-size: 14px;
@@ -1432,8 +1437,8 @@ aside a#clear-filters{
     background-image: none;
     border-radius: 5px
 }
-aside a#clear-filters:hover,
-aside a#clear-filters:focus{
+aside a#apply-filters:hover,
+aside a#apply-filters:focus{
     text-decoration: none;
     background-color:  rgba(34, 99, 227, 1);
     color: white;

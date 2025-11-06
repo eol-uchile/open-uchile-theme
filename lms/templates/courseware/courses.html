@@ -36,8 +36,7 @@
     <div class="row m-0">
       <div class="col-12 col-sm-12 col-md-12 col-xl-3 open-filter-bar" id="filter-bar">
         <aside aria-label="${_('Refine your search')}" class="search-facets phone-menu pl-5">
-          <div class="d-flex justify-content-between mb-4"> 
-              <a id="clear-filters" class="d-flex justify-content-center p-1 m-0 align-items-center" href="#">${_('Clear All')}</a>
+          <div class="d-flex justify-content-end"> 
              <button type="button" class="btn-advanced-open border-0 p-0" id="advance-button"> <span class="icon fa fa-times" aria-hidden="true"></span> </button> 
           </div>
           <div class="row p-0 m-0">
@@ -82,6 +81,25 @@
             <div  id="organizations"></div>
             <label for="category-select" class="form-label"> ${_('Categories')}</label>
             <div  id="categories"></div>
+            <label for="prices" class="form-label"> ${_('Price range')}</label>
+            <div class="price-inputs d-flex justify-content-between">
+              <div class="input-group d-flex flex-column">
+                <label for="min-input">From:</label>
+                <input type="number" class="form-control w-75" id="min-input" value="" min="0" step="any" pattern="\d*" placeholder="0"/>
+              </div>
+              <div class="input-group d-flex flex-column">
+                <label for="max-input">To:</label>
+                <input type="number" class="form-control w-75" id="max-input" value="" min="0" step="any" pattern="\d*" placeholder="100000"/>
+              </div>
+            </div>
+            <div class="form-check form-switch my-4 d-flex align-items-center">
+              <input class="form-check-input" type="checkbox" role="switch" id="freeCourses">
+              <label class="form-check-label m-0 ml-5" for="freeCursesCheckbox">${_('Show free events only')}</label>
+            </div>
+            <div class=" d-flex justify-content-around">
+              <a id="clear-filters" class="d-flex justify-content-center p-1 m-0 align-items-center" href="#">${_('Clear Filters')}</a>
+              <a id="apply-filters" class="d-flex justify-content-center p-1 m-0 align-items-center" href="#">${_('Apply Filters')}</a>
+          </div>
           </section>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-xl-9 p-0" id="section-courses">
