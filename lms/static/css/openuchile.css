@@ -1419,7 +1419,7 @@ aside span#title-filter{
     background-color:  rgba(34, 99, 227, 1);
     color: white;
 }
-aside a#clear-filters{
+aside a#apply-filters{
     display: contents;
     color: #2263E3;
     font-size: 14px;
@@ -1434,8 +1434,8 @@ aside a#clear-filters{
     background-image: none;
     border-radius: 5px
 }
-aside a#clear-filters:hover,
-aside a#clear-filters:focus{
+aside a#apply-filters:hover,
+aside a#apply-filters:focus{
     text-decoration: none;
     background-color:  rgba(34, 99, 227, 1);
     color: white;
@@ -2412,4 +2412,18 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 .course-info .course-about-image.inactive{
      filter: grayscale(90%);
 
+}
+
+.price-inputs .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+	border-top-left-radius: .25rem;
+	border-bottom-left-radius: .25rem;
+}
+
+#filter-bar .form-switch .form-check-input{
+    width: 3em;
+    height: 2em;
+}
+
+#min-input, #max-input{
+    -webkit-appearance:textfield;
 }
