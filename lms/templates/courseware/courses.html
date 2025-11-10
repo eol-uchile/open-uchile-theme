@@ -7,9 +7,6 @@
 <%inherit file="../main.html" />
 <%
   course_discovery_enabled = settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH')
-  start_year = 2020
-  end_year = (datetime.today() + timedelta(days=182)).year
-  years = list(range(start_year, end_year + 1))
 %>
 
 <%namespace name='static' file='../static_content.html'/>
@@ -46,56 +43,114 @@
           </div>
           <h2 class="header-search-facets" id="discovery-message"></h2>
           <section class="search-facets-lists">
-            <br>
-            <div class="list-group">
-             <label for="order-select" class="form-label"> ${_('Order')}</label>
-              <select class="form-select" id="order-select" data-facet="order_by" class="form-check-input">
-                  <option value="newer" data-value="newer" data-text="${_('Newer')}"> ${_('Newer')}</option>
-                  <option value="older" data-value="older" data-text="${_('Older')}"> ${_('Older')}</option>
-              </select>
-            </div>
-            <br>
-            % if use_year_filter == "True":
-              <div class="list-group">
-                <label for="year-select" class="form-label">${_('Year')}</label>
-                <select class="form-select" id="year-select" data-facet="year">
-                  <option value="" data-value="" disabled selected>${_('Select a year')}</option>
-                  %for val_year in years:
-                    <option value="${ val_year }" data-value="${ val_year }" data-text="${ val_year }">${ val_year }</option>
-                  %endfor
-                </select>
+            <div class="accordion" id="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOrder">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+                   ${_('Order')}
+                  </button>
+                </h2>
+                <div id="collapseOrder" class="accordion-collapse collapse show" aria-labelledby="headingOrder" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <label class="list-group-item d-flex" >
+                      <input class="form-check-input me-1" type="radio" value="newer" data-facet="order_by" data-value="newer" data-text="${_('Newer')}">
+                      ${_('Newer')}
+                    </label>
+                    <label class="list-group-item d-flex" >
+                      <input class="form-check-input me-1" type="radio" value="older" data-facet="order_by" data-value="older" data-text="${_('Older')}">
+                      ${_('Older')}
+                    </label>
+                  </div>
+                </div>
               </div>
-              <br>
-            % endif
-            <div class="list-group">
-             <label for="state-select" class="form-label"> ${_('State')}</label>
-              <select class="form-select" id="state-select" data-facet="state" class="form-check-input">
-                  <option value="" data-value="" disabled selected>${_('Select a state')}</option>
-                  <option value="active" data-value="active" data-text="${_('Active')}">${_('Active')}</option>
-                  <option value="finished" data-value="finished" data-text="${_('Finished')}">${_('Finished')}</option>
-                  <option value="coming_soon" data-value="coming_soon" data-text="${_('Coming soon')}">${_('Coming soon')}</option>
-              </select>
-            </div>
-            <br>
-            <label for="organization-select" class="form-label"> ${_('Organizations')}</label>
-            <div  id="organizations"></div>
-            <label for="category-select" class="form-label"> ${_('Categories')}</label>
-            <div  id="categories"></div>
-            <label for="prices" class="form-label"> ${_('Price range')}</label>
-            <div class="price-inputs d-flex justify-content-between">
-              <div class="input-group d-flex flex-column">
-                <label for="min-input">From:</label>
-                <input type="number" class="form-control w-75" id="min-input" value="" min="0" step="any" pattern="\d*" placeholder="0"/>
+              % if use_year_filter == "True":
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingYear">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseYear" aria-expanded="false" aria-controls="collapseYear">
+                      ${_('Year')}
+                    </button>
+                  </h2>
+                  <div id="collapseYear" class="accordion-collapse collapse" aria-labelledby="headingYear" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div id="years"></div>
+                    </div>
+                  </div>
+                </div>
+              % endif
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingState">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseState" aria-expanded="false" aria-controls="collapseState">
+                    ${_('State')}
+                  </button>
+                </h2>
+                <div id="collapseState" class="accordion-collapse collapse" aria-labelledby="headingState" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <label class="list-group-item d-flex" >
+                      <input class="form-check-input me-1" type="checkbox" value="active" data-facet="state" data-value="active" data-text="${_('Active')}">
+                      ${_('Active')}
+                    </label>
+                    <label class="list-group-item d-flex" >
+                      <input class="form-check-input me-1" type="checkbox" value="finished" data-facet="state" data-value="finished" data-text="${_('Finished')}">
+                      ${_('Finished')}
+                    </label>
+                    <label class="list-group-item d-flex" >
+                      <input class="form-check-input me-1" type="checkbox" value="coming_soon" data-facet="state" data-value="coming_soon" data-text="${_('Coming soon')}">
+                      ${_('Coming soon')}
+                    </label>
+                  </div>
+                </div>
               </div>
-              <div class="input-group d-flex flex-column">
-                <label for="max-input">To:</label>
-                <input type="number" class="form-control w-75" id="max-input" value="" min="0" step="any" pattern="\d*" placeholder="100000"/>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOrganizations">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrganizations" aria-expanded="false" aria-controls="collapseOrganizations">
+                     ${_('Organizations')}
+                  </button>
+                </h2>
+                <div id="collapseOrganizations" class="accordion-collapse collapse" aria-labelledby="headingOrganizations" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div  id="organizations"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingCategories">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    ${_('Categories')}
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                      <div  id="categories"></div>
+                   </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingPriceRange">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategories" aria-expanded="false" aria-controls="collapseCategories">
+                    ${_('Price range')}
+                  </button>
+                </h2>
+                <div id="collapseCategories" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="price-inputs d-flex justify-content-between">
+                      <div class="input-group d-flex flex-column">
+                        <label for="min-input">From:</label>
+                        <input type="number" class="form-control w-75" id="min-input" value="" min="0" step="any" pattern="\d*" placeholder="0"/>
+                      </div>
+                      <div class="input-group d-flex flex-column">
+                        <label for="max-input">To:</label>
+                        <input type="number" class="form-control w-75" id="max-input" value="" min="0" step="any" pattern="\d*" placeholder="100000"/>
+                      </div>
+                    </div>
+                    <div class="form-check form-switch my-4 d-flex align-items-center">
+                      <input class="form-check-input" type="checkbox" role="switch" id="freeCourses">
+                      <label class="form-check-label m-0 ml-5" for="freeCursesCheckbox">${_('Show free events only')}</label>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="form-check form-switch my-4 d-flex align-items-center">
-              <input class="form-check-input" type="checkbox" role="switch" id="freeCourses">
-              <label class="form-check-label m-0 ml-5" for="freeCursesCheckbox">${_('Show free events only')}</label>
-            </div>
+            <label for="prices" class="form-label"> </label>
             <div class=" d-flex justify-content-around">
               <a id="clear-filters" class="d-flex justify-content-center p-1 m-0 align-items-center" href="#">${_('Clear Filters')}</a>
               <a id="apply-filters" class="d-flex justify-content-center p-1 m-0 align-items-center" href="#">${_('Apply Filters')}</a>

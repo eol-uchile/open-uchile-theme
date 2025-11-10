@@ -1372,6 +1372,10 @@ aside .search-facets-lists .form-check-input[type=checkbox]:checked {
     background-color: #004e98;
     color: #98A0B4;
 }
+aside .search-facets-lists .list-group-item .span{
+    margin-left: 10px;
+}
+
 aside .search-facets-lists .list-group-item {
     font-size: 20px;
     padding: 5px;
@@ -1380,7 +1384,6 @@ aside .search-facets-lists .list-group-item {
 }
 aside .search-facets-lists label{
     font: inherit;
-    margin-bottom: 20px;
     color: #98A0B4;
     font-size: 22px;
     font-weight: 600 !important;
@@ -2426,4 +2429,27 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 
 #min-input, #max-input{
     -webkit-appearance:textfield;
+}
+
+#filer-bar .accordion-button, #filer-bar .search-facets-lists .accordion .accordion-item:first-of-type .accordion-header .accordion-button{
+	background-color: rgba(0,0,0,.03);
+	border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+#filter-bar .accordion-item:first-of-type .accordion-button, #filter-bar .accordion-button{
+    background:rgba(0,0,0,.03);
+    box-shadow: none;
+    text-shadow: none;
+    padding: .75rem 1.25rem;
+}
+
+#filter-bar .accordion-button:not(.collapsed){
+    color: #004e98;
+}
+
+#filter-bar  .form-check-input:checked[type="radio"]{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    background-color: #004e98;
+    color: #98A0B4;margin-top: 2px;
+    border-radius: 2em;
 }
