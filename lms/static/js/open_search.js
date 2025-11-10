@@ -2,6 +2,7 @@ var now = new Date();
 var current_page = 1;
 var total_pages = 20;
 var page_size = 20;
+var total_filter = 1;
 var filters = {
     "search_string": "",
     "order_by": "newer",
@@ -25,29 +26,39 @@ var defaultOpts = {
     visiblePages: 5
 }
 
-function createSelectOptions(container, objectList, facet, translate_text) {
-    const select = $('<select>')
-        .addClass('form-select mb-4')
-        .attr({
-            'data-facet': facet,
-            'id':facet+'-select'
-        })
+function createCheckboxOptions(container, object, facet) {
+    const label = $('<label>')
+        .addClass('list-group-item d-flex')
         .appendTo(container);
 
-    $('<option>')
-        .attr('value', '')
-        .text(translate_text)
-        .appendTo(select);
+    $('<input>')
+        .addClass('form-check-input me-1')
+        .attr({
+            type: 'checkbox',
+            'data-facet': facet,
+            'value':'',
+            'data-value': object.id,
+            'data-text': object.name
+        })
+        .appendTo(label);
 
-    objectList.forEach(object => {
-        $('<option>')
-            .attr({
-                'value': object.id,
-                'data-value': object.id,
-                'data-text': object.name
-            })
-            .text(object.name)
-            .appendTo(select);
+    $('<span>').addClass('d-inline').text(object.name).appendTo(label);
+}
+
+function loadYears(){
+    const startYear = 2020;
+    const today = new Date();
+    const futureDate = new Date(today.getTime() + 182 * 24 * 60 * 60 * 1000);
+    const endYear = futureDate.getFullYear();
+    const years = Array.from({ length: endYear - startYear + 1 }, (_, i) => {
+        const year = startYear + i;
+        return { id: year, name: year.toString() };
+    });
+    const container = $("#years");
+    container.empty();
+    years.forEach(
+        function(year) {
+            createCheckboxOptions(container, year, 'year');
     });
 }
 
@@ -56,7 +67,10 @@ function loadOrganizations() {
         .done(function(data) {
             const container = $("#organizations");
             container.empty();
-            createSelectOptions(container, data, 'classification', gettext('Select an organization'));
+            data.forEach(
+            function(classification) {
+                    createCheckboxOptions(container, classification, 'classification')
+            });
         })
         .fail(function() {
             console.error(gettext('ERROR loading organizations'));
@@ -68,7 +82,10 @@ function loadCategories() {
         .done(function(data) {
             const container = $("#categories");
             container.empty();
-            createSelectOptions(container, data, 'category',  gettext('Select a category'))
+            data.forEach(
+                function(category) {
+                    createCheckboxOptions(container, category, 'category')
+            });
         })
         .fail(function() {
             console.error(gettext('ERROR loading categories'));
@@ -78,7 +95,7 @@ function loadCategories() {
 $(document).ready(function() {
     loadOrganizations();
     loadCategories();
-    clearFilter();
+    loadYears();
 });
 
 $('#freeCourses').on('change', function() {
@@ -106,11 +123,12 @@ $('#freeCourses').on('change', function() {
     current_page = 1;
     filters["max_price"] = $('#max-input').val();
     filters["min_price"] = $('#min-input').val();
-    getCourses();
 });
 
 
 $(window).on('load',function() {
+    $(`input[type="radio"]`).prop('checked', false);
+    $(`input[type="checkbox"]`).prop('checked', false);
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     // get different types of url params
@@ -120,25 +138,28 @@ $(window).on('load',function() {
     }
     if (urlParams.has('order')){ 
         filters["order"]=urlParams.get('order')
+        $(`input[type="radio"][data-facet="order_by"][data-value="${urlParams.get('order')}"]`).prop('checked', true);
         $("#order-select").val(urlParams.get('order'))
+    }else{
+        $(`input[type="radio"][data-facet="order_by"][data-value="newer"]`).prop('checked', true);
     }
     if (urlParams.has('year')){ 
         filters["year"]=urlParams.get('year')
-        $("#year-select").val(urlParams.get('year'))
+        $(`input[type="checkbox"][data-facet="year"][data-value="${urlParams.get('year')}"]`).prop('checked', true);
     }
     if (urlParams.has('state')){ 
         filters["state"]=urlParams.get('state')
-        $("#state-select").val(urlParams.get('state'))
+        $(`input[type="checkbox"][data-facet="state"][data-value="${urlParams.get('state')}"]`).prop('checked', true);
     }
     if (urlParams.has('organization')){ 
         const selectedOrganization = urlParams.get('organization');
         filters["classification"] = selectedOrganization;
-        $("#classification-select").val(urlParams.get('classification'))
+        $(`input[type="checkbox"][data-facet="classification"][data-value="${selectedOrganization}"]`).prop('checked', true);
     }
     if (urlParams.has('category')){ 
         const selectedCategory = urlParams.get('category');
         filters["category"] = selectedCategory;
-        $("#category-select").val(urlParams.get('category'))
+        $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
     }
     initDiscovery();
 });
@@ -167,8 +188,8 @@ function createPagination(){
 }
 
 function getData(){
-    $("#loadingCircles").css("display","block");
-    $("#list-courses").css("display","none");
+    $("#loadingCircles").show();
+    $("#list-courses").hide();
     return $.post( "/course_classification/search/", filters )
     .done(function( data ) {
         if (data.error == undefined) {
@@ -203,8 +224,8 @@ function getData(){
                 edx.HtmlUtils.append(row, courseHtml);
                 edx.HtmlUtils.append(row, courseHtml2);
             }
-            $("#loadingCircles").css("display","none");
-            $("#list-courses").css("display","block");
+            $("#loadingCircles").hide();
+            $("#list-courses").show();
         }else{
             console.log("ERROR:" + data.error)
         }
@@ -235,63 +256,37 @@ $(document).on('click', '#advance-button', function(e) {
     }
 });
 
-$(document).on('change', '[data-facet="category"], [data-facet="classification"]', function() {
+$(document).on('change', '[data-facet="category"], [data-facet="classification"], [data-facet="year"], [data-facet="state"], [data-facet="order_by"]', function() {
     let facet = $(this).data("facet");
-    filters[facet] = gettext($(this)[0].value);
+    if (this.checked){
+        filters[facet] = $(this).data("value");
+        $('.open-filter-bar .search-facets-lists input[data-facet="'+facet+'"]').not(this).prop( "checked", false );
+        if (facet =="order_by"){
+            $("#order-select").val($(this).data("value"))
+        }
+    }
+    else{
+        filters[facet] = "";
+    }
     filters["current_page"] = 1;
     current_page = 1;
-    let list_course1 = getCourses();
-    // executes when promise is resolved successfully
-    list_course1.then(
-        function successValue(result) {
-            console.log(result);
-        },
-    )
-    // executes if there is an error
-    .catch(
-        function errorValue(result) {
-            console.log(result);
-        }
-    );
 });
+
 $(document).on('change', '[id="min-input"], [id="max-input"]', function() {
     filters["min_price"] = $('#min-input').val();
     filters["max_price"] = $('#max-input').val();
     filters["current_page"] = 1;
     current_page = 1;
-    let list_course1 = getCourses();
-    // executes when promise is resolved successfully
-    list_course1.then(
-        function successValue(result) {
-            console.log(result);
-        },
-    )
-    // executes if there is an error
-    .catch(
-        function errorValue(result) {
-            console.log(result);
-        }
-    );
 });
-$('#state-select, #year-select, #order-select, #category-select, #classification-select').on('change', function(e) {
+
+$('#order-select').on('change', function(e) {
     e.preventDefault();
     let facet = $(this).data("facet");
     filters[facet] = gettext($(this)[0].value);
     filters["current_page"] = 1;
     current_page = 1;
-
-    let list_course1 = getCourses();
-    // executes when promise is resolved successfully
-    list_course1.then(
-        function successValue(result) {
-            // console.log(result);
-        },
-    )
-    .catch(
-        function errorValue(result) {
-            console.log(result);
-        }
-    );
+    $(`input[type="radio"][data-facet="order_by"]`).prop('checked', false);
+    $(`input[type="radio"][data-facet="order_by"][data-value="${gettext($(this)[0].value)}"]`).prop('checked', true);
 });
 
 function clearFilter(){
@@ -304,19 +299,12 @@ function clearFilter(){
     filters["order_by"] = "newer"
     filters["min_price"] = undefined
     filters["max_price"] = undefined
-    let select = document.getElementById('state-select');
-    select.selectedIndex = 0;
-    select = document.getElementById('year-select');
-    if (select) select.selectedIndex = 0;
-    select = document.getElementById('order-select');
-    select.selectedIndex = 0;
-    select = document.getElementById('category-select');
-    select.selectedIndex = 0;
-    select = document.getElementById('classification-select');
-    select.selectedIndex = 0;
+    $("#order-select").val('newer')
+    $(`input[type="radio"][data-facet="order_by"][data-value="newer"]`).prop('checked', true);
     $("#discovery-input").val("")
     $("#min-input").val("")
     $("#max-input").val("")
+    total_filter = 1;
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
@@ -338,30 +326,8 @@ $('.open-filter-bar #apply-filters').live('click', function(e) {
 
 $('.open-order-by-btn').live('click', function(e) {
     e.preventDefault();
-    let facet = 'order_by';
     let value = $(this).data("value");
-    if($(this).hasClass( "open-order-by-selected" )){
-        filters[facet] = "";
-        $(this).removeClass("open-order-by-selected");
-    }
-    else{
-        $('.open-order-by-btn').not(this).removeClass("open-order-by-selected");
-        $(this).addClass( "open-order-by-selected" );
-        filters[facet] = value;
-    }
-    let list_course4 = getCourses();
-    // executes when promise is resolved successfully
-    list_course4.then(
-        function successValue(result) {
-            console.log(result);
-        },
-    )
-    // executes if there is an error
-    .catch(
-        function errorValue(result) {
-            console.log(result);
-        }
-    );
+    $(`input[type="checkbox"][data-facet="order_by"][data-value="${value}"]`).prop('checked', true);
 });
 $('.open-filter-bar #filter-bar #active-filters span.fa-times').live('click', function(e) {
     e.preventDefault();
@@ -370,24 +336,6 @@ $('.open-filter-bar #filter-bar #active-filters span.fa-times').live('click', fu
     if ( $('.open-filter-bar #active-filters').children().length == 0 ) $('.open-filter-bar #filter-bar').css("display", "none");
     filters[btnType] = "";
     $('.open-filter-bar .search-facets-lists input[data-facet="'+btnType+'"]').not(this).prop( "checked", false );
-
-    let list_course2 = getCourses();
-    // executes when promise is resolved successfully
-    list_course2.then(
-        function successValue(result) {
-            //console.log(result);
-        },
-    )
-    // executes if there is an error
-    .catch(
-        function errorValue(result) {
-            console.log(result);
-        }
-    )
-    .finally(
-        function greet() {
-        }
-    );
 });
 
 $(document).on('click', '#discovery-submit', function(e) {
