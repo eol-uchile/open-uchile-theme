@@ -41,7 +41,7 @@ function createCheckboxOptions(container, object, facet) {
         })
         .appendTo(label);
 
-    $('<span>').text(object.name).appendTo(label);
+    $('<span>').addClass('d-inline').text(object.name).appendTo(label);
 }
 
 function loadYears(){

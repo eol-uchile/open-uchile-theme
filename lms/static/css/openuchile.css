@@ -1363,10 +1363,20 @@ aside .search-facets-lists a.filter-btn.collapsed .arrow-filter {
     font-size: 12px;
     min-height: 27px;
 }
+aside .search-facets-lists .form-check label,
+aside .search-facets-lists .list-group-item span{
+    width: 18rem;
+}
+aside .search-facets-lists .form-check label{
+    font-size: 18px;
+}
 aside .search-facets-lists .form-check-input[type=checkbox] {
-    color: #98A0B4;
-    margin-top: 2px;
+    color: #98A0B4;    
     border-radius: 2em;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px
 }
 aside .search-facets-lists .form-check-input[type=checkbox]:checked {
     background-color: #004e98;
@@ -2415,12 +2425,14 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 
 .price-inputs .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
 	border-top-left-radius: .25rem;
+	border-top-right-radius: .25rem;
 	border-bottom-left-radius: .25rem;
+	border-bottom-right-radius: .25rem;
 }
 
 #filter-bar .form-switch .form-check-input{
-    width: 3em;
-    height: 2em;
+    width: 40px;
+    height: 20px;
 }
 
 #min-input, #max-input{
