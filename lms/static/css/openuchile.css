@@ -2461,3 +2461,7 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
     color: #98A0B4;margin-top: 2px;
     border-radius: 2em;
 }
+
+.fake-placeholder-input:not(:placeholder-shown) + .fake-placeholder {
+    opacity: 0;
+}

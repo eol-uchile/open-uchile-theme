@@ -135,16 +135,22 @@
                     <div class="price-inputs d-flex justify-content-between">
                       <div class="input-group d-flex flex-column">
                         <label for="min-input">${_('From')}:</label>
-                        <input type="number" class="form-control w-75" id="min-input" value="" min="0" step="any" pattern="\d*" placeholder="Min"/>
+                        <input type="number" class="form-control w-75 fake-placeholder-input" id="min-input"  value="" min="0" step="any" pattern="\d*" placeholder=" ">
+                        <span class="position-absolute ml-2 top-50 text-muted fake-placeholder">
+                          Min. <span style="font-size: 0.7em;">CLP</span>
+                        </span>
                       </div>
                       <div class="input-group d-flex flex-column">
                         <label for="max-input">${_('To')}:</label>
-                        <input type="number" class="form-control w-75" id="max-input" value="" min="0" step="any" pattern="\d*" placeholder="Max"/>
+                        <input type="number" class="form-control w-75 fake-placeholder-input" id="max-input" value="" min="0" step="any" pattern="\d*" placeholder=" "/>
+                        <span class="position-absolute ml-2 top-50 text-muted fake-placeholder">
+                          Max. <span style="font-size: 0.7em;">CLP</span>
+                        </span>
                       </div>
                     </div>
-                    <div class="form-check form-switch my-4 d-flex align-items-center">
-                      <input class="form-check-input" type="checkbox" role="switch" id="freeCourses">
-                      <label class="form-check-label m-0 ml-5" for="freeCursesCheckbox">${_('Show free events only')}</label>
+                    <div class="form-check form-switch my-4 p-0 d-flex align-items-center">
+                      <input class="form-check-input me-1" type="checkbox" role="switch" id="freeCourses">
+                      <label class="form-check-label m-0 ml-3" for="freeCursesCheckbox">${_('Show free events only')}</label>
                     </div>
                   </div>
                 </div>
