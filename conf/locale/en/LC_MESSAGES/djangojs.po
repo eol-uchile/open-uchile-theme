@@ -181,7 +181,7 @@ msgid "Showing"
 msgstr ""
 
 #: lms/static/js/open_search.js:230
-msgid "courses out of"
+msgid "out of"
 msgstr ""
 
 #: lms/static/js/open_search.js:232
