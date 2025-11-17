@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-11-17 13:19+0000\n"
+"POT-Creation-Date: 2025-11-17 14:34+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -456,7 +456,7 @@ msgid "Coming soon"
 msgstr "Próximamente"
 
 #: lms/templates/course.html:137 lms/templates/course.html:141
-#: lms/templates/course_portal.html:97 lms/templates/courses_list.html:35
+#: lms/templates/course_portal.html:97
 msgid "See more"
 msgstr "Aprender más"
 
@@ -489,9 +489,13 @@ msgstr "Top Cursos"
 msgid "There are no courses"
 msgstr "No se encontraron cursos"
 
-#: lms/templates/courses_list.html:38
+#: lms/templates/courses_list.html:35
 msgid "New Courses"
 msgstr "Nuevos cursos"
+
+#: lms/templates/courses_list.html:60
+msgid "See more courses"
+msgstr "Ver más cursos"
 
 #: lms/templates/courses_list.html:69
 msgid "About us"
