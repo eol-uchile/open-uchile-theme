@@ -88,25 +88,23 @@ if not (course.end is None):
           </h3>
           %if user.is_authenticated and registered:
             %if show_courseware_link:
-              %if is_course_active == 'inactive':
-                <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
-                 <%
-                reg_href = ''
-                if course.end< now:
-                    reg_href = "/contact_form?course=" + str(course.display_name_with_default) + "&course_id=" + str(course.id)
-                %>
-                <a href="${reg_href}" class="my-auto pt-2">
-                  <button class="btn">${_("New version")}</button>
-                </a>
-              %else:
-                <p class="font-italic lead enroll-message">${_("You are enrolled in this course")}</p>
-                <a href="${course_target}" class="pt-2 enroll-button-2">
-                  <button class="btn">${_("View Course")}</button>
-                </a>
-              %endif
+              <p class="font-italic lead enroll-message">${_("You are enrolled in this course")}</p>
+              <a href="${course_target}" class="pt-2 enroll-button-2">
+                <button class="btn">${_("View Course")}</button>
+              </a>
             %else:
               <button class="btn my-auto pt-2 enroll-button" disabled>${_("You are enrolled in this course")}</button>
             %endif
+          %elif is_course_active == 'inactive':
+            <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
+              <%
+            reg_href = ''
+            if course.end< now:
+                reg_href = "/contact_form?course=" + str(course.display_name_with_default) + "&course_id=" + str(course.id)
+            %>
+            <a href="${reg_href}" class="my-auto pt-2">
+              <button class="btn">${_("New version")}</button>
+            </a>
           % elif is_course_full:
             <button class="btn my-auto pt-2 enroll-button" disabled>${_("Course is full")}</button>
           % elif invitation_only and not can_enroll:
@@ -115,22 +113,20 @@ if not (course.end is None):
             <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
           %elif allow_anonymous:
             %if show_courseware_link:
-              %if is_course_active == 'inactive':
-                <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
-                 <%
-                reg_href = ''
-                if course.end< now:
-                    reg_href = "/contact_form?course_id=" + str(course.id)
-                %>
-                <a href="${reg_href}" class="my-auto pt-2">
-                  <button class="btn">${_("New version")}</button>
-                </a>
-              %else:
-                <a href="${course_target}" class="my-auto pt-2">
-                  <button class="btn">${_("View Course")}</button>
-                </a>
-              %endif
-            %endif
+              <a href="${course_target}" class="my-auto pt-2">
+                <button class="btn">${_("View Course")}</button>
+              </a>
+            %elif is_course_active == 'inactive':
+              <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
+                <%
+              reg_href = ''
+              if course.end< now:
+                  reg_href = "/contact_form?course_id=" + str(course.id)
+              %>
+              <a href="${reg_href}" class="my-auto pt-2">
+                <button class="btn">${_("New version")}</button>
+              </a>
+          %endif
           %else:
             <%
               if ecommerce_checkout:
