@@ -2346,9 +2346,6 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
     font-size: 16px;
     text-decoration: underline;
     font-weight: bolder;
-    position: relative;
-    right: 0px;
-    margin-bottom: 2%;
     justify-content: center;
     display: flex;
 }
@@ -2368,7 +2365,6 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
         position: absolute;
         z-index: 1;
         right: 1.25rem;
-        margin-right: 2.5%;
     }
 }
 
