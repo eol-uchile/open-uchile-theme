@@ -96,14 +96,14 @@ if not (course.end is None):
               <button class="btn my-auto pt-2 enroll-button" disabled>${_("You are enrolled in this course")}</button>
             %endif
           %elif is_course_active == 'inactive':
-            <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
+            <p class="font-italic lead enroll-message">${_("Would you like it to be offered again?")}</p>
               <%
             reg_href = ''
             if course.end< now:
                 reg_href = "/contact_form?course=" + str(course.display_name_with_default) + "&course_id=" + str(course.id)
             %>
             <a href="${reg_href}" class="my-auto pt-2">
-              <button class="btn">${_("New version")}</button>
+              <button class="btn">${_("Yes, I would like to")}</button>
             </a>
           % elif is_course_full:
             <button class="btn my-auto pt-2 enroll-button" disabled>${_("Course is full")}</button>
@@ -117,14 +117,14 @@ if not (course.end is None):
                 <button class="btn">${_("View Course")}</button>
               </a>
             %elif is_course_active == 'inactive':
-              <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
+              <p class="font-italic lead enroll-message">${_("Would you like it to be offered again?")}</p>
                 <%
               reg_href = ''
               if course.end< now:
                   reg_href = "/contact_form?course_id=" + str(course.id)
               %>
               <a href="${reg_href}" class="my-auto pt-2">
-                <button class="btn">${_("New version")}</button>
+                <button class="btn">${_("Yes, I would like to")}</button>
               </a>
           %endif
           %else:
