@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-11-10 18:11+0000\n"
+"POT-Creation-Date: 2025-11-17 13:19+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -174,7 +174,7 @@ msgstr "Error al cargar las categorías"
 
 #: lms/static/js/open_search.js:198
 msgid "No results were found for your search"
-msgstr "No se encontraron resultados en tu busqueda"
+msgstr "No se encontraron resultados en tu búsqueda"
 
 #: lms/static/js/open_search.js:230
 msgid "Showing"

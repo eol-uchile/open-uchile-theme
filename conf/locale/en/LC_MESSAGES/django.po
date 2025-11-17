@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-11-10 18:11+0000\n"
+"POT-Creation-Date: 2025-11-17 13:19+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -808,7 +808,7 @@ msgstr ""
 
 #: lms/templates/courseware/course_about.html:92
 #: lms/templates/courseware/course_about.html:119
-msgid "this course is close"
+msgid "This course is closed"
 msgstr ""
 
 #: lms/templates/courseware/course_about.html:99
@@ -929,6 +929,14 @@ msgstr ""
 
 #: lms/templates/courseware/courses.html:130
 msgid "Price range"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:137
+msgid "From"
+msgstr ""
+
+#: lms/templates/courseware/courses.html:141
+msgid "To"
 msgstr ""
 
 #: lms/templates/courseware/courses.html:147
