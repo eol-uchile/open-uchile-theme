@@ -194,7 +194,7 @@ function getData(){
         if (data.error == undefined) {
             const container = document.getElementById("list-courses");
             if (data.results.length == 0){
-                const courseHtml = edx.HtmlUtils.HTML( '<div class="text-center font-italic" id="empty-courses-message"><p>'+gettext("No results were found for your search")+'</p><img id="empty-courses-image" src="static/open-uchile-theme/images/svg-2023/empty_courses.svg"></div>')
+                const courseHtml = edx.HtmlUtils.HTML( '<div class="text-center font-italic" id="empty-courses-message"><p>'+gettext("No results were found for your search")+'.</p><img id="empty-courses-image" src="static/open-uchile-theme/images/svg-2023/empty_courses.svg"></div>')
                 row = document.createElement('div');
                 row.className = 'row d-flex justify-content-center';
                 container.appendChild(row);
