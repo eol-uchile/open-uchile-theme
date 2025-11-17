@@ -89,7 +89,7 @@ if not (course.end is None):
           %if user.is_authenticated and registered:
             %if show_courseware_link:
               %if is_course_active == 'inactive':
-                <p class="font-italic lead enroll-message">${_("this course is close")}</p>
+                <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
                  <%
                 reg_href = ''
                 if course.end< now:
@@ -116,7 +116,7 @@ if not (course.end is None):
           %elif allow_anonymous:
             %if show_courseware_link:
               %if is_course_active == 'inactive':
-                <p class="font-italic lead enroll-message">${_("this course is close")}</p>
+                <p class="font-italic lead enroll-message">${_("This course is closed")}</p>
                  <%
                 reg_href = ''
                 if course.end< now:
