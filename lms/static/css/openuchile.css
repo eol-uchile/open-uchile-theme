@@ -177,7 +177,7 @@ footer#openuchile-footer img:hover {
 }
 
 #faq .accordion-button:not(.collapsed), #faq .accordion-collapse {
-    background-color: #afafaf5e;
+    background-color:none;
 }
 
 #faq .accordion-button {
@@ -1366,11 +1366,13 @@ aside .search-facets-lists a.filter-btn.collapsed .arrow-filter {
 aside .search-facets-lists .form-check label,
 aside .search-facets-lists .list-group-item span{
     width: 18rem;
+    background-color: #FAFAFA;
 }
 aside .search-facets-lists .form-check label{
     font-size: 18px;
 }
 aside .search-facets-lists .form-check-input[type=checkbox] {
+    border: 1px solid #0d6efd;
     color: #98A0B4;    
     border-radius: 2em;
     width: 20px;
@@ -1391,6 +1393,7 @@ aside .search-facets-lists .list-group-item {
     padding: 5px;
     border: none;
     line-height: 25px;
+    background-color: #FAFAFA;
 }
 aside .search-facets-lists label{
     font: inherit;
@@ -1422,15 +1425,16 @@ aside span#title-filter{
 }
 #clear-filter-button{
     background-color: white;
-    color: rgba(34, 99, 227, 1);
-    border: 2px solid rgba(34, 99, 227, 1);
+    color:#172C6B;
+    border: 2px solid #172C6B;
     box-shadow: none;
     background-image: none;
 }
 #clear-filter-button:focus,
 #clear-filter-button:hover{
-    background-color:  rgba(34, 99, 227, 1);
+    background-color: #172C6B;
     color: white;
+    border: 2px solid#172C6B;
 }
 aside a#apply-filters{
     display: contents;
@@ -1440,9 +1444,8 @@ aside a#apply-filters{
     margin: 0px;
     font-weight: 500;
     text-shadow: none;
-    background-color: white;
-    color: rgba(34, 99, 227, 1);
-    border: 2px solid rgba(34, 99, 227, 1);
+    background-color: #172C6B;
+    color:white;
     box-shadow: none;
     background-image: none;
     border-radius: 5px
@@ -1450,7 +1453,7 @@ aside a#apply-filters{
 aside a#apply-filters:hover,
 aside a#apply-filters:focus{
     text-decoration: none;
-    background-color:  rgba(34, 99, 227, 1);
+    background-color: #008852;
     color: white;
 }
 aside #active-filters{
@@ -1540,14 +1543,14 @@ aside h2.open-refine-search{
     font-weight: bold;
 }
 .open-carousel-top-courses-title{
-    background-color: #172C6B;
+    background-color: #008852;
     color: white;
     padding: 20px;
 }
 .open-carousel-top-courses{
     width:100%;
     display: flex;
-    background: #172C6B;
+    background: #008852;
 }
 .open-carousel-top-courses .carousel-wrap {
     margin-right: 5px;
@@ -2363,7 +2366,7 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 .link-new-courses,
 .link-new-courses a,
 .link-new-courses a:not(.btn), a:visited:not(.btn){
-    color: #172C6B;
+    color: #008852;
 }
 .a:not(.btn):hover, a:not(.btn):focus, a:visited:not(.btn):hover, a:visited:not(.btn):focus{
     color: #008852;
@@ -2440,21 +2443,48 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 }
 
 #filer-bar .accordion-button, #filer-bar .search-facets-lists .accordion .accordion-item:first-of-type .accordion-header .accordion-button{
-	background-color: rgba(0,0,0,.03);
-	border-bottom: 1px solid rgba(0,0,0,.125);
+	background-color: none;
+	border-color: 1px solid rgba(0,0,0,.125);
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
 }
 
 #filter-bar .accordion-item:first-of-type .accordion-button, #filter-bar .accordion-button{
-    background:rgba(0,0,0,.03);
+    background:none;
     box-shadow: none;
     text-shadow: none;
-    padding: .75rem 1.25rem;
+    border: #E3E3E3 1.13px solid;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    background-color: #FAFAFA;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 100%;
+}
+#filter-bar .accordion-item:first-of-type .accordion-button, #filter-bar .accordion-button.collapsed{
+    border-radius: 13px;
+}
+#filter-bar .accordion-item:first-of-type .accordion-button{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;   
+}
+#filter-bar .accordion-item:first-of-type .accordion-button.collapsed{
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+#filter-bar .accordion-body{
+    border: #E3E3E3 1.13px solid;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    background-color: #FAFAFA;
 }
 
 #filter-bar .accordion-button:not(.collapsed){
     color: #004e98;
 }
-
+aside .search-facets-lists .form-check-input[type="radio"] {
+    border: 1px solid #0d6efd;
+}
 #filter-bar  .form-check-input:checked[type="radio"]{
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
     background-color: #004e98;
@@ -2465,3 +2495,10 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 .fake-placeholder-input:not(:placeholder-shown) + .fake-placeholder {
     opacity: 0;
 }
+
+.accordion-item{
+    margin-bottom: 2%;
+    border: none;
+}
+
+
