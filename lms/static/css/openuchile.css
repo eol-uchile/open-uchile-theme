@@ -1436,25 +1436,10 @@ aside span#title-filter{
     color: white;
     border: 2px solid#172C6B;
 }
-aside a#apply-filters{
-    display: contents;
-    color: #2263E3;
-    font-size: 14px;
-    padding: 0px;
-    margin: 0px;
-    font-weight: 500;
-    text-shadow: none;
-    background-color: #172C6B;
-    color:white;
-    box-shadow: none;
-    background-image: none;
-    border-radius: 5px
-}
+
 aside a#apply-filters:hover,
 aside a#apply-filters:focus{
     text-decoration: none;
-    background-color: #008852;
-    color: white;
 }
 aside #active-filters{
     list-style: none;
@@ -2501,4 +2486,52 @@ aside .search-facets-lists .form-check-input[type="radio"] {
     border: none;
 }
 
+#apply-filters .filter-buttons{
+    background-color: #172C6B;
+    border: none; 
+    color: white;
+    font-weight: 700;
+}
+#clear-filters .filter-buttons{
+    background-color:white;
+    border: 1px #172C6B solid; 
+    color: #172C6B;
+    font-weight: 400;
+}
+.filter-buttons{
+    text-shadow: none;
+    height: 60px; 
+    box-shadow: none;
+    background-image: none;
+    text-decoration: none;
+    transition: none;
+    font-size: 16px;
+    
+    font-family: 'Inter', sans-serif;
+    line-height: 22px;
+    border-radius: 9px;
+}
+.filter-buttons:hover,
+.filter-buttons:focus,
+.filter-buttons:hover:not(:disabled){
+    border: none; 
+    text-shadow: none;
+    box-shadow: none;
+    background-image: none;
+    text-decoration: none;
+    transition: none;
+}
+#apply-filters .filter-buttons:hover,
+#apply-filters .filter-buttons:focus,
+#apply-filters .filter-buttons:hover:not(:disabled){
+    background-color: #008852;
+    border-radius: 9px;
+
+}
+#clear-filters .filter-buttons:hover,
+#clear-filters .filter-buttons:focus,
+#clear-filters .filter-buttons:hover:not(:disabled){
+    color: #008852;
+    border: 1px #008852 solid; 
+}
 

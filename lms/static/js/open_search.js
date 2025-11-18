@@ -2,6 +2,7 @@ var now = new Date();
 var current_page = 1;
 var total_pages = 20;
 var page_size = 20;
+var total_filter = 1;
 var filters = {
     "search_string": "",
     "order_by": "newer",
@@ -300,6 +301,7 @@ function clearFilter(){
     $("#discovery-input").val("")
     $("#min-input").val("")
     $("#max-input").val("")
+    total_filter = 1;
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
