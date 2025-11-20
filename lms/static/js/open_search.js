@@ -35,7 +35,6 @@ function countFilters(){
             initial_filter++;
         }
     }
-    console.log(initial_filter)
     return initial_filter
 }
 function createCheckboxOptions(container, object, facet) {
