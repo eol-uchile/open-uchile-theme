@@ -2,7 +2,6 @@ var now = new Date();
 var current_page = 1;
 var total_pages = 20;
 var page_size = 20;
-var total_filter = 1;
 const defaults = {
     search_string: "",
     order_by: "newer",
@@ -29,11 +28,37 @@ var defaultOpts = {
 
 function countFilters(){
     var initial_filter = 1;
+    var price_filter = 0
     for (const key in defaults) {
-        if (key === "order_by") continue; 
-        if (filters[key] != defaults[key]) {
-            initial_filter++;
+        if (key === "order_by"){
+            continue;
+
+        }else if (filters[key] != defaults[key]) {
+            if (key === "only_free"){
+                initial_filter++;
+                price_filter++;
+            }else  if (key === "min_price"){
+                initial_filter++;
+                price_filter++;
+            }else if (key === "max_price"){
+                initial_filter++;
+                price_filter++;
+            }else{
+                    let filter_name = `#${key}-filter`;
+                $(`.open-filter-bar ${filter_name}`).show();
+                $(`.open-filter-bar ${filter_name}`).text('1');
+                initial_filter++;
+                }
+        }else{
+            let filter_name = `#${key}-filter`;
+            $(`.open-filter-bar ${filter_name}`).hide();
         }
+    }
+    if(price_filter > 0){
+        $(`.open-filter-bar #price-filter`).show();
+        $(`.open-filter-bar #price-filter`).text(price_filter);
+    }else{
+        $(`.open-filter-bar #price-filter`).hide();
     }
     return initial_filter
 }
@@ -309,8 +334,7 @@ function clearFilter(){
     $("#discovery-input").val("")
     $("#min-input").val("")
     $("#max-input").val("")
-    total_filter = 1;
-    $(".open-filter-bar #total-filter").text(total_filter)
+    $(".open-filter-bar #total-filter").text(countFilters())
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
