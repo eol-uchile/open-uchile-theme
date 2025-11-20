@@ -2535,3 +2535,14 @@ aside .search-facets-lists .form-check-input[type="radio"] {
     border: 1px #008852 solid; 
 }
 
+#filter-bar #accordion .accordion-button::after{
+    margin-left: 10px;
+    background-image: url('/static/open-uchile-theme/images/svg-2023/flecha-vector.svg');
+	width: 30px;
+	background-color: #E3E3E3;
+	height: 30px;
+	color: #555E67;
+	background-size: 15px;
+	border-radius: 8px;
+    background-position: center;
+}
