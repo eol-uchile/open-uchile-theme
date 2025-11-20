@@ -3,18 +3,19 @@ var current_page = 1;
 var total_pages = 20;
 var page_size = 20;
 var total_filter = 1;
-var filters = {
-    "search_string": "",
-    "order_by": "newer",
-    "year": "",
-    "state": "",
-    "classification": "",
-    "category": "",
-    "current_page": 1,
-    "only_free": false,
-    "min_price": undefined,
-    "max_price": undefined
-}
+const defaults = {
+    search_string: "",
+    order_by: "newer",
+    year: "",
+    state: "",
+    classification: "",
+    category: "",
+    current_page: 1,
+    only_free: false,
+    min_price: "",
+    max_price: ""
+};
+var filters = { ...defaults }
 var $pagination = $('#pagination-explorer');
 
 var defaultOpts = {
@@ -26,6 +27,17 @@ var defaultOpts = {
     visiblePages: 5
 }
 
+function countFilters(){
+    var initial_filter = 1;
+    for (const key in defaults) {
+        if (key === "order_by") continue; 
+        if (filters[key] != defaults[key]) {
+            initial_filter++;
+        }
+    }
+    console.log(initial_filter)
+    return initial_filter
+}
 function createCheckboxOptions(container, object, facet) {
     const label = $('<label>')
         .addClass('list-group-item d-flex')
@@ -123,6 +135,7 @@ $('#freeCourses').on('change', function() {
     current_page = 1;
     filters["max_price"] = $('#max-input').val();
     filters["min_price"] = $('#min-input').val();
+    $(".open-filter-bar #total-filter").text(countFilters())
 });
 
 
@@ -162,6 +175,7 @@ $(window).on('load',function() {
         $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
     }
     initDiscovery();
+    $(".open-filter-bar #total-filter").text(countFilters())
 });
 function initDiscovery(){
     getData().then(function() {
@@ -267,6 +281,7 @@ $(document).on('change', '[data-facet="category"], [data-facet="classification"]
     }
     filters["current_page"] = 1;
     current_page = 1;
+    $(".open-filter-bar #total-filter").text(countFilters())
 });
 
 $(document).on('change', '[id="min-input"], [id="max-input"]', function() {
@@ -274,6 +289,7 @@ $(document).on('change', '[id="min-input"], [id="max-input"]', function() {
     filters["max_price"] = $('#max-input').val();
     filters["current_page"] = 1;
     current_page = 1;
+    $(".open-filter-bar #total-filter").text(countFilters())
 });
 
 $('#order-select').on('change', function(e) {
@@ -284,24 +300,18 @@ $('#order-select').on('change', function(e) {
     current_page = 1;
     $(`input[type="radio"][data-facet="order_by"]`).prop('checked', false);
     $(`input[type="radio"][data-facet="order_by"][data-value="${gettext($(this)[0].value)}"]`).prop('checked', true);
+    $(".open-filter-bar #total-filter").text(countFilters())
 });
 
 function clearFilter(){
-    filters["search_string"] = ""
-    filters["classification"] = ""
-    filters["category"] = ""
-    filters["state"] = ""
-    filters["current_page"] = 1
-    filters["year"] = ""
-    filters["order_by"] = "newer"
-    filters["min_price"] = undefined
-    filters["max_price"] = undefined
+     filters = { ...defaults };
     $("#order-select").val('newer')
     $(`input[type="radio"][data-facet="order_by"][data-value="newer"]`).prop('checked', true);
     $("#discovery-input").val("")
     $("#min-input").val("")
     $("#max-input").val("")
     total_filter = 1;
+    $(".open-filter-bar #total-filter").text(total_filter)
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
