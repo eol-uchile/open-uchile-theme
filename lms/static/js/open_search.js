@@ -27,7 +27,7 @@ var defaultOpts = {
 }
 
 function countFilters(){
-    var initial_filter = 1;
+    var initial_filter = 0;
     var price_filter = 0
     for (const key in defaults) {
         if (key === "order_by"){
@@ -128,6 +128,14 @@ function loadCategories() {
         });
 }
 
+function show_total_filters(){
+    if(countFilters() > 0){
+        $(".open-filter-bar #total-filter").text("(" + countFilters() + ")")
+    }else{
+        $(".open-filter-bar #total-filter").text("")
+    }
+}
+
 $(document).ready(function() {
     loadOrganizations();
     loadCategories();
@@ -159,7 +167,7 @@ $('#freeCourses').on('change', function() {
     current_page = 1;
     filters["max_price"] = $('#max-input').val();
     filters["min_price"] = $('#min-input').val();
-    $(".open-filter-bar #total-filter").text(countFilters())
+    show_total_filters();
 });
 
 
@@ -199,7 +207,7 @@ $(window).on('load',function() {
         $(`input[type="checkbox"][data-facet="category"][data-value="${selectedCategory}"]`).prop('checked', true);
     }
     initDiscovery();
-    $(".open-filter-bar #total-filter").text(countFilters())
+    
 });
 function initDiscovery(){
     getData().then(function() {
@@ -305,7 +313,7 @@ $(document).on('change', '[data-facet="category"], [data-facet="classification"]
     }
     filters["current_page"] = 1;
     current_page = 1;
-    $(".open-filter-bar #total-filter").text(countFilters())
+    show_total_filters();
 });
 
 $(document).on('change', '[id="min-input"], [id="max-input"]', function() {
@@ -313,7 +321,7 @@ $(document).on('change', '[id="min-input"], [id="max-input"]', function() {
     filters["max_price"] = $('#max-input').val();
     filters["current_page"] = 1;
     current_page = 1;
-    $(".open-filter-bar #total-filter").text(countFilters())
+    show_total_filters();
 });
 
 $('#order-select').on('change', function(e) {
@@ -324,7 +332,7 @@ $('#order-select').on('change', function(e) {
     current_page = 1;
     $(`input[type="radio"][data-facet="order_by"]`).prop('checked', false);
     $(`input[type="radio"][data-facet="order_by"][data-value="${gettext($(this)[0].value)}"]`).prop('checked', true);
-    $(".open-filter-bar #total-filter").text(countFilters())
+    show_total_filters();
 });
 
 function clearFilter(){
@@ -334,7 +342,7 @@ function clearFilter(){
     $("#discovery-input").val("")
     $("#min-input").val("")
     $("#max-input").val("")
-    $(".open-filter-bar #total-filter").text(countFilters())
+    show_total_filters();
 }
 
 $('.open-filter-bar #clear-filters').live('click', function(e) {
