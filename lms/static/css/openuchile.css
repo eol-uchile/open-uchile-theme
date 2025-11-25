@@ -1528,14 +1528,14 @@ aside h2.open-refine-search{
     font-weight: bold;
 }
 .open-carousel-top-courses-title{
-    background-color: #008852;
+    background-color: #172C6B;
     color: white;
     padding: 20px;
 }
 .open-carousel-top-courses{
     width:100%;
     display: flex;
-    background: #008852;
+    background: #172C6B;
 }
 .open-carousel-top-courses .carousel-wrap {
     margin-right: 5px;
@@ -2351,7 +2351,7 @@ body.view-in-course .course-wrapper, body.view-in-course .profile-wrapper, body.
 .link-new-courses,
 .link-new-courses a,
 .link-new-courses a:not(.btn), a:visited:not(.btn){
-    color: #008852;
+    color: #172C6B;
 }
 .a:not(.btn):hover, a:not(.btn):focus, a:visited:not(.btn):hover, a:visited:not(.btn):focus{
     color: #008852;
