@@ -44,11 +44,11 @@ function countFilters(){
                 initial_filter++;
                 price_filter++;
             }else{
-                    let filter_name = `#${key}-filter`;
+                let filter_name = `#${key}-filter`;
                 $(`.open-filter-bar ${filter_name}`).show();
                 $(`.open-filter-bar ${filter_name}`).text('1');
                 initial_filter++;
-                }
+            }
         }else{
             let filter_name = `#${key}-filter`;
             $(`.open-filter-bar ${filter_name}`).hide();
@@ -140,6 +140,7 @@ $(document).ready(function() {
     loadOrganizations();
     loadCategories();
     loadYears();
+    show_total_filters();
 });
 
 $('#freeCourses').on('change', function() {
