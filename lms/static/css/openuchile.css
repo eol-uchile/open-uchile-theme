@@ -2498,6 +2498,7 @@ aside .search-facets-lists .form-check-input[type="radio"] {
     border: 1px #172C6B solid; 
     color: #172C6B;
     font-weight: 400;
+    box-shadow: none;
 }
 .filter-buttons{
     text-shadow: none;
