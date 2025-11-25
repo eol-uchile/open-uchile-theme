@@ -1378,6 +1378,7 @@ aside .search-facets-lists .form-check-input[type=checkbox] {
     width: 20px;
     height: 20px;
     margin: 0px;
+    margin-top: .15rem;
     padding: 0px
 }
 aside .search-facets-lists .form-check-input[type=checkbox]:checked {
