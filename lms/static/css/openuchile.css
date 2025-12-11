@@ -150,43 +150,76 @@ footer#openuchile-footer img:hover {
 /* FAQ */
 
 #faq h1 {
-    color: #004B93;
+    color: var(--primary-text-color);
+    font-weight: 700;
+    font-size: 40px;
 }
 
-#faq .accordion-item {
-    background-color: #ffffff5e;
-    border: 1px solid rgba(0, 0, 0, .125);
-}
 
 #faq .accordion-button {
     background: none;
+    background-color:var(--background-component-color);
     text-shadow: none;
     box-shadow: none;
     padding-left: 2rem;
     padding-right: 2rem;
+    color: var(--primary-text-color);
+    font-weight: 700;
+    font-style: bold;
+    font-size: 18px;
+    border: #E3E3E3 1.13px solid;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
 }
 
 #faq .accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     transform: rotate(-0deg);
-    color: black;
+    color: var(--primary-text-color);
 }
 
 #faq .accordion-button::after {
     transform: rotate(-90deg);
 }
 
-#faq .accordion-button:not(.collapsed), #faq .accordion-collapse {
-    background-color: #afafaf5e;
+#faq #faqsaccordion .accordion-button::after{
+    background-image: url('/static/open-uchile-theme/images/svg-2023/flecha-vector.svg');
+	width: 30px;
+	background-color: #E3E3E3;
+	height: 30px;
+	color: var(--primary-text-color);
+	background-size: 15px;
+    border-radius: 8px;
+    background-position: center;
 }
-
-#faq .accordion-button {
-    color: black;
-    font-weight: bold;
-}
-
 #faq .accordion-body {
-    padding: 0rem 2rem 1rem 2rem;
+    padding: 2rem 4rem 2rem 4rem;
+    border: #E3E3E3 1.13px solid;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    background-color: var(--background-component-color);
+    text-align: justify;
+}
+
+#faq .header-open-faq{
+    color: var(--primary-text-color);
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+#faq .accordion-item .accordion-button{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#faq .accordion-button.collapsed{
+    border-radius: 13px;
+    font-weight: 400;
+    font-style: normal;
+}
+#faq .accordion-item{
+    border: none;
 }
 
 /* Certificate Validation */
@@ -860,13 +893,6 @@ input[type="search"]::-ms-input-placeholder {
     margin-left: auto;
     margin-right: auto;
 }
-.explorer-courses-border{
-    border-top: 3px solid #1C4D94;
-    width: 60px;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-}
 .new-courses-title-container{
     font-size: 30px;
     color: #494949;
@@ -875,6 +901,9 @@ input[type="search"]::-ms-input-placeholder {
     margin-bottom: 0;
     text-transform: capitalize;
 }
+.validate-certificate-border,
+.faq-border,
+.explorer-courses-border,
 .new-courses-border{
     border-top: 3px solid #1C4D94;
     width: 60px;
@@ -1258,6 +1287,7 @@ aside .search-facets-lists .list-group-item {
     padding: 5px;
     border: none;
     line-height: 25px;
+    background-color: var(--background-component-color);
 }
 aside .search-facets-lists label{
     font: inherit;
