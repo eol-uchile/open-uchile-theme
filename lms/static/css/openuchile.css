@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #004B93;
+    --primary-color-hover: #008852;
+    --primary-text-color: #555E67;
+    --page-max-width: 3840px;
+    --background-component-color: #FAFAFA
+}
+
 p, h1, h2, h3, h4, h5, ul, ol, li, div, button, a, label, input, select, option, textarea, .btn {
     font-family: 'Inter', sans-serif;
     font-weight: normal;
