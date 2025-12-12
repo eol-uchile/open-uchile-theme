@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-09 20:00+0000\n"
+"POT-Creation-Date: 2025-12-12 13:04+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -1459,7 +1459,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:18
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:26
 msgid ""
 "Click to display the grading configuration for the course. The grading "
 "configuration is the breakdown of graded subsections of the course (such "
@@ -1467,23 +1467,23 @@ msgid ""
 "(under 'Settings') in Studio."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:19
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:27
 msgid "Grading Configuration"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:24
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:32
 msgid "Click to download a CSV of anonymized student IDs:"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:25
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:33
 msgid "Get Student Anonymized IDs CSV"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:31
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:39
 msgid "Reports"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:33
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:41
 msgid ""
 "For large courses, generating some reports can take several hours. When "
 "report generation is complete, a link that includes the date and time of "
@@ -1492,61 +1492,61 @@ msgid ""
 "report is generating."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:35
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:43
 msgid ""
 "Please be patient and do not click these buttons multiple times. Clicking"
 " these buttons multiple times will significantly slow the generation "
 "process."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:37
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:45
 msgid ""
 "Click to generate a CSV file of all students enrolled in this course, "
 "along with profile information such as email address and username:"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:39
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:47
 msgid "Download profile information as a CSV"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:41
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:49
 msgid ""
 "Click to generate a CSV file that lists learners who can enroll in the "
 "course but have not yet done so."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:43
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:51
 msgid "Download a CSV of learners who can enroll"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:46
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:54
 msgid "Click to generate a CSV file of all proctored exam results in this course."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:47
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:55
 msgid "Generate Proctored Exam Results Report"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:51
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:59
 msgid "Click to generate a CSV file of survey results for this course."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:52
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:60
 msgid "Generate Survey Results Report"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:55
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:63
 msgid ""
 "Select a problem to generate a CSV file that lists all student answers to"
 " the problem. You also select a section or chapter to include results of "
 "all problems in that section or chapter."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:59
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:67
 msgid "NOTE"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:60
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:68
 #, python-brace-format
 msgid ""
 "The generated report is limited to {max_entries} responses. If you expect"
@@ -1555,45 +1555,49 @@ msgid ""
 "administrator to increase the limit."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:82
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:103
 msgid "Click to list certificates that are issued for this course:"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:84
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:105
 msgid "View Certificates Issued"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:85
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:106
 msgid "Download CSV of Certificates Issued"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:92
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:108
+msgid "(New) Download Certificates Report"
+msgstr "(Nuevo) Descargar Reporte de Certificados"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:121
 msgid ""
 "For smaller courses, click to list profile information for enrolled "
 "students directly on this page:"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:93
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:122
 msgid "List enrolled students' profile information"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:98
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:127
 msgid "Click to generate a CSV grade report for all currently enrolled students."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:100
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:129
 msgid "Generate Grade Report"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:101
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:130
 msgid "Generate Problem Grade Report"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:102
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:131
 msgid "Generate ORA Data Report"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:105
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:134
 msgid ""
 "Click to generate a ZIP file that contains all submission texts and "
 "attachments."
@@ -1601,29 +1605,88 @@ msgstr ""
 "Click para generar un archivo ZIP que contiene todas las respuestas y "
 "archivos enviados."
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:107
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:136
 msgid "Generate Submission Files Archive"
 msgstr "Generar reporte de archivos enviados"
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:121
-msgid "Survey analytics"
-msgstr "Analítica de encuestas"
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:156
+msgid "Problem report"
+msgstr "Reporte de preguntas"
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:125
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:157
+msgid "There are two ways to generate a problem report in CSV format:"
+msgstr "Existen dos maneras para generar reportes de preguntas en formato CSV:"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:158
+msgid "Summary"
+msgstr "Resumen"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:158
+msgid ""
+"Generates a report of all problem-type blocks showing attempts, obtained "
+"score and possible score of each student."
+msgstr ""
+"Genera un reporte de todos los bloques tipo pregunta mostrando los "
+"intentos, puntaje ganado y puntaje posible del bloque de cada estudiante."
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:159
+msgid "Complete"
+msgstr "Completo"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:159
+msgid ""
+"Generates a report of all questions in problem-type blocks showing the "
+"question, students answer, correct answer, attempts, obtained score and "
+"block possible score for each student."
+msgstr ""
+"Genera un reporte de todas las preguntas de los bloques tipo pregunta "
+"mostrando la pregunta, respuesta del estudiante, respuesta correcta, "
+"intentos, puntaje ganado y puntaje posible del bloque."
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:160
+msgid "Summary Report"
+msgstr "Reporte Modo Resumen"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:161
+msgid "Complete Report"
+msgstr "Reporte Modo Completo"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:165
+msgid ""
+"For a better visualization and handling of the data in Excel, you can see"
+" a simple tutorial by"
+msgstr ""
+"Para una mejor visualización y manejo de los datos en el Excel, puede ver"
+" un mini tutorial haciendo"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:165
+msgid "clicking here"
+msgstr "click aqui"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:184
+msgid "Problem Analytics"
+msgstr "Analítica de preguntas"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:187
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:209
 msgid "Generate"
 msgstr "Generar"
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:137
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:205
+msgid "Survey Analytics"
+msgstr "Analítica de encuestas"
+
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:221
 msgid "Reports Available for Download"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:139
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:223
 msgid ""
 "The reports listed below are available for download, identified by UTC "
 "date and time of generation."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:144
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:228
 msgid ""
 "The answer distribution report listed below is generated periodically by "
 "an automated background process. The report is cumulative, so answers "
@@ -1631,7 +1694,7 @@ msgid ""
 "The report is generated several times per day."
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:150
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:234
 #, python-brace-format
 msgid ""
 "{strong_start}Note{strong_end}: {ul_start}{li_start}To keep student data "
@@ -1642,12 +1705,12 @@ msgid ""
 "security policies.{li_end}{ul_end}"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:167
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:251
 #: lms/templates/instructor/instructor_dashboard_2/send_email.html:137
 msgid "Pending Tasks"
 msgstr ""
 
-#: lms/templates/instructor/instructor_dashboard_2/data_download.html:169
+#: lms/templates/instructor/instructor_dashboard_2/data_download.html:253
 msgid "The status for any active tasks appears in a table below."
 msgstr ""
 
