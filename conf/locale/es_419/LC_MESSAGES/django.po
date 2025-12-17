@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-09 20:00+0000\n"
+"POT-Creation-Date: 2025-11-25 21:48+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -422,44 +422,46 @@ msgstr "Miniatura actualizada."
 msgid "There was an error updating the thumbnail."
 msgstr "Se ha producido un error en actualizar la miniatura."
 
-#: lms/templates/course.html:56 lms/templates/courseware/course_about.html:159
+#: lms/templates/course.html:58 lms/templates/courseware/course_about.html:203
 msgid "Classes Start"
 msgstr "Inicio de clases"
 
-#: lms/templates/course.html:71 lms/templates/courseware/course_about.html:178
+#: lms/templates/course.html:77 lms/templates/courseware/course_about.html:222
 msgid "Pacing"
 msgstr "Modalidad"
 
-#: lms/templates/course.html:73 lms/templates/courseware/course_about.html:180
+#: lms/templates/course.html:79 lms/templates/courseware/course_about.html:224
 msgid "Student paced"
 msgstr "Ritmo estudiante"
 
-#: lms/templates/course.html:75 lms/templates/courseware/course_about.html:182
+#: lms/templates/course.html:81 lms/templates/courseware/course_about.html:226
 msgid "Instructor paced"
 msgstr "Ritmo profesor"
 
-#: lms/templates/course.html:92 lms/templates/courseware/course_about.html:197
+#: lms/templates/course.html:98 lms/templates/courseware/course_about.html:241
 msgid "Price"
 msgstr "Precio"
 
-#: lms/templates/course.html:116 lms/templates/courseware/course_about.html:220
+#: lms/templates/course.html:122 lms/templates/courseware/course_about.html:264
 msgid "Duration"
 msgstr "Duración"
 
-#: lms/templates/course.html:127 lms/templates/courseware/course_about.html:115
+#: lms/templates/course.html:133 lms/templates/courseware/course_about.html:145
 msgid "Enroll now"
 msgstr "Inscríbete aquí"
 
-#: lms/templates/course.html:129 lms/templates/courseware/courses.html:79
+#: lms/templates/course.html:135 lms/templates/courseware/courses.html:99
+#: lms/templates/courseware/courses.html:100
 msgid "Coming soon"
 msgstr "Próximamente"
 
-#: lms/templates/course.html:131 lms/templates/course.html:135
+#: lms/templates/course.html:137 lms/templates/course.html:141
 #: lms/templates/course_portal.html:97
 msgid "See more"
 msgstr "Aprender más"
 
-#: lms/templates/course.html:133 lms/templates/courseware/courses.html:78
+#: lms/templates/course.html:139 lms/templates/courseware/courses.html:95
+#: lms/templates/courseware/courses.html:96
 msgid "Finished"
 msgstr "Finalizado"
 
@@ -483,27 +485,31 @@ msgstr "Fecha de término"
 msgid "Top Courses"
 msgstr "Top Cursos"
 
-#: lms/templates/courses_list.html:29 lms/templates/courses_list.html:60
+#: lms/templates/courses_list.html:29 lms/templates/courses_list.html:64
 msgid "There are no courses"
 msgstr "No se encontraron cursos"
 
-#: lms/templates/courses_list.html:34
+#: lms/templates/courses_list.html:35
 msgid "New Courses"
 msgstr "Nuevos cursos"
 
-#: lms/templates/courses_list.html:65
+#: lms/templates/courses_list.html:60
+msgid "See more courses"
+msgstr "Ver más cursos"
+
+#: lms/templates/courses_list.html:69
 msgid "About us"
 msgstr "Quiénes somos"
 
-#: lms/templates/courses_list.html:68
+#: lms/templates/courses_list.html:72
 msgid "How the platform works"
 msgstr "Cómo funciona la plataforma"
 
-#: lms/templates/courses_list.html:71
+#: lms/templates/courses_list.html:75
 msgid "About UChile"
 msgstr "Sobre UChile"
 
-#: lms/templates/courses_list.html:79
+#: lms/templates/courses_list.html:83
 msgid ""
 "The Online Education Office of the University of Chile (OpenUChile) is an"
 " initiative promoted by the Vice Rector's Office of Information "
@@ -530,7 +536,7 @@ msgstr ""
 "digital del aprendizaje. Para saber más acerca de nosotros, ingresa aquí:"
 " "
 
-#: lms/templates/courses_list.html:91
+#: lms/templates/courses_list.html:95
 msgid ""
 "OpenUChile's platform runs on Open edX technology, which allows it to "
 "offer online courses with an interactive and flexible learning "
@@ -553,7 +559,7 @@ msgstr ""
 "con una sección de preguntas frecuentes (FAQ) y soporte técnico para "
 "resolver dudas durante el proceso."
 
-#: lms/templates/courses_list.html:103
+#: lms/templates/courses_list.html:107
 msgid ""
 "The Universidad de Chile is the oldest public institution of higher "
 "education in the country, founded in 1842. Recognized for its academic "
@@ -577,23 +583,23 @@ msgstr ""
 "Chile y el mundo, con el respaldo académico de una de las universidades "
 "más prestigiosas de América Latina. Conoce más en "
 
-#: lms/templates/footer.html:52
+#: lms/templates/footer.html:53
 msgid "Need help?"
 msgstr "Mesa de ayuda"
 
-#: lms/templates/footer.html:52
-#: lms/templates/header/navbar-authenticated.html:33
-#: lms/templates/header/navbar-authenticated.html:50
+#: lms/templates/footer.html:53
+#: lms/templates/header/navbar-authenticated.html:34
+#: lms/templates/header/navbar-authenticated.html:51
 #: lms/templates/header/navbar-not-authenticated.html:43
 #: lms/templates/header/navbar-not-authenticated.html:57
 msgid "Contact us"
 msgstr "Contáctanos"
 
-#: lms/templates/footer.html:59
+#: lms/templates/footer.html:60
 msgid "Terms and Conditions"
 msgstr "Términos y Condiciones"
 
-#: lms/templates/footer.html:62 lms/templates/static_templates/privacy.html:6
+#: lms/templates/footer.html:63 lms/templates/static_templates/privacy.html:6
 msgid "Privacy Policy"
 msgstr "Política de Privacidad"
 
@@ -601,7 +607,7 @@ msgstr "Política de Privacidad"
 msgid "Home"
 msgstr ""
 
-#: lms/templates/index.html:66
+#: lms/templates/index.html:70
 msgid "Extension and outreach lifelong online education"
 msgstr "Formación Online de Educación Continua y Extensión"
 
@@ -610,9 +616,9 @@ msgid "Skip to main content"
 msgstr ""
 
 #: lms/templates/certificates/validate_certificates.html:7
-#: lms/templates/certificates/validate_certificates.html:33
-#: lms/templates/header/navbar-authenticated.html:31
-#: lms/templates/header/navbar-authenticated.html:47
+#: lms/templates/certificates/validate_certificates.html:32
+#: lms/templates/header/navbar-authenticated.html:32
+#: lms/templates/header/navbar-authenticated.html:48
 #: lms/templates/header/navbar-not-authenticated.html:41
 msgid "Certificate Validation "
 msgstr "Validación de certificados"
@@ -622,15 +628,15 @@ msgstr "Validación de certificados"
 msgid "Certificates validation"
 msgstr "Validación de Certificados"
 
-#: lms/templates/certificates/validate_certificates.html:39
+#: lms/templates/certificates/validate_certificates.html:38
 msgid "Certificate ID number"
 msgstr "ID de certificado"
 
-#: lms/templates/certificates/validate_certificates.html:49
+#: lms/templates/certificates/validate_certificates.html:48
 msgid "Certificate was not found"
 msgstr "Certificado no encontrado"
 
-#: lms/templates/certificates/validate_certificates.html:53
+#: lms/templates/certificates/validate_certificates.html:52
 msgid "Validate"
 msgstr "Validar"
 
@@ -845,120 +851,161 @@ msgstr ""
 msgid "An error occurred. Please try again later."
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:84
-#: lms/templates/courseware/course_about.html:89
+#: lms/templates/courseware/course_about.html:94
+#: lms/templates/courseware/course_about.html:99
 msgid "You are enrolled in this course"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:86
-#: lms/templates/courseware/course_about.html:100
+#: lms/templates/courseware/course_about.html:96
+#: lms/templates/courseware/course_about.html:120
 msgid "View Course"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:92
+#: lms/templates/courseware/course_about.html:102
+#: lms/templates/courseware/course_about.html:123
+msgid "Would you like it to be offered again?"
+msgstr "¿Te gustaría que se vuelva a impartir?"
+
+#: lms/templates/courseware/course_about.html:109
+#: lms/templates/courseware/course_about.html:130
+msgid "Yes, I would like to"
+msgstr "Sí, me gustaría"
+
+#: lms/templates/courseware/course_about.html:112
 msgid "Course is full"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:94
+#: lms/templates/courseware/course_about.html:114
 msgid "Enrollment in this course is by invitation only"
 msgstr "Curso requiere postulación"
 
-#: lms/templates/courseware/course_about.html:96
+#: lms/templates/courseware/course_about.html:116
 msgid "Enrollment is Closed"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:136
+#: lms/templates/courseware/course_about.html:167
 msgid "View About Page in studio"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:230
+#: lms/templates/courseware/course_about.html:273
+msgid "Extra data"
+msgstr "Datos extra"
+
+#: lms/templates/courseware/course_about.html:285
+msgid "Classes End"
+msgstr "Término de clases"
+
+#: lms/templates/courseware/course_about.html:302
+msgid "Enrollment Start"
+msgstr "Inicio de inscripciones"
+
+#: lms/templates/courseware/course_about.html:319
+msgid "Enrollment End"
+msgstr "Término de inscripciones"
+
+#: lms/templates/courseware/course_about.html:331
 msgid "There is one session available:"
 msgstr "Hay una edición del curso disponible:"
 
-#: lms/templates/courseware/course_about.html:231
+#: lms/templates/courseware/course_about.html:332
 msgid " already enrolled!"
 msgstr " inscritos de momento!"
 
-#: lms/templates/courseware/course_about.html:264
-#: lms/templates/static_templates/faq.html:35
+#: lms/templates/courseware/course_about.html:365
+#: lms/templates/static_templates/faq.html:34
 msgid "Frequently Asked Questions"
 msgstr "Preguntas Frecuentes"
 
-#: lms/templates/courseware/course_about.html:281
+#: lms/templates/courseware/course_about.html:382
 msgctxt "self"
 msgid "Enroll"
 msgstr ""
 
-#: lms/templates/courseware/course_about.html:286
+#: lms/templates/courseware/course_about.html:387
 msgctxt "self"
 msgid "enroll"
 msgstr ""
 
-#: lms/templates/courseware/courses.html:24
+#: lms/templates/courseware/courses.html:22
 msgid "Courses"
 msgstr "Cursos"
 
-#: lms/templates/courseware/courses.html:37
-#: lms/templates/courseware/courses.html:44
+#: lms/templates/courseware/courses.html:35
+#: lms/templates/courseware/courses.html:41
 msgid "Refine your search"
 msgstr "Refina tu búsqueda"
 
-#: lms/templates/courseware/courses.html:47
-msgid "Clear All"
-msgstr "Borrar Todo"
-
-#: lms/templates/courseware/courses.html:54
+#: lms/templates/courseware/courses.html:50
 msgid "Order"
 msgstr "Orden"
 
 #: lms/templates/courseware/courses.html:56
-#: lms/templates/courseware/courses.html:121
+#: lms/templates/courseware/courses.html:57
+#: lms/templates/courseware/courses.html:187
 msgid "Newer"
 msgstr "Más recientes"
 
-#: lms/templates/courseware/courses.html:57
-#: lms/templates/courseware/courses.html:122
+#: lms/templates/courseware/courses.html:60
+#: lms/templates/courseware/courses.html:61
+#: lms/templates/courseware/courses.html:188
 msgid "Older"
 msgstr "Más antiguos"
 
-#: lms/templates/courseware/courses.html:63
+#: lms/templates/courseware/courses.html:70
 msgid "Year"
 msgstr "Año"
 
-#: lms/templates/courseware/courses.html:65
-msgid "Select a year"
-msgstr "Seleciona un año"
-
-#: lms/templates/courseware/courses.html:74
+#: lms/templates/courseware/courses.html:84
 msgid "State"
 msgstr "Estado"
 
-#: lms/templates/courseware/courses.html:76
-msgid "Select a state"
-msgstr "Selecciona un estado"
-
-#: lms/templates/courseware/courses.html:77
+#: lms/templates/courseware/courses.html:91
+#: lms/templates/courseware/courses.html:92
 msgid "Active"
 msgstr "Activo"
 
-#: lms/templates/courseware/courses.html:83
+#: lms/templates/courseware/courses.html:108
 msgid "Organizations"
 msgstr "Organizaciones"
 
-#: lms/templates/courseware/courses.html:93
+#: lms/templates/courseware/courses.html:121
 msgid "Categories"
 msgstr "Categorías"
 
-#: lms/templates/courseware/courses.html:115
-#: lms/templates/courseware/courses.html:116
+#: lms/templates/courseware/courses.html:134
+msgid "Price range"
+msgstr "Rango de precios"
+
+#: lms/templates/courseware/courses.html:142
+msgid "From"
+msgstr "Desde"
+
+#: lms/templates/courseware/courses.html:149
+msgid "To"
+msgstr "Hasta"
+
+#: lms/templates/courseware/courses.html:158
+msgid "Show free courses only"
+msgstr "Mostrar solo cursos gratuitos"
+
+#: lms/templates/courseware/courses.html:166
+msgid "Clear Filters"
+msgstr "Limpiar Filtros"
+
+#: lms/templates/courseware/courses.html:167
+msgid "Apply Filters"
+msgstr "Aplicar Filtros"
+
+#: lms/templates/courseware/courses.html:181
+#: lms/templates/courseware/courses.html:182
 msgid "Search for a course"
 msgstr "Buscar en nuestros cursos"
 
-#: lms/templates/courseware/courses.html:128
+#: lms/templates/courseware/courses.html:194
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: lms/templates/courseware/courses.html:133
+#: lms/templates/courseware/courses.html:199
 msgid "All courses"
 msgstr "Todos los cursos"
 
@@ -1377,12 +1424,12 @@ msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lms/templates/header/header.html:96
+#: lms/templates/header/header.html:98
 #: lms/templates/widgets/footer-language-selector.html:24
 msgid "Choose Language"
 msgstr ""
 
-#: lms/templates/header/header.html:133
+#: lms/templates/header/header.html:135
 #, python-brace-format
 msgid ""
 "{begin_strong}Warning:{end_strong} Your browser is not fully supported. "
@@ -1390,26 +1437,26 @@ msgid ""
 msgstr ""
 
 #: lms/templates/header/navbar-authenticated.html:15
-#: lms/templates/header/navbar-authenticated.html:41
+#: lms/templates/header/navbar-authenticated.html:42
 #: lms/templates/header/navbar-not-authenticated.html:22
 #: lms/templates/header/navbar-not-authenticated.html:48
 msgid "Explore courses"
 msgstr "Buscar Cursos"
 
-#: lms/templates/header/navbar-authenticated.html:22
-#: lms/templates/header/navbar-authenticated.html:23
+#: lms/templates/header/navbar-authenticated.html:18
+#: lms/templates/header/navbar-authenticated.html:39
+msgid "My Courses"
+msgstr "Mis cursos"
+
+#: lms/templates/header/navbar-authenticated.html:25
+#: lms/templates/header/navbar-authenticated.html:26
 #: lms/templates/header/navbar-not-authenticated.html:34
 #: lms/templates/header/navbar-not-authenticated.html:35
 msgid "Menu"
 msgstr ""
 
-#: lms/templates/header/navbar-authenticated.html:27
-#: lms/templates/header/navbar-authenticated.html:38
-msgid "My Courses"
-msgstr ""
-
-#: lms/templates/header/navbar-authenticated.html:29
-#: lms/templates/header/navbar-authenticated.html:44
+#: lms/templates/header/navbar-authenticated.html:30
+#: lms/templates/header/navbar-authenticated.html:45
 #: lms/templates/header/navbar-not-authenticated.html:39
 #: lms/templates/header/navbar-not-authenticated.html:51
 #: lms/templates/static_templates/faq.html:6
