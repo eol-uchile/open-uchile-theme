@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #004B93;
+    --primary-color-hover: #008852;
+    --primary-text-color: #555E67;
+    --page-max-width: 3840px;
+    --background-component-color: #FAFAFA
+}
+
 p, h1, h2, h3, h4, h5, ul, ol, li, div, button, a, label, input, select, option, textarea, .btn {
     font-family: 'Inter', sans-serif;
     font-weight: normal;
@@ -263,8 +271,7 @@ footer#openuchile-footer img:hover {
 /* Courses List */
 
 .courses-list {
-    margin-left: 0px;
-    margin-right: 0px;
+    max-width: var(--page-max-width);
 }
 .courses-list li:nth-child(2n+1) {
     margin-right: 1em;
@@ -713,6 +720,7 @@ a.nav-link.user-menu:hover,
     margin-top: 1rem;
     padding-bottom: 1rem;
     font-family: 'Raleway', sans-serif !important;
+    flex-direction: column;
 }
 #open-navbar .nav-link {
     color: #004B93;
@@ -934,14 +942,20 @@ input[type="search"]::-ms-input-placeholder {
 }
 .courses-container .highlighted-courses{
     display: flex;
-    max-width: 1765px;
+    max-width: var(--page-max-width);
 }
 .courses-container .highlighted-courses .courses-list{
     margin-left: auto;
     margin-right: auto;
 }
-.courses-container {
-    max-width: 1765px;
+
+.max-course-container{
+    max-width: var(--page-max-width);
+}
+.open-institutions-body{
+    max-width: var(--page-max-width);
+    margin-left: auto;
+    margin-right: auto;
 }
 /* New course card */
 
@@ -1713,7 +1727,7 @@ aside h2.open-refine-search{
 }
 
 .main-container .navbar.course-tabs{
-    max-width: 1920px;
+    max-width: var(--page-max-width);
     margin: auto;
     padding-left: 0;
 }
@@ -1753,7 +1767,7 @@ body .wrapper-preview-menu .preview-menu {
 }
 .wrapper-course-material .course-material, .wrapper-preview-menu .preview-menu {
     margin: 0 auto;
-    max-width: 1920px;
+    max-width: var(--page-max-width);
     width: 100%;
 }
 .breadcrumbs-header {
@@ -1771,6 +1785,7 @@ body .wrapper-preview-menu .preview-menu {
     position: absolute;
     right: 0;
     z-index: 10;
+    margin-top: -100px;
 }
 .header-lang-selector{
     border: 1px #004B93 solid ;
@@ -1830,6 +1845,7 @@ body .wrapper-preview-menu .preview-menu {
     margin-top:1.5rem;
     border-top-left-radius:5px;
     border-top-right-radius:5px;
+    height: auto;
 }
 
 .separator {
@@ -2036,6 +2052,7 @@ body .wrapper-preview-menu .preview-menu {
 }
 
 .index-text-presentation{
+    color: white;
     font-weight: 700;
     font-size: 60px;
     line-height: normal;

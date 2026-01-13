@@ -16,6 +16,10 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 </%block>
 <%block name="pagetitle">${_("Home")}</%block>
 <%block name="headextra">
+
+<meta name="title" content="${self.pagetitle()}">
+<meta name="description" content="${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}">
+
 ## OG (Open Graph) title and description added below to give social media info to display
 <meta property="og:title" content="${self.pagetitle()}">
 <meta property="og:description" content="${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}">
@@ -39,7 +43,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
     "address":"${configuration_helpers.get_value('EOL_SITE_ADDRESS', '')}",
     "email":"${configuration_helpers.get_value('EOL_SITE_EMAIL', '')}",
     "latitude": "-33.44269461021022",
-    "longitude" "-70.63765775193981",
+    "longitude": "-70.63765775193981",
     "keywords":"educación, educación continua, cursos",
     "logo":
     {
@@ -49,7 +53,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
       "contentUrl": "${static.url('open-uchile-theme/images/svg-2023/Logo-OpenUchile.svg')}",
       "author": "Oficina EOL"
     },
-    "description":"${configuration_helpers.get_value('EOL_SITE_DESCRIPTION', '')}",
+    "description":"${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}",
     "parentOrganization":{
       "@id":"https://uchile.cl/",
       "name":"Universidad de Chile",
@@ -59,12 +63,12 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
   </script>
 %endif
 </%block>
-<section class="container-fluid px-0 pb-5" id="main">
+<section class="container-fluid px-0 pb-5 max-course-container" id="main">
   <div class="container-center row p-0 m-0 index-front-page">
-    <div class="d-flex justify-content-lg-end justify-content-md-center justify-content-sm-center">
-      <p class="text-md-start text-lg-start p-0 p-sm-0 p-md-5 p-lg-5 m-0 m-sm-0 m-dm-5 m-lg-5 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 fw-bold index-text-presentation align-self-center">
+    <div class="d-flex justify-content-xl-end justify-content-lg-end justify-content-md-center justify-content-sm-center max-course-container">
+      <h1 class="text-md-start text-lg-start p-0 p-sm-0 p-md-5 p-lg-5 m-0 m-sm-0 m-dm-5 m-lg-5 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 fw-bold index-text-presentation align-self-center">
         ${_("Extension and outreach lifelong online education")}
-      </p>
+      </h1>
     </div>
   </div>
   % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
@@ -73,7 +77,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
     %>
     <div class="open-carousel-orgs p-2">
       <div class="carousel-wrap">
-        <div class="owl-carousel owl-theme">
+        <div class="owl-carousel owl-theme max-course-container">
           %for logo in get_all_logos():
             %if logo[1]:
             <div class="item"><a href="${logo[1]}" target="_blank"><img src="${logo[0]}"></div></a>
@@ -85,7 +89,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
       </div>
     </div>
   % endif
-  <div class="px-0" >
+  <div class="px-0 max-course-container" >
     <%include file="${courses_list}" />
   </div>
 </section>
