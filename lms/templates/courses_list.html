@@ -11,7 +11,7 @@
 <% course_class = get_course_ctgs() %>
 % if len(course_class) > 0 :
   <div class="trending-course-title-container open-carousel-top-courses-title p-5">
-    <h2 class="trending-course-tittle-institution">${_("Top Courses").upper()}</h2>
+    <h2 class="trending-course-tittle-institution">${_("Top Courses")}</h2>
     <div class="trending-course-border"></div>
   </div>
   <div class="open-carousel-top-courses ml-0">
@@ -31,7 +31,7 @@
 <% course_filtered = get_courses_filtered_by_course_state(["upcoming_notenrollable","ongoing_enrollable"]) %>
 % if len(course_filtered) > 0 :
   <div class="p-5 new-courses-title-container">
-      <h2 class="new-courses-title-container">${_("New Courses").upper()}</h2>
+      <h2 class="new-courses-title-container">${_("New Courses")}</h2>
     <div class="new-courses-border"></div>
   </div>
   <section class="courses-container max-course-container">
