@@ -9,6 +9,12 @@ import urllib
 <script type="text/javascript" src="${static.url('eol_survey/js/eol_survey_report_analytics.js')}"></script>
 <link rel="stylesheet" type="text/css" href="${static.url('eol_survey/css/eol_survey_report_analytics.css')}"/>
 <script type="text/javascript" src="${static.url('eol_survey/js/loadcbanalytics.js')}"></script>
+<script type="text/javascript" src="${static.url('xblockcompletion/js/xblockcompletion.js')}"></script>
+<link rel="stylesheet" type="text/css" href="${static.url('xblockcompletion/css/xblockcompletion.css')}"/>
+<script type="text/javascript" src="${static.url('eolreportcertificate/js/eolreportcertificate.js')}"></script>
+<link rel="stylesheet" type="text/css" href="${static.url('eolreportcertificate/css/eolreportcertificate.css')}"/>
+<script type="text/javascript" src="${static.url('eol_report_analytics/js/eol_report_analytics.js')}"></script>
+<link rel="stylesheet" type="text/css" href="${static.url('eol_report_analytics/css/eol_report_analytics.css')}"/>
 
 <div class="data-download-container action-type-container">
   <div class="request-response-error msg msg-error copy" id="data-request-response-error"></div>
@@ -78,12 +84,33 @@ import urllib
         )}
     </div>
 
+  <%
+    eolreportcertificate_url = None
+    eolreportcertificate_traceback = None
+    try:
+      eolreportcertificate_url = '{}?{}'.format(reverse('eolreportcertificate-export:data'), urllib.parse.urlencode({'course': str(course.id)}))
+    except Exception as e:
+      eolreportcertificate_traceback = traceback.format_exc()
+    %>
+    % if eolreportcertificate_traceback:
+      <div class="eolreportcertificate_traceback" hidden>
+        <pre>${eolreportcertificate_traceback}</pre>
+      </div>
+    % endif
     <div class="issued_certificates">
       <p>${_("Click to list certificates that are issued for this course:")}</p>
       <p>
         <input type="button" name="issued-certificates-list" value="${_("View Certificates Issued")}" data-csv="false" data-endpoint="${ section_data['get_issued_certificates_url'] }">
         <input type="button" name="issued-certificates-csv" value="${_("Download CSV of Certificates Issued")}" data-csv="true" data-endpoint="${ section_data['get_issued_certificates_url'] }">
+        %if eolreportcertificate_url:
+        <input type="button" name="issued-certificates-eol" onclick="generate_eolreportcertificate(this)" value="${_("(New) Download Certificates Report")}" data-endpoint="${ eolreportcertificate_url }">
+        %endif
       </p>
+      %if eolreportcertificate_url:
+      <div class="eolreportcertificate-success-msg" id="eolreportcertificate-success-msg"></div>
+      <div class="eolreportcertificate-warning-msg" id="eolreportcertificate-warning-msg"></div>
+      <div class="eolreportcertificate-error-msg" id="eolreportcertificate-error-msg"></div>
+      %endif
       <div class="data-display-table certificate-data-display-table" id="data-issued-certificates-table"></div>
       <div class="issued-certificates-error request-response-error msg msg-error copy"></div>
     </div>
@@ -108,6 +135,61 @@ import urllib
 
   %endif
   <% 
+  xblockcompletion_url = None
+  xblockcompletion_traceback = None
+  try:
+    xblockcompletion_url_resumen = '{}?{}'.format(reverse('xblockcompletion-data:data'), urllib.parse.urlencode({'format': 'resumen', 'course': str(course.id)}))
+    xblockcompletion_url_all = '{}?{}'.format(reverse('xblockcompletion-data:data'), urllib.parse.urlencode({'format': 'all', 'course': str(course.id)}))
+  except Exception as e:
+    xblockcompletion_traceback = traceback.format_exc()
+  %>
+  % if xblockcompletion_traceback:
+      <div class="xblockcompletion_traceback" hidden>
+        <pre>${xblockcompletion_traceback}</pre>
+      </div>
+  % endif
+  %if 'xblockcompletion_url_resumen':
+  <div class='xblockcompletion-report'>
+      <hr>
+      <h4 class="hd hd-4">${_("Problem report")}</h4>
+      <p>${_("There are two ways to generate a problem report in CSV format:")} </p>
+      <p><b>- ${_("Summary")}</b>: ${_("Generates a report of all problem-type blocks showing attempts, obtained score and possible score of each student.")}</p>
+      <p><b>- ${_("Complete")}</b>: ${_("Generates a report of all questions in problem-type blocks showing the question, students answer, correct answer, attempts, obtained score and block possible score for each student.")}</p>
+      <p><input onclick="generate_report_xblockcompletion(this)" type="button" name="xblockcompletion-report-resumen" value="${_("Summary Report")}" data-endpoint="${ xblockcompletion_url_resumen }"/>
+      <input onclick="generate_report_xblockcompletion(this)" type="button" name="xblockcompletion-report-all" value="${_("Complete Report")}" data-endpoint="${ xblockcompletion_url_all }"/></p>
+      <div class="xblockcompletion-success-msg" id="xblockcompletion-success-msg"></div>
+      <div class="xblockcompletion-warning-msg" id="xblockcompletion-warning-msg"></div>
+      <div class="xblockcompletion-error-msg" id="xblockcompletion-error-msg"></div>
+      <p>${_("For a better visualization and handling of the data in Excel, you can see a simple tutorial by")} <a target="_blank" href="https://youtu.be/v4ecUuetKDo">${_("clicking here")}</a>.</p>
+  </div>
+  %endif
+  <%
+  eol_report_analytics_url = None
+  eol_report_analytics_traceback = None
+  try:
+    eol_report_analytics_url = '{}?{}'.format(reverse('eol_report_analytics:data'), urllib.parse.urlencode({'course': str(course.id)}))
+  except Exception as e:
+    eol_report_analytics_traceback = traceback.format_exc() 
+  %>
+  % if eol_report_analytics_traceback:
+      <div class="eol_report_analytics_traceback" hidden>
+        <pre>${eol_report_analytics_traceback}</pre>
+      </div>
+  % endif
+  %if eol_report_analytics_url:
+    <div class='eol_report_analytics-report'>
+      <hr>
+      <h4 class="hd hd-4">${_("Problem Analytics")}</h4>
+      <p>
+        <input id="eol_report_analytics_input" type="text" placeholder="block-v1:eol+test100+2021_1+type@problem+block@936f2950368f4eff8dfc4451c865d28c">
+        <input onclick="generate_analytics_report(this)" type="button" name="eol_report_analytics-report" value="${_("Generate")}" data-endpoint="${ eol_report_analytics_url }"/>
+      </p>
+      <div class="eol_report_analytics-success-msg" id="eol_report_analytics-success-msg"></div>
+      <div class="eol_report_analytics-warning-msg" id="eol_report_analytics-warning-msg"></div>
+      <div class="eol_report_analytics-error-msg" id="eol_report_analytics-error-msg"></div>
+    </div>
+  %endif
+  <% 
   try: 
     import eol_survey
     enable_survey = True
@@ -118,7 +200,7 @@ import urllib
   %if enable_survey :
   <div class='eol_survey_report_analytics-report'>
       <hr>
-      <h4 class="hd hd-4">${_("Survey analytics")}</h4>
+      <h4 class="hd hd-4">${_("Survey Analytics")}</h4>
       <p>
           <select name="cb_eol_survey" id="cb_eol_survey" >
           </select>     
