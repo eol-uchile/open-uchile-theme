@@ -2072,3 +2072,9 @@ body .wrapper-preview-menu .preview-menu {
         margin-right: 1rem;
     }
 }
+
+@media (min-width: 600px)   and (max-width: 1255px) {
+    .openedx-logo{
+        bottom: -1.75rem;
+    }
+}
