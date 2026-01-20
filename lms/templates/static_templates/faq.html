@@ -2,38 +2,34 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='../static_content.html' />
 <%inherit file="../main.html" />
+<%!
+  from django.urls import reverse
+  import traceback
+%>
+<%
+  eolcontactform_url = None
+  eolcontactform_traceback = None
+  try:
+    eolcontactform_url = '{}'.format(reverse('contact_form_view'))
+  except Exception as e:
+    eolcontactform_traceback = traceback.format_exc()
+%>
+% if eolcontactform_traceback and settings.DEBUG:
+  <div class="eolcontactform_traceback" hidden>
+    <pre>${eolcontactform_traceback}</pre>
+  </div>
+% endif
 
 <%block name="pagetitle">${_("FAQ")}</%block>
-<style>
-    .container-center {
-        position: relative;
-        text-align: center;
-        color: white;
-    }
-    .centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 5.5vw;
-        width: 100%;
-    }
-    .header-open-faq{
-        color: #069bdc;
-        font-weight: bold;
-        margin-top: 40px;
-    }
-</style>
 <section class="container-fluid px-0" id="faq" >
     <div class="container-center max-course-container mx-auto">
         <img src="${static.url('open-uchile-theme/images/banner-03-bg.jpg')}" alt='${_("FAQ")}' class="mx-auto openuchile-header d-block">
-        <div class="centered">${_("FAQ")}</div>
     </div>
-    <img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.svg')}" alt="">
     <div class="container px-3">
-        <h1 class="text-center">
+        <h1 class="text-center m-0">
             ${_('Frequently Asked Questions')}
         </h1>
+        <div class="faq-border"></div>
         <div class="accordion" id="faqsaccordion">
             <h2 class="header-open-faq">Sobre OpenUChile</h2>
             <div class="accordion-item my-2">
@@ -46,10 +42,9 @@
                 <div id="faq1" class="accordion-collapse collapse" aria-labelledby="headingOne"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        OpenUChile es una plataforma de cursos y programas formativos de postgrado, postítulo y
-                        extensión de la Universidad de Chile. A través de este sitio web, se busca visualizar la diversidad de
-                        oferta formativa que las distintas unidades académicas imparten tanto para estudiantes como
-                        para público general.
+                    OpenUChile es la plataforma de formación online de educación continua y extensión de la Universidad de Chile, administrada por la Oficina
+                    de Educación Online (EOL) de la Vicerrectoría de Tecnologías de la Información (VTI). Este portal muestra e imparte la diversidad de oferta
+                    formativa que las unidades académicas disponibilizan a la comunidad y al público en general. 
                     </div>
                 </div>
             </div>
@@ -58,15 +53,16 @@
                 <h2 class="accordion-header" id="headingfaq2">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
-                        ¿Qué equipamiento debo tener para tomar un curso en OpenUChile?
+                        ¿Cuál es el equipamiento mínimo requerido para realizar un curso en OpenUChile?
                     </button>
                 </h2>
                 <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Requieres un computador conectado a Internet. Si bien nuestro sitio web está diseñado para
-                        visualizarse desde diversos dispositivos, funciona óptimamente con los navegadores Edge, Chrome
-                        y Firefox. Si no los tienes, puedes descargarlos gratuitamente en sus sitios corporativos.
+                        Necesitas un dispositivo con conexión a Internet. Si bien, la plataforma se visualiza correctamente en una amplia variedad de 
+                        dispositivos, su óptimo funcionamiento se garantiza al utilizar los navegadores Google Chrome, Mozilla Firefox o Microsoft Edge. 
+                        En caso de no contar con alguno, descárgalos gratis directamente desde sus páginas oficiales. Además, para que todas las funcionalidades 
+                        operen correctamente, es necesario tener JavaScript habilitado y permitir cookies esenciales de la plataforma.
                     </div>
                 </div>
             </div>
@@ -75,14 +71,15 @@
                 <h2 class="accordion-header" id="headingfaq3">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
-                        ¿Puedo tener más de una cuenta de usuario en OpenUChile?
+                        ¿Puedo tener más de una cuenta de usuario en OpenUChile? 
                     </button>
                 </h2>
                 <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        No, en la plataforma se solicita que uses una sola cuenta, usando tu información personal
-                        fidedigna. De lo contrario, los procesos de verificación de identidad podrían verse afectados.
+                        No, la plataforma requiere que cada usuario mantenga una única cuenta, utilizando para ello información personal fidedigna. 
+                        El uso de múltiples cuentas o datos inconsistentes afecta a los procesos de verificación de identidad y la gestión académica asociada 
+                        a sus cursos. 
                     </div>
                 </div>
             </div>
@@ -96,10 +93,9 @@
                 <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Las condiciones de certificación serán estipuladas en cada curso o programa formativo. Dicha
-                        certificación, título o grado académico estarán sujetas a la reglamentación universitaria vigente.
-                        Además, la certificación de los aprendizajes estará sujeta a los precios y condiciones de aprobación
-                        de cada curso o programa formativo.
+                        Las condiciones específicas de certificación se detallan en cada curso. Es importante señalar que la obtención de la certificación, 
+                        título o grado académico siempre dependerá de la reglamentación vigente de la Universidad de Chile. Adicionalmente, la emisión de cualquier 
+                        documento que acredite los aprendizajes se realizará conforme a los precios y condiciones de aprobación de cada curso. 
                     </div>
                 </div>
             </div>
@@ -114,15 +110,27 @@
                 <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        1. Para registrarse en OpenUChile, sigue los siguientes pasos: <br>
-                        2. Dirígete al botón Iniciar Sesión, en la página principal (ángulo superior derecho).<br>
-                        3. Haz clic en Crear una cuenta.<br>
-                        4. Una vez ahí, digita: nombre, apellidos, correo electrónico, ciudad y país, entre otros.<br>
-                        5. Luego, si estás de acuerdo, acepta los términos del servicio (condiciones de la plataforma)<br>
-                        y el Código de honor (compromiso de probidad para realizar cursos).<br>
-                        6. Hecho esto, crea un nombre de usuario y contraseña especial en nuestra página.<br>
-                        7. Luego, recibirás un correo de activación de tu cuenta; sigue las instrucciones.<br>
-                        8. Recuerda que tu usuario para acceder, es el correo electrónico que registraste.
+                        <p>Para registrarte, sigue estos pasos: </p>
+                        <ol>
+                            <li>
+                                Haz clic en el botón  <a class="" href="/register">${_('Register')}</a> en el encabezado de esta plataforma (esquina superior derecha).
+                            </li>
+                            <li>
+                                Completa los datos solicitados: Nombre Completo, Nombre público de usuario, Correo electrónico y Contraseña. Pon especial atención al escribir tus datos. 
+                            </li>
+                             <li>
+                                Si estás de acuerdo, haz clic en la opción “Ayuda a la investigación académica brindando más información” y escribe los datos solicitados. 
+                            </li>
+                             <li>
+                                Haz clic en el botón Crear cuenta.
+                            </li>
+                            <li>
+                                Sigue las instrucciones del correo de activación recibido. En caso de no visualizarlo, busca en la carpeta de spam de tu casilla de correo electrónico. 
+                            </li>
+                        </ol>
+                        <p>
+                        NOTA: Si tienes cuenta Mi.UChile, accede directamente al botón <a class="" href="/login">${_('Sign in')}</a>  del encabezado de esta plataforma (esquina superior derecha), haz clic en la opción Ingresa con tu cuenta Mi.UChile y digita tu usuario y contraseña.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -130,16 +138,25 @@
                 <h2 class="accordion-header" id="headingfaq6">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
-                        ¿Cómo cambio mi nombre y/o contraseña?
+                        ¿Cómo ingreso a OpenUChile?
                     </button>
                 </h2>
                 <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Accede a tu sesión en open.uchile.cl; dentro de ella, encontrarás el botón Cuenta, donde podrás
-                        restablecer y modificar tu nombre completo y/o contraseña. El nombre completo registrado debe
-                        coincidir con los registrados en los documentos de identidad, para poder verificar identidad y
-                        emitir certificaciones oficiales electrónicas.
+                        <p>Para ingresar, sigue estos pasos:</p>
+                        <ol>
+                            <li>
+                                Haz clic en el botón <a class="" href="/login">${_('Sign in')}</a>  del encabezado de esta plataforma (esquina superior derecha).
+                            </li>
+                            <li>
+                                 Haz clic en una de las opciones, según tu tipo de cuenta: 
+                                 <ul type="disc">
+                                    <li>Si tienes cuenta <b>OpenUChile</b>, haz clic en la opción Ingresa con tu cuenta OpenUChile, digita tu correo electrónico y contraseña, y haz clic en el botón Iniciar sesión. </li>
+                                    <li>Si tienes cuenta <b>Mi.UChile</b>, haz clic en la opción Ingresa con tu cuenta Mi.UChile, digita tu usuario y contraseña, y haz clic en el botón Ingresar. </li>
+                                </ul>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -147,19 +164,18 @@
                 <h2 class="accordion-header" id="headingfaq7">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
-                        ¿Cómo recupero una contraseña olvidada?
+                        Me inscribí en un curso y no me ha llegado la notificación para ingresar. 
                     </button>
                 </h2>
                 <div id="faq7" class="accordion-collapse collapse" aria-labelledby="faq7"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        En caso de no recordar tu contraseña, ejecute los siguientes pasos: <br>
-                        1. Dirígete al botón <strong>Iniciar Sesión.</strong><br>
-                        2. Presiona en <strong>¿Necesita ayuda para iniciar sesión?</strong><br>
-                        3. Luego, escribe el correo electrónico registrado y selecciona <strong>"Recuperar mi contraseña".</strong><br>
-                        4. En unos instantes un correo electrónico llegará a tu casilla, con las instrucciones para crear
-                        una nueva contraseña. <strong>Si no llega luego de unos minutos, revisa las bandejas de spam
-                        (correo no deseado).</strong>
+                        <p>El ingreso a un curso dependerá del tipo de inscripción:</p>
+                        <ul>
+                            <li><b>Curso con inscripciones abiertas:</b> cada persona se inscribe de manera autónoma y puede ingresar inmediatamente al curso si su fecha de inicio es hoy o ya ocurrió. No considera una notificación inicial desde la coordinación del curso o desde la plataforma. El estudiante deberá estar atento a las fechas relevantes del curso publicadas en la plataforma.</li>
+                            <li><b>Curso con inscripciones cerradas o “sólo por invitación”:</b> las personas aceptadas serán notificadas desde la coordinación del curso o desde la plataforma. El estudiante deberá estar atento a las fechas relevantes del curso entregadas por la coordinación del curso y/o publicadas en la plataforma.</li>
+                        </ul>
+                            
                     </div>
                 </div>
             </div>
@@ -167,89 +183,119 @@
                 <h2 class="accordion-header" id="headingfaq8">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
-                        ¿OpenUChile puede caducar mi cuenta?
+                        ¿Cómo cambio mi nombre y/o contraseña?
                     </button>
                 </h2>
                 <div id="faq8" class="accordion-collapse collapse" aria-labelledby="faq8"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Sí, OpenUChile se reserva el derecho de caducar la cuenta de aquellos usuarios que no respeten
-                        los términos y condiciones de la plataforma.
+                        <p>Para cambiar tu nombre y/o contraseña, sigue estos pasos: </p>
+                        <ol>
+                            <li>
+                                Inicia sesión en open.uchile.cl
+                            </li>
+                            <li>
+                                Haz clic en el ícono de usuario en el encabezado de la plataforma (esquina superior derecha).
+                            </li>
+                             <li>
+                                Haz clic en la opción Cuenta del menú desplegable. 
+                            </li>
+                             <li>
+                                Modifica tu nombre en el campo Nombre completo y/o tu contraseña en el botón Restablecer tu contraseña. 
+                            </li>
+                            <li>
+                                    Si hiciste clic en el botón Restablecer tu contraseña, sigue las instrucciones del correo recibido. En caso de no visualizarlo, busca en la carpeta de spam de tu casilla de correo.
+                            </li>
+                        </ol>
+                        El nombre completo registrado debe coincidir con tu documento de identidad nacional, para así poder verificar tu identidad y emitir certificaciones oficiales electrónicas.
                     </div>
                 </div>
             </div>
-            <h2 class="header-open-faq">Otras Consultas en OpenUChile</h2>
             <div class="accordion-item my-2">
                 <h2 class="accordion-header" id="headingfaq9">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
-                        ¿Cuánto cuestan y cuánto duran los cursos y programas en OpenUChile?
+                        ¿Cómo cambio mi correo electrónico?
                     </button>
                 </h2>
                 <div id="faq9" class="accordion-collapse collapse" aria-labelledby="faq9"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Tanto los precios como la duración de la instancia dependerán de las condiciones propias de cada
-                        curso o programa formativo.
+                        <p>Para cambiar tu correo electrónico, sigue estas indicaciones:</p>
+                        <ul>
+                            <li>
+                                <p>
+                                    Si tienes una cuenta <b>OpenUChile</b>, solicita el cambio en el 
+                                        %if eolcontactform_url:
+                                            <a href="/contact_form">${_('Contact form')}</a>
+                                        %else:
+                                            ${_('Contact form')}
+                                        % endif
+                                    indicando el correo actual y el nuevo.
+                                </p>
+                            </li>
+                            <li>
+                                Si tienes una cuenta <b>Mi.UChile</b>, solicita el cambio a  <a href="mailto:mesadeayuda@uchile.cl">mesadeayuda@uchile.cl</a> e infórmanos el resultado del proceso para actualizar tu correo electrónico en la plataforma OpenUChile. 
+                            </li>
+                        </ul>
+                        El nombre completo registrado debe coincidir con tu documento de identidad nacional, para así poder verificar tu identidad y emitir certificaciones oficiales electrónicas.
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item my-2">
                 <h2 class="accordion-header" id="headingfaq10">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq10" aria-expanded="false" aria-controls="faq10">
-                        ¿Quiénes pueden tomar cursos en OpenUChile?
+                        ¿Cómo recupero una contraseña olvidada?
                     </button>
                 </h2>
                 <div id="faq10" class="accordion-collapse collapse" aria-labelledby="faq10"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Los requisitos académicos de ingreso serán fijados por las unidades académicas, y dependerán de
-                        las condiciones propias de cada curso o programa formativo.
+                         <ol>
+                            <li>
+                                Haz clic en el botón <a class="" href="/login">${_('Sign in')}</a>  del encabezado de esta plataforma (esquina superior derecha).
+                            </li>
+                            <li>
+                                Haz clic en una de las opciones, según tu tipo de cuenta: 
+                                <ul type="disc">
+                                    <li>Si tienes cuenta <b>OpenUChile</b>, haz clic en la opción Olvidé mi contraseña, ingresa tu correo electrónico y haz clic en el botón Recuperar mi contraseña. Sigue las instrucciones del correo recibido. En caso de no visualizarlo, busca en la carpeta de spam de tu casilla de correo.</li>
+                                    <li>Si tienes cuenta <b>Mi.UChile</b>, haz clic en la opción ¿Olvidó su clave?, ingresa tu rut o número de pasaporte extranjero, haz clic en el botón Siguiente y sigue las instrucciones que se presentan en pantalla.</li>
+                                </ul>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>
-
             <div class="accordion-item my-2">
                 <h2 class="accordion-header" id="headingfaq11">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq11" aria-expanded="false" aria-controls="faq11">
-                        ¿En qué horario se dictan las clases en OpenUChile?
+                        ¿Puede OpenUChile cancelar mi cuenta?
                     </button>
                 </h2>
                 <div id="faq11" class="accordion-collapse collapse" aria-labelledby="faq11"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Dependerá de la modalidad en la cual está programa el curso. <br>
-                        Si se trata de una instancia <strong>SINCRÓNICA</strong>, los horarios serán fijados por las unidades académicas, y
-                        dependerán de las condiciones propias de cada curso o programa formativo. Si se trata de una
-                        instancia <strong>ASINCRÓNICA</strong>, los cursos, con sus materiales y recursos audiovisuales, están disponibles
-                        las 24 horas del día, durante las fechas que se dicte el curso en la plataforma.
+                        Sí, OpenUChile se reserva el derecho de cancelar la cuenta de la persona que incumpla los términos y condiciones de la plataforma. 
                     </div>
                 </div>
             </div>
-
+            <h2 class="header-open-faq">Otras Consultas en OpenUChile</h2>
             <div class="accordion-item my-2">
                 <h2 class="accordion-header" id="headingfaq12">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq12" aria-expanded="false" aria-controls="faq12">
-                        ¿Qué significan los créditos académicos?
+                        ¿Cuánto cuestan y cuál es la duración de los cursos en OpenUChile?
                     </button>
                 </h2>
                 <div id="faq12" class="accordion-collapse collapse" aria-labelledby="faq12"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        El Sistema de Créditos Transferibles, denominado SCT-Chile, busca medir, racionalizar y distribuir
-                        el trabajo académico de los estudiantes entre las diversas actividades curriculares que componen
-                        su plan de estudios, teniendo como objetivos: <br> <br>
-                        - Considerar el tiempo que requiere un estudiante para el logro de los resultados de
-                        aprendizaje y el desarrollo de las competencias laborales en una determinada actividad
-                        curricular <br>
-                        - Promover la legibilidad de un programa de formación y la transferencia de estos créditos
-                        académicos de una institución a otra. <br>
-                        - Favorecer la movilidad estudiantil universitaria. <br> <br>
-                        Para mayor información, puedes visitar el sitio web <a href="https://sct-chile.consejoderectores.cl/">https://sct-chile.consejoderectores.cl/.</a>
+                        <p>
+                            Tanto los precios, como la duración de los cursos, dependerán de las condiciones propias de cada uno. Para conocer más detalles, 
+                            revisa los cursos en la opción <a class="" href="/courses">${_('Explore courses')}</a> del encabezado de esta plataforma (esquina superior derecha).
+                        </p>
                     </div>
                 </div>
             </div>
@@ -258,27 +304,13 @@
                 <h2 class="accordion-header" id="headingfaq13">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq13" aria-expanded="false" aria-controls="faq13">
-                        ¿Qué señala la certificación electrónica que otorga OpenUChile?
+                        ¿Quiénes pueden tomar cursos en OpenUChile?
                     </button>
                 </h2>
                 <div id="faq13" class="accordion-collapse collapse" aria-labelledby="faq13"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Las certificaciones electrónicas emitas desde OpenUChile contienen, a lo menos: <br> <br>
-                        - Nombre completo del estudiante registrado en plataforma. <br>
-                        - Nombre del curso aprobado.<br>
-                        - Calificación y escala de aprobación.<br>
-                        - Fechas de inicio y término de la instancia formativa.<br>
-                        - Horas cronológicas de duración y su equivalencia en créditos académicos.<br>
-                        - Logotipos de las entidades responsables de los cursos.<br>
-                        - Firmas de las autoridades correspondientes. <br> <br>
-
-                        Además, contiene un <strong>código de verificación</strong> que enlaza a un registro público para verificación y
-                        registro del documento. <br>
-                        No obstante, las unidades académicas, dependiendo de las condiciones de cada curso o programa
-                        formativo, podrán hacer ajustes a los formatos de sus certificaciones electrónicas. También, se
-                        reservan el derecho de entregar dichos certificados en formato físico, y/o agregar documentación
-                        adicional que acredite los aprendizajes obtenidos.
+                        Los requisitos de ingreso serán fijados por las unidades académicas y dependerán de las condiciones propias de cada curso.
                     </div>
                 </div>
             </div>
@@ -287,16 +319,147 @@
                 <h2 class="accordion-header" id="headingfaq14">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq14" aria-expanded="false" aria-controls="faq14">
-                        ¿Puedo cambiar el nombre que aparece en mi certificación?
+                        ¿En qué horario se dictan las clases en OpenUChile?
                     </button>
                 </h2>
                 <div id="faq14" class="accordion-collapse collapse" aria-labelledby="faq14"
                     data-bs-parent="#faqsaccordion">
                     <div class="accordion-body">
-                        Las certificaciones se emiten utilizando el nombre completo que informaste en la inscripción en
-                        nuestra plataforma, el cual debe ser el mismo que aparece en tu documento de identificación
-                        nacional o pasaporte. En varias ocasiones durante la ejecución del curso, te solicitamos verificarlo
-                        y editarlo, en caso de estar errado.
+                        El horario de las actividades del curso dependerá de su modalidad:
+                        <ul>
+                            <li><b>Cursos con clases sincrónicas</b>: los horarios son establecidos previamente por las unidades académicas y están sujetos a las condiciones específicas de cada curso. Estos serán informados oportunamente por la coordinación del curso. </li>
+                            <li><b>Cursos asincrónicos</b>: los contenidos están disponibles 24/7 en la plataforma, durante el periodo que dura el curso.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item my-2">
+                <h2 class="accordion-header" id="headingfaq15">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq15" aria-expanded="false" aria-controls="faq15">
+                        ¿Qué significan los créditos académicos?
+                    </button>
+                </h2>
+                <div id="faq15" class="accordion-collapse collapse" aria-labelledby="faq15"
+                    data-bs-parent="#faqsaccordion">
+                    <div class="accordion-body">
+                        <p>El Sistema de Créditos Transferibles, denominado SCT-Chile, busca medir, racionalizar y distribuir
+                        el trabajo académico de los estudiantes entre las diversas actividades curriculares que componen
+                        su plan de estudios, teniendo como objetivos:</p>
+                         <ul>
+                            <li>
+                                Considerar el tiempo que requiere un estudiante para el logro de los resultados de
+                                aprendizaje y el desarrollo de las competencias laborales en una determinada actividad
+                                curricular. 
+                            </li>
+                            <li>
+                                Promover la legibilidad de un programa de formación y la transferencia de estos créditos
+                                académicos de una institución a otra.
+                            </li>
+                            <li>
+                                Favorecer la movilidad estudiantil universitaria. 
+                            </li>
+                        </ul>
+                        Para mayor información, puedes visitar el sitio web <a href="https://sct-chile.consejoderectores.cl/">https://sct-chile.consejoderectores.cl/.</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item my-2">
+                <h2 class="accordion-header" id="headingfaq16">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq16" aria-expanded="false" aria-controls="faq16">
+                        ¿Qué señala la certificación electrónica que otorga OpenUChile?
+                    </button>
+                </h2>
+                <div id="faq16" class="accordion-collapse collapse" aria-labelledby="faq16"
+                    data-bs-parent="#faqsaccordion">
+                    <div class="accordion-body">
+                        <ol type="I">
+                            <li><b>Información mínima</b></li>
+                             <ul type="disc" class="mb-3">
+                                <li>
+                                    Nombre completo del estudiante registrado en la plataforma. 
+                                </li>
+                                <li>
+                                    Nombre del curso aprobado. 
+                                </li>
+                                <li>
+                                    Calificación obtenida por el estudiante y escala de aprobación utilizada. 
+                                </li>
+                                <li>
+                                    Período o año de realización del curso. 
+                                </li>
+                                <li>
+                                    Horas de duración del curso y/o su equivalencia en créditos académicos.
+                                </li>
+                                <li>
+                                    Logos de las unidades académicas del curso y firmas de las autoridades correspondientes. 
+                                </li>
+                             </ul>
+                            <li><b>Verificación y validez</b></li>
+                                <p class="my-3">
+                                    Para asegurar la autenticidad de la certificación, cada certificado incluye un código único de verificación que 
+                                    enlaza a un registro público y permite la verificación y el registro digital del documento.
+                                </p>
+                            <li><b>Disposiciones y ajustes</b></li>
+                                <p class="mt-3">
+                                    Las unidades académicas podrán realizar ajustes a los formatos estándar de las certificaciones, en función de 
+                                    las condiciones específicas de cada curso. Adicionalmente, se reservan el derecho de:
+                                </p>
+                                <ul type="disc">
+                                    <li>
+                                        Entregar estos certificados en formato físico. 
+                                    </li>
+                                    <li>
+                                        Incluir documentación adicional que acredite los aprendizajes y las competencias obtenidas. 
+                                    </li>
+                                </ul>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item my-2">
+                <h2 class="accordion-header" id="headingfaq17">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq17" aria-expanded="false" aria-controls="faq17">
+                        ¿Puedo cambiar el nombre que aparece en mi certificación?
+                    </button>
+                </h2>
+                <div id="faq17" class="accordion-collapse collapse" aria-labelledby="faq17"
+                    data-bs-parent="#faqsaccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Si deseas actualizar tus datos de certificación, completa el
+                            %if eolcontactform_url:
+                                <a href="/contact_form">${_('Contact form')}</a>
+                            %else:
+                                ${_('Contact form')}
+                            % endif
+                            , seleccionando la opción Emisión de 
+                            certificados e indicando los detalles de tu solicitud. Las certificaciones se emiten utilizando el nombre completo 
+                            registrado en la inscripción en la plataforma, el cual debe ser el mismo que aparece en tu documento de identidad nacional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item my-2">
+                <h2 class="accordion-header" id="headingfaq18">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faq18" aria-expanded="false" aria-controls="faq18">
+                        Pagué mi certificado y no me ha llegado la notificación para descargarlo.
+                    </button>
+                </h2>
+                <div id="faq18" class="accordion-collapse collapse" aria-labelledby="faq18"
+                    data-bs-parent="#faqsaccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Para poder descargar tu certificado, debes verificar tu identidad en la plataforma y cumplir los requisitos de aprobación
+                            del curso. Una vez completado lo anterior, puedes ir a la pestaña de Progreso del curso y obtener tu certificado haciendo 
+                            clic en el botón Solicitar certificado. No se envían notificaciones a quienes tienen disponible la descarga de un certificado.
+                        </p>
                     </div>
                 </div>
             </div>

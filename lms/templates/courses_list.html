@@ -11,7 +11,7 @@
 <% course_class = get_course_ctgs() %>
 % if len(course_class) > 0 :
   <div class="trending-course-title-container open-carousel-top-courses-title p-5">
-    <h2 class="trending-course-tittle-institution">${_("Top Courses").upper()}</h2>
+    <h2 class="trending-course-tittle-institution">${_("Top Courses")}</h2>
     <div class="trending-course-border"></div>
   </div>
   <div class="open-carousel-top-courses ml-0">
@@ -30,8 +30,8 @@
 %endif
 <% course_filtered = get_courses_filtered_by_course_state(["upcoming_notenrollable","ongoing_enrollable"]) %>
 % if len(course_filtered) > 0 :
-  <div class="new-courses-title-container p-5">
-    <h2 class="new-courses-title-container">${_("New Courses").upper()}</h2>
+  <div class="p-5 new-courses-title-container">
+      <h2 class="new-courses-title-container">${_("New Courses")}</h2>
     <div class="new-courses-border"></div>
   </div>
   <section class="courses-container max-course-container">
@@ -55,6 +55,9 @@
           %endif
         </div>
     </section>
+    <div class="link-new-courses px-5 mt-3">
+      <a  href="${marketing_link('COURSES')}?state=active">${_("See more courses")}</a>
+    </div>
   </section>
 %else:
   <p class="without-courses" style="padding-bottom: 10px;"> ${_("There are no courses")}</p>
@@ -77,7 +80,7 @@
         <div class="d-flex justify-content-md-end justify-content-sm-center tab-content-text">
           <p class=" text-justify p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 m-2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
             ${_("The Online Education Office of the University of Chile (OpenUChile) is an initiative promoted by the Vice Rector's Office of Information Technologies with the aim of promoting quality online training through an offer of open courses and continuing education programs. Our team is made up of professionals from the fields of education, technology and communication, who collaborate to design, produce and disseminate innovative training experiences. We work together with various faculties and academic units to bring the knowledge of the University of Chile to people from all over the country and abroad, promoting equitable access to education and digital transformation of learning. To learn more about us click here:")}
-            <a class="text-decoration-none" href="https://oficinaeol.uchile.cl/we" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            <a class="text-decoration-none" href="https://oficinaeol.uchile.cl/we" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol" target="_blank">
             https://oficinaeol.uchile.cl/we
             </a>
           </p>
@@ -89,7 +92,7 @@
         <div class="d-flex justify-content-md-end justify-content-sm-center tab-content-text">
           <p class="text-justify p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 m-2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
             ${_("OpenUChile's platform runs on Open edX technology, which allows it to offer online courses with an interactive and flexible learning experience. The courses are organized in thematic modules and include video lectures, readings, discussion forums, practical activities and evaluations. Some courses are free and open, while others require payment to access additional content or certification. To get started, simply register at open.uchile.cl, select a course and follow the instructions. The site also has a Frequently Asked Questions (FAQ) section and technical support to resolve doubts during the process.")}
-            <a class="text-decoration-none" href=". https://open.uchile.cl/faq" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            <a class="text-decoration-none" href="https://open.uchile.cl/faq" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol" target="_blank">
             https://open.uchile.cl/faq
             </a>
           </p>
@@ -101,7 +104,7 @@
         <div class="d-flex justify-content-md-end justify-content-sm-center tab-content-text">
           <p class="text-justify p-3 p-sm-3 p-md-5 p-lg-5 p-xl-5 m-2 col-xl-6 col-lg-12 col-md-12 col-sm-12">
             ${_("The Universidad de Chile is the oldest public institution of higher education in the country, founded in 1842. Recognized for its academic excellence, its commitment to society and its contribution to research and culture, it has trained outstanding professionals and national and international leaders. It has 14 faculties, multiple research centers and extension programs that promote critical knowledge and sustainable development. OpenUChile is part of this commitment, offering online training accessible to people in Chile and the world, with the academic support of one of the most prestigious universities in Latin America. Learn more at")}
-            <a class="text-decoration-none" href=" https://uchile.cl/" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol">
+            <a class="text-decoration-none" href=" https://uchile.cl/" role="button" aria-expanded="false" alt="Página web oficina EOL" title="Oficina Eol" target="_blank">
             https://uchile.cl/
             </a>
           </p>

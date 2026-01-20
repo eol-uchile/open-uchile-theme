@@ -5,37 +5,21 @@
 <%inherit file="../main.html" />
 
 <%block name="pagetitle">${_("Certificate Validation ")}</%block>
-<style>
-    .container-center {
-        position: relative;
-        text-align: center;
-        color: white;
-    }
-    .centered {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 5.5vw;
-        width: 100%;
-    }
-</style>
 <section class="container-fluid px-0" id="certificate_validation">
     <div class="container-center max-course-container mx-auto">
         <img src="${static.url('open-uchile-theme/images/banner-04-bg.jpg')}" alt='${_("Certificates validation")}' class="mx-auto openuchile-header d-block">
-        <div class="centered">${_("Certificates validation")}</div>
     </div>
-    <img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.svg')}" alt="">
-    <div class="container px-3 mt-5">
-        <div class="card col-11 col-md-8 col-lg-7 mx-auto shadow-lg px-5 py-4 mb-5 rounded-lg">
-            <div class="card-body">
-                <h1 class="text-left">
-                    ${_("Certificate Validation ")}
-                </h1>
+    <div class="container px-3 py-5">
+        <h1 class="text-centter m-0">
+            ${_("Certificate Validation ")}
+        </h1>
+        <div class="validate-certificate-border pb-5"></div>
+        <div class="card col-12 col-md-8 col-lg-8 mx-auto p-3 mx-5">
+            <div class="card-body p-3">
                 <form method="POST">
                     <input type="hidden" name="csrfmiddlewaretoken" value="${ csrftoken }"/>
                     <div class="form-group">
-                        <h3 class="lead">
+                        <h3 class="lead text-center py-3">
                             ${_("Certificate ID number")}
                         </h3>
                         % if context.get('_id', UNDEFINED) is not UNDEFINED:
@@ -50,7 +34,7 @@
                         % endif
                     % endif
                     <div class="text-center">
-                        <input type="submit" class="btn mt-4 py-2 px-5" value='${_("Validate")}'>
+                        <input type="submit" class="btn mt-4 py-2 px-5 w-100" value='${_("Validate")}'>
                     </div>
                 </form>
             </div>
