@@ -107,7 +107,7 @@ if not (course.end is None):
             %if show_courseware_link:
               <p class="font-italic lead enroll-message d-flex justify-content-center pb-3">${_("You are enrolled in this course")}</p>
               <a href="${course_target}" class="pt-2 enroll-button-2">
-                <button class="btn">${_("View Course")}</button>
+                <button class="btn w-100">${_("View Course")}</button>
               </a>
             %else:
               <button class="btn my-auto pt-2 enroll-button" disabled>${_("You are enrolled in this course")}</button>
@@ -124,18 +124,18 @@ if not (course.end is None):
                 <button class="btn text-uppercase w-100">${_("Yes, I would like to")}</button>
               </a>
             %else:
-              <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
+              <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Enrollment is Closed")}</button>
             %endif
           % elif is_course_full:
-            <button class="btn my-auto pt-2 enroll-button" disabled>${_("Course is full")}</button>
+            <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Course is full")}</button>
           % elif invitation_only and not can_enroll:
-            <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment in this course is by invitation only")}</button>
+            <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Enrollment in this course is by invitation only")}</button>
           % elif not is_shib_course and not can_enroll:
-            <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
+            <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Enrollment is Closed")}</button>
           %elif allow_anonymous:
             %if show_courseware_link:
               <a href="${course_target}" class="my-auto pt-2">
-                <button class="btn">${_("View Course")}</button>
+                <button class="btn w-100">${_("View Course")}</button>
               </a>
             %elif course_active_state == 'inactive':
               
@@ -150,7 +150,7 @@ if not (course.end is None):
                   <button class="btn text-uppercase w-100">${_("Yes, I would like to")}</button>
                 </a>
               %else:
-                <button class="btn my-auto pt-2 enroll-button" disabled>${_("Enrollment is Closed")}</button>
+                <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Enrollment is Closed")}</button>
               %endif
           %endif
           %else:
@@ -165,7 +165,7 @@ if not (course.end is None):
                 href_class = "register"
             %>
             <a href="${reg_href}" class="${href_class} my-auto pt-2">
-              <button class="btn">${_("Enroll now")}</button>
+              <button class="btn w-100">${_("Enroll now")}</button>
             </a>
             <div id="register_error"></div>
           %endif
