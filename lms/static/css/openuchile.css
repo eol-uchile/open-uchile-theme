@@ -693,6 +693,8 @@ a.nav-link.user-menu:hover,
     padding-bottom: 1rem;
     font-family: 'Raleway', sans-serif !important;
     flex-direction: column;
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
 #open-navbar .nav-link {
     color: #004B93;
