@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2025-10-09 20:00+0000\n"
+"POT-Creation-Date: 2026-01-20 20:54+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -164,27 +164,27 @@ msgstr ""
 msgid "Click to add a new %(xblock_type)s"
 msgstr ""
 
-#: lms/static/js/open_search.js:101
+#: lms/static/js/open_search.js:98
 msgid "Showing"
 msgstr "Mostrando"
 
-#: lms/static/js/open_search.js:101
+#: lms/static/js/open_search.js:98
 msgid "courses"
 msgstr "cursos"
 
-#: lms/static/js/open_search.js:311
+#: lms/static/js/open_search.js:310
 msgid "Enroll now"
 msgstr "Inscríbete aquí"
 
-#: lms/static/js/open_search.js:313
+#: lms/static/js/open_search.js:312
 msgid "Coming soon"
 msgstr "Próximamente"
 
-#: lms/static/js/open_search.js:315
+#: lms/static/js/open_search.js:314
 msgid "See more"
 msgstr "Aprender más"
 
-#: lms/static/js/open_search.js:317
+#: lms/static/js/open_search.js:316
 msgid "Finished"
 msgstr "Finalizado"
 
@@ -192,27 +192,27 @@ msgstr "Finalizado"
 msgid "Duration"
 msgstr "Duración"
 
-#: lms/static/js/open_search.js:384
+#: lms/static/js/open_search.js:392
 msgid "Classes Start"
 msgstr "Inicio de clases"
 
-#: lms/static/js/open_search.js:399
+#: lms/static/js/open_search.js:407
 msgid "Pacing"
 msgstr "Modalidad"
 
-#: lms/static/js/open_search.js:416
+#: lms/static/js/open_search.js:424
 msgid "Price"
 msgstr "Precio"
 
-#: lms/static/js/open_search.js:434
+#: lms/static/js/open_search.js:442
 msgid "Free"
 msgstr "Gratis"
 
-#: lms/static/js/open_search.js:440
+#: lms/static/js/open_search.js:447
 msgid "Student paced"
 msgstr "Ritmo estudiante"
 
-#: lms/static/js/open_search.js:440
+#: lms/static/js/open_search.js:447
 msgid "Instructor paced"
 msgstr "Ritmo instructor"
 
