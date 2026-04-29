@@ -4,11 +4,8 @@
 from django.utils.translation import ugettext as _
 from openedx.core.djangolib.markup import HTML, Text
 from django.urls import reverse
-import urllib
+import traceback
 %>
-<script type="text/javascript" src="${static.url('eol_survey/js/eol_survey_report_analytics.js')}"></script>
-<link rel="stylesheet" type="text/css" href="${static.url('eol_survey/css/eol_survey_report_analytics.css')}"/>
-<script type="text/javascript" src="${static.url('eol_survey/js/loadcbanalytics.js')}"></script>
 
 <div class="data-download-container action-type-container">
   <div class="request-response-error msg msg-error copy" id="data-request-response-error"></div>
@@ -88,6 +85,22 @@ import urllib
       <div class="issued-certificates-error request-response-error msg msg-error copy"></div>
     </div>
 
+  <%
+  eolreportcertificate_url = None
+  eolreportcertificate_traceback = None
+  try:
+    eolreportcertificate_url = reverse('eolreportcertificate-export:data')
+  except Exception:
+    if settings.DEBUG:
+      eolreportcertificate_traceback = traceback.format_exc()
+  %>  
+  %if eolreportcertificate_traceback:
+    <div class="eolreportcertificate_traceback">
+      <pre>${eolreportcertificate_traceback}</pre>
+    </div>
+  %elif eolreportcertificate_url:
+    <%include file="eol_report_certificate.html"/>
+  %endif
   % if not disable_buttons:
     <p>${_("For smaller courses, click to list profile information for enrolled students directly on this page:")}</p>
     <p><input type="button" name="list-profiles" value="${_("List enrolled students' profile information")}" data-endpoint="${ section_data['get_students_features_url'] }"></p>
@@ -105,31 +118,56 @@ import urllib
     <p>${_("Click to generate a ZIP file that contains all submission texts and attachments.")}</p>
 
     <p><input type="button" name="export-ora2-data" class="async-report-btn" value="${_("Generate Submission Files Archive")}" data-endpoint="${ section_data['export_ora2_submission_files_url'] }"/></p>
-
+  %endif
+  <%
+  xblockcompletion_url = None
+  xblockcompletion_traceback = None
+  try:
+    xblockcompletion_url = reverse('xblockcompletion-data:data')
+  except Exception as e:
+    if settings.DEBUG:
+      xblockcompletion_traceback = traceback.format_exc()
+  %>
+  %if xblockcompletion_traceback:
+    <div class="xblockcompletion_traceback" hidden>
+      <pre>${xblockcompletion_traceback}</pre>
+    </div>
+  %elif xblockcompletion_url:
+    <%include file="eol_xblock_completion.html"/>
   %endif
   <% 
-  try: 
-    import eol_survey
-    enable_survey = True
-    survey_url = '{}?{}'.format(reverse('eolSurveyReport'), urllib.parse.urlencode({'course': str(course.id)}))
-  except ImportError:
-    enable_survey = False 
+  eol_report_analytics_url = None
+  eol_report_analytics_traceback = None
+  try:
+    eol_report_analytics_url = reverse('eol_report_analytics:data')
+  except Exception as e:
+    if settings.DEBUG:
+      eol_report_analytics_traceback = traceback.format_exc() 
   %>
-  %if enable_survey :
-  <div class='eol_survey_report_analytics-report'>
-      <hr>
-      <h4 class="hd hd-4">${_("Survey analytics")}</h4>
-      <p>
-          <select name="cb_eol_survey" id="cb_eol_survey" >
-          </select>     
-          <input onclick="generate_analytics_report_survey(this)" type="button" name="eol_survey_report_analytics-report" value="${_("Generate")}" data-endpoint="${ survey_url }"/>
-      </p>
-      <div class="eol_survey_report_analytics-success-msg" id="eol_survey_report_analytics-success-msg"></div>
-      <div class="eol_survey_report_analytics-warning-msg" id="eol_survey_report_analytics-warning-msg"></div>
-      <div class="eol_survey_report_analytics-error-msg" id="eol_survey_report_analytics-error-msg"></div>
-      <input type="hidden" name="courseId" id="courseId" value="${course.id}"> 
-  </div>
+  %if eol_report_analytics_traceback:
+    <div class="eol_report_analytics_traceback">
+      <pre>${eol_report_analytics_traceback}</pre>
+    </div>
+  %elif eol_report_analytics_url:
+    <%include file="eol_report_analytics.html"/>
   %endif
+  <%
+  survey_url = None
+  survey_traceback = None
+  try:
+    survey_url = reverse('eolSurveyReport')
+  except Exception:
+    if settings.DEBUG:
+      survey_traceback = traceback.format_exc()
+  %>  
+  %if survey_traceback:
+    <div class="survey_traceback" hidden>
+      <pre>${survey_traceback}</pre>
+    </div>
+  %elif survey_url:
+    <%include file="eol_survey_report.html"/>
+  %endif
+    <hr>
     <div class="request-response msg msg-confirm copy" id="report-request-response"></div>
     <div class="request-response-error msg msg-error copy" id="report-request-response-error"></div>
     <br>
