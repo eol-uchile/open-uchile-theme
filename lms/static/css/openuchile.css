@@ -2079,4 +2079,84 @@ body .wrapper-preview-menu .preview-menu {
     }
 }
 
+#eol-certificates {
+    background-image: url("/static/open-uchile-theme/images/banner-04-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    border: #E3E3E3 1.13px solid;
+}
 
+#eol-certificates .eol-content-container .row{
+    margin-top: 28vw;
+    --bs-gutter-x: 0rem;
+}
+#eol-certificates.eol-bg .eol-content-container .row .certificates-card{
+    min-width: 55%;
+    margin-top: 4rem;
+}
+#eol-certificates.eol-bg .eol-content-container .row .certificates-card.bg-white{
+    background-color: var(--background-component-color)!important;
+}
+
+#eol-certificates.eol-bg .eol-content-container .row .certificates-card.shadow-lg{
+    box-shadow: none !important;
+    border: #E3E3E3 1.13px solid;
+    border-radius: 13px;
+}
+#eol-certificates .eol-content-container .row .certificates-card .form-group{
+    text-align: center;
+}
+
+#eol-certificates .eol-content-container .row .certificates-card .form-group label,
+#eol-certificates .eol-content-container .row .certificates-card .form-control{
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+}
+#eol-certificates .eol-content-container .row .certificates-card .form-group label{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#eol-certificates .eol-content-container .row .certificates-card .certificates-header{
+    font-style: normal;
+    text-align: center;
+    color: var(--primary-text-color);
+    font-weight: 700;
+    font-size: 40px;
+    position: absolute;
+    margin-top: -6rem;
+    right: 0;
+    left: 0;
+}
+#eol-certificates .eol-content-container .row .certificates-card .certificates-header::after{
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin-top: 3rem;
+    left: 48%;
+}
+#eol-certificates .eol-content-container .row .certificates-card input.btn-primary{
+    background-image: none;
+    box-shadow: none;
+    border: none;
+    background-color: var(--primary-color);
+    margin-top: 1rem;
+    color: white;
+    font-size: 15px;
+}
+
+#eol-certificates .eol-content-container .row .certificates-card input.btn-primary:hover{
+    background-color: var(--primary-color-hover);
+}
+
+@media screen and (max-width: 650px) {
+    #eol-certificates .eol-content-container .row .certificates-card .certificates-header{
+        margin-top: -9rem;
+    }
+    #eol-certificates.eol-bg .eol-content-container .row .certificates-card{
+        margin-top: 8rem; 
+    }
+}
