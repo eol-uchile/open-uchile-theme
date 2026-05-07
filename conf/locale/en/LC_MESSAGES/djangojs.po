@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2026-05-05 21:58+0000\n"
+"POT-Creation-Date: 2026-05-07 15:13+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -107,7 +107,6 @@ msgstr ""
 
 #: cms/templates/js/course-outline.underscore:174
 #: cms/templates/js/course-outline.underscore:176
-#: lms/templates/eoldiscussion/templates2.underscore:898
 msgid "Delete"
 msgstr ""
 
@@ -214,383 +213,6 @@ msgstr ""
 
 #: lms/static/js/open_search.js:447
 msgid "Instructor paced"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:15
-msgid "Reply"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:22
-msgid "Add a response:"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:26
-#: lms/templates/eoldiscussion/templates2.underscore:161
-#: lms/templates/eoldiscussion/templates2.underscore:191
-#: lms/templates/eoldiscussion/templates2.underscore:278
-#: lms/templates/eoldiscussion/templates2.underscore:334
-#: lms/templates/eoldiscussion/templates2.underscore:509
-msgid "Remaining characters"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:36
-#: lms/templates/eoldiscussion/templates2.underscore:201
-#: lms/templates/eoldiscussion/templates2.underscore:540
-msgid "Submit"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:45
-#: lms/templates/eoldiscussion/templates2.underscore:685
-msgid "This thread is closed."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:84
-#, python-format
-msgid "discussion posted %(time_ago)s by %(author)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:86
-#, python-format
-msgid "question posted %(time_ago)s by %(author)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:94
-msgid "Pinned"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:97
-#: lms/templates/eoldiscussion/templates2.underscore:251
-#: lms/templates/eoldiscussion/templates2.underscore:324
-msgid "Reported"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:100
-msgid "Closed"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:123
-#, python-format
-msgid "Related to: %(courseware_title_linked)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:133
-#, python-format
-msgid "This post is visible only to %(group_name)s."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:139
-msgid "This post is visible to everyone."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:146
-msgid "Editing post"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:151
-#: lms/templates/eoldiscussion/templates2.underscore:496
-msgid "Title"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:153
-#: lms/templates/eoldiscussion/templates2.underscore:498
-msgid "Add a clear and descriptive title to encourage participation. (Required)"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:159
-msgid "Edit your post below."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:171
-msgid "Update post"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:172
-#: lms/templates/eoldiscussion/templates2.underscore:288
-#: lms/templates/eoldiscussion/templates2.underscore:344
-#: lms/templates/eoldiscussion/templates2.underscore:466
-#: lms/templates/eoldiscussion/templates2.underscore:541
-msgid "Cancel"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:178
-#, python-format
-msgid "Show Comment (%(num_comments)s)"
-msgid_plural "Show Comments (%(num_comments)s)"
-msgstr[0] ""
-msgstr[1] ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:188
-#: lms/templates/eoldiscussion/templates2.underscore:190
-msgid "Add a comment"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:222
-#, python-format
-msgid "marked as answer %(time_ago)s by %(user)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:226
-#, python-format
-msgid "marked as answer %(time_ago)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:232
-#, python-format
-msgid "endorsed %(time_ago)s by %(user)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:236
-#, python-format
-msgid "endorsed %(time_ago)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:275
-msgid "Editing response"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:287
-msgid "Update response"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:317
-#, python-format
-msgid "posted %(time_ago)s by %(author)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:331
-msgid "Editing comment"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:343
-msgid "Update comment"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:386
-#: lms/templates/eoldiscussion/templates2.underscore:605
-#: lms/templates/eoldiscussion/templates2.underscore:680
-msgid "anonymous"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:398
-msgid "Staff"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:400
-msgid "Community TA"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:403
-msgid "Student"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:413
-#: lms/templates/eoldiscussion/templates2.underscore:414
-msgid "Creation"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:416
-#: lms/templates/eoldiscussion/templates2.underscore:417
-msgid "Last activity"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:434
-#, python-format
-msgid ""
-"%(comments_count)s %(span_sr_open)scomments (%(unread_comments_count)s "
-"unread comments)%(span_close)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:437
-#, python-format
-msgid "%(comments_count)s %(span_sr_open)scomments %(span_close)s"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:454
-#: lms/templates/eoldiscussion/templates2.underscore:876
-#: lms/templates/eoldiscussion/templates2.underscore:878
-#: lms/templates/eoldiscussion/templates2.underscore:926
-msgid "Close"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:462
-#: lms/templates/eoldiscussion/templates2.underscore:612
-msgid "Create publication"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:477
-msgid "Visible to"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:480
-msgid ""
-"Discussion admins, moderators, and TAs can make their posts visible to "
-"all students or specify a single group."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:484
-msgid "All Groups"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:507
-msgid "Your question or idea (required)"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:523
-msgid "follow this post"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:529
-msgid "post anonymously"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:535
-msgid "post anonymously to classmates"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:559
-msgid "Error posting your message."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:572
-#, python-format
-msgid "This post will be visible only to %(group_name)s."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:578
-msgid "This post will be visible to everyone."
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:584
-msgid "Topic area"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:587
-msgid "Add your post to a relevant topic to help others find it. (Required)"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:600
-msgid "(Community TA)"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:602
-msgid "(Staff)"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:628
-msgid "All Posts"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:629
-msgid "Return to all posts"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:642
-msgid "Previous"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:648
-#: lms/templates/eoldiscussion/templates2.underscore:660
-msgid "…"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:666
-msgid "Next"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:692
-msgid "View discussion"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:753
-#: lms/templates/eoldiscussion/templates2.underscore:942
-msgid "Load more"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:763
-msgid "Post type"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:767
-msgid ""
-"Questions raise issues that need answers. Discussions share ideas and "
-"start conversations. (Required)"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:775
-msgid "Question"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:783
-msgid "Discussion"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:792
-#: lms/templates/eoldiscussion/templates2.underscore:794
-msgid "Endorse"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:795
-msgid "Unendorse"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:804
-#: lms/templates/eoldiscussion/templates2.underscore:806
-msgid "Mark as Answer"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:807
-msgid "Unmark as Answer"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:816
-#: lms/templates/eoldiscussion/templates2.underscore:818
-msgid "Follow"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:819
-msgid "Unfollow"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:832
-msgid "Vote for this post,"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:848
-msgid "Report abuse"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:850
-msgid "Report"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:851
-msgid "Unreport"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:862
-#: lms/templates/eoldiscussion/templates2.underscore:864
-msgid "Pin"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:865
-msgid "Unpin"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:879
-msgid "Open"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:890
-msgid "Edit"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:909
-#: lms/templates/eoldiscussion/templates2.underscore:910
-msgid "More"
-msgstr ""
-
-#: lms/templates/eoldiscussion/templates2.underscore:935
-msgid "OK"
 msgstr ""
 
 #: lms/templates/student_account/login.underscore:3
@@ -744,4 +366,260 @@ msgstr ""
 
 #~ msgid "Responder"
 #~ msgstr "Reply"
+
+#~ msgid "Reply"
+#~ msgstr ""
+
+#~ msgid "Add a response:"
+#~ msgstr ""
+
+#~ msgid "Remaining characters"
+#~ msgstr ""
+
+#~ msgid "Submit"
+#~ msgstr ""
+
+#~ msgid "This thread is closed."
+#~ msgstr ""
+
+#~ msgid "discussion posted %(time_ago)s by %(author)s"
+#~ msgstr ""
+
+#~ msgid "question posted %(time_ago)s by %(author)s"
+#~ msgstr ""
+
+#~ msgid "Pinned"
+#~ msgstr ""
+
+#~ msgid "Reported"
+#~ msgstr ""
+
+#~ msgid "Closed"
+#~ msgstr ""
+
+#~ msgid "Related to: %(courseware_title_linked)s"
+#~ msgstr ""
+
+#~ msgid "This post is visible only to %(group_name)s."
+#~ msgstr ""
+
+#~ msgid "This post is visible to everyone."
+#~ msgstr ""
+
+#~ msgid "Editing post"
+#~ msgstr ""
+
+#~ msgid "Title"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Add a clear and descriptive title "
+#~ "to encourage participation. (Required)"
+#~ msgstr ""
+
+#~ msgid "Edit your post below."
+#~ msgstr ""
+
+#~ msgid "Update post"
+#~ msgstr ""
+
+#~ msgid "Cancel"
+#~ msgstr ""
+
+#~ msgid "Show Comment (%(num_comments)s)"
+#~ msgid_plural "Show Comments (%(num_comments)s)"
+#~ msgstr[0] ""
+#~ msgstr[1] ""
+
+#~ msgid "Add a comment"
+#~ msgstr ""
+
+#~ msgid "marked as answer %(time_ago)s by %(user)s"
+#~ msgstr ""
+
+#~ msgid "marked as answer %(time_ago)s"
+#~ msgstr ""
+
+#~ msgid "endorsed %(time_ago)s by %(user)s"
+#~ msgstr ""
+
+#~ msgid "endorsed %(time_ago)s"
+#~ msgstr ""
+
+#~ msgid "Editing response"
+#~ msgstr ""
+
+#~ msgid "Update response"
+#~ msgstr ""
+
+#~ msgid "posted %(time_ago)s by %(author)s"
+#~ msgstr ""
+
+#~ msgid "Editing comment"
+#~ msgstr ""
+
+#~ msgid "Update comment"
+#~ msgstr ""
+
+#~ msgid "anonymous"
+#~ msgstr ""
+
+#~ msgid "Staff"
+#~ msgstr ""
+
+#~ msgid "Community TA"
+#~ msgstr ""
+
+#~ msgid "Student"
+#~ msgstr ""
+
+#~ msgid "Creation"
+#~ msgstr ""
+
+#~ msgid "Last activity"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "%(comments_count)s %(span_sr_open)scomments "
+#~ "(%(unread_comments_count)s unread comments)%(span_close)s"
+#~ msgstr ""
+
+#~ msgid "%(comments_count)s %(span_sr_open)scomments %(span_close)s"
+#~ msgstr ""
+
+#~ msgid "Close"
+#~ msgstr ""
+
+#~ msgid "Create publication"
+#~ msgstr ""
+
+#~ msgid "Visible to"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Discussion admins, moderators, and TAs "
+#~ "can make their posts visible to "
+#~ "all students or specify a single "
+#~ "group."
+#~ msgstr ""
+
+#~ msgid "All Groups"
+#~ msgstr ""
+
+#~ msgid "Your question or idea (required)"
+#~ msgstr ""
+
+#~ msgid "follow this post"
+#~ msgstr ""
+
+#~ msgid "post anonymously"
+#~ msgstr ""
+
+#~ msgid "post anonymously to classmates"
+#~ msgstr ""
+
+#~ msgid "Error posting your message."
+#~ msgstr ""
+
+#~ msgid "This post will be visible only to %(group_name)s."
+#~ msgstr ""
+
+#~ msgid "This post will be visible to everyone."
+#~ msgstr ""
+
+#~ msgid "Topic area"
+#~ msgstr ""
+
+#~ msgid "Add your post to a relevant topic to help others find it. (Required)"
+#~ msgstr ""
+
+#~ msgid "(Community TA)"
+#~ msgstr ""
+
+#~ msgid "(Staff)"
+#~ msgstr ""
+
+#~ msgid "All Posts"
+#~ msgstr ""
+
+#~ msgid "Return to all posts"
+#~ msgstr ""
+
+#~ msgid "Previous"
+#~ msgstr ""
+
+#~ msgid "…"
+#~ msgstr ""
+
+#~ msgid "Next"
+#~ msgstr ""
+
+#~ msgid "View discussion"
+#~ msgstr ""
+
+#~ msgid "Load more"
+#~ msgstr ""
+
+#~ msgid "Post type"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Questions raise issues that need "
+#~ "answers. Discussions share ideas and "
+#~ "start conversations. (Required)"
+#~ msgstr ""
+
+#~ msgid "Question"
+#~ msgstr ""
+
+#~ msgid "Discussion"
+#~ msgstr ""
+
+#~ msgid "Endorse"
+#~ msgstr ""
+
+#~ msgid "Unendorse"
+#~ msgstr ""
+
+#~ msgid "Mark as Answer"
+#~ msgstr ""
+
+#~ msgid "Unmark as Answer"
+#~ msgstr ""
+
+#~ msgid "Follow"
+#~ msgstr ""
+
+#~ msgid "Unfollow"
+#~ msgstr ""
+
+#~ msgid "Vote for this post,"
+#~ msgstr ""
+
+#~ msgid "Report abuse"
+#~ msgstr ""
+
+#~ msgid "Report"
+#~ msgstr ""
+
+#~ msgid "Unreport"
+#~ msgstr ""
+
+#~ msgid "Pin"
+#~ msgstr ""
+
+#~ msgid "Unpin"
+#~ msgstr ""
+
+#~ msgid "Open"
+#~ msgstr ""
+
+#~ msgid "Edit"
+#~ msgstr ""
+
+#~ msgid "More"
+#~ msgstr ""
+
+#~ msgid "OK"
+#~ msgstr ""
 
