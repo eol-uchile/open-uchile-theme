@@ -14,6 +14,10 @@
         settings.EOL_CONTACT_FORM_HELP_DESK_EMAIL)
   eolcontactform_url = None
   eolcontactform_traceback = None
+  try:
+    eolcontactform_url = '{}'.format(reverse('contact_form_view'))
+  except Exception as e:
+    eolcontactform_traceback = traceback.format_exc()
 
 %>
 % if eolcontactform_traceback and settings.DEBUG:

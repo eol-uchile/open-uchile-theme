@@ -121,7 +121,7 @@ if not (course.end is None):
               %>
               <p class="font-italic lead enroll-message d-flex justify-content-center pb-3">${_("Would you like it to be offered again?")}</p>
               <a href="${reg_href}" class="my-auto pt-2">
-                <button class="btn text-uppercase w-100">${_("Yes, I would like to")}</button>
+                <button class="btn w-100">${_("Yes, I would like to")}</button>
               </a>
             %else:
               <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Enrollment is Closed")}</button>
@@ -147,7 +147,7 @@ if not (course.end is None):
                 %>
                 <p class="font-italic lead enroll-message d-flex justify-content-center">${_("Would you like it to be offered again?")}</p>
                 <a href="${reg_href}" class="my-auto pt-2">
-                  <button class="btn text-uppercase w-100">${_("Yes, I would like to")}</button>
+                  <button class="btn w-100">${_("Yes, I would like to")}</button>
                 </a>
               %else:
                 <button class="btn my-auto pt-2 enroll-button w-100" disabled>${_("Enrollment is Closed")}</button>
@@ -293,7 +293,7 @@ if not (course.end is None):
         </div>
       </div>
       %if staff_access and show_extra_data:
-      <h2>${_("Extra data")}</h2>
+      <h2>${_("Staff Debug Info")}</h2>
       <div class="row ct3 info-row my-4 rounded gx-0 p-3">
         %if course_end_date != "None":
           <div class="col-md-3 col-sm-12">
