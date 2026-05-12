@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2026-05-07 15:13+0000\n"
+"POT-Creation-Date: 2026-05-12 20:36+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es_419\n"
@@ -612,30 +612,6 @@ msgstr "Formación Online de Educación Continua y Extensión"
 #: lms/templates/main.html:190
 msgid "Skip to main content"
 msgstr ""
-
-#: lms/templates/certificates/validate_certificates.html:7
-#: lms/templates/certificates/validate_certificates.html:14
-#: lms/templates/header/navbar-authenticated.html:32
-#: lms/templates/header/navbar-authenticated.html:48
-#: lms/templates/header/navbar-not-authenticated.html:41
-msgid "Certificate Validation "
-msgstr "Validación de certificados"
-
-#: lms/templates/certificates/validate_certificates.html:10
-msgid "Certificates validation"
-msgstr "Validación de Certificados"
-
-#: lms/templates/certificates/validate_certificates.html:23
-msgid "Certificate ID number"
-msgstr "ID de certificado"
-
-#: lms/templates/certificates/validate_certificates.html:33
-msgid "Certificate was not found"
-msgstr "Certificado no encontrado"
-
-#: lms/templates/certificates/validate_certificates.html:37
-msgid "Validate"
-msgstr "Validar"
 
 #: lms/templates/course_experience/course-outline-fragment.html:79
 msgid "Expand All"
@@ -1328,6 +1304,13 @@ msgstr ""
 msgid "FAQ"
 msgstr ""
 
+#: lms/templates/header/navbar-authenticated.html:32
+#: lms/templates/header/navbar-authenticated.html:48
+#: lms/templates/header/navbar-not-authenticated.html:41
+#: lms/templates/header/navbar-not-authenticated.html:54
+msgid "Certificate validation"
+msgstr "Validación de certificados"
+
 #: lms/templates/header/navbar-logo-header.html:19
 #, python-brace-format
 msgid "{platform_name} Home Page"
@@ -1343,10 +1326,6 @@ msgstr ""
 #: lms/templates/header/navbar-not-authenticated.html:30
 #: lms/templates/static_templates/faq.html:122
 msgid "Register"
-msgstr ""
-
-#: lms/templates/header/navbar-not-authenticated.html:54
-msgid "Certificate validation "
 msgstr ""
 
 #: lms/templates/header/user_dropdown.html:31
@@ -1928,4 +1907,16 @@ msgstr ""
 
 #~ msgid "Generate"
 #~ msgstr "Generar"
+
+#~ msgid "Certificates validation"
+#~ msgstr "Validación de Certificados"
+
+#~ msgid "Certificate ID number"
+#~ msgstr "ID de certificado"
+
+#~ msgid "Certificate was not found"
+#~ msgstr "Certificado no encontrado"
+
+#~ msgid "Validate"
+#~ msgstr "Validar"
 
