@@ -29,7 +29,7 @@ from django.utils.translation import ugettext as _
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="openMenu">
             <a class="dropdown-item" href="/faq">${_('FAQ')}</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/certificates/validate">${_('Certificate Validation ')}</a>
+            <a class="dropdown-item" href="/certificates/validate">${_('Certificate validation')}</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/contact_form">${_('Contact us')}</a>
         </div>
@@ -45,7 +45,7 @@ from django.utils.translation import ugettext as _
           <a class="nav-link my-auto ${'active ' if '/faq' == request.path else ''}" href="/faq">${_('FAQ')}</a>
       </li>
       <li class="nav-item my-auto">
-          <a class="nav-link my-auto ${'active ' if '/certificates/validate' == request.path else ''}" href="/certificates/validate">${_('Certificate Validation ')}</a>
+          <a class="nav-link my-auto ${'active ' if '/certificates/validate' == request.path else ''}" href="/certificates/validate">${_('Certificate validation')}</a>
       </li>
       <li class="nav-item my-auto">
           <a class="nav-link my-auto ${'active ' if '/contact_form' == request.path else ''}" href="/contact_form">${_('Contact us')}</a>
