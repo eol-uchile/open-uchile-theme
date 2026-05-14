@@ -32,7 +32,7 @@ import traceback
 <%block name="js_extra">
   <script type="text/javascript">
   (function() {
-    $(".register").click(function(event) {
+    $(".register-enroll").click(function(event) {
       $("#class_enroll_form").submit();
       event.preventDefault();
     });
@@ -162,7 +162,7 @@ if not (course.end is None):
               if single_paid_mode:
                 href_class = "add-to-cart"
               else:
-                href_class = "register"
+                href_class = "register-enroll"
             %>
             <a href="${reg_href}" class="${href_class} my-auto pt-2">
               <button class="btn w-100">${_("Enroll now")}</button>
