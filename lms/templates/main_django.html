@@ -1,3 +1,6 @@
+<%!
+  from openedx.core.djangoapps.theming import helpers as theming_helpers
+%>
 <!DOCTYPE html>
 {% load sekizai_tags i18n configuration theme_pipeline optional_include static %}
 <html lang="{{LANGUAGE_CODE}}">
@@ -24,7 +27,7 @@
   {% render_block "css" %}
 
   {% optional_include "head-extra.html"|microsite_template_path %}
-  <link rel="stylesheet" href="{% static 'open-uchile-theme/css/openuchile.css' %}">
+  <link rel="stylesheet" href="{% static theming_helpers.get_current_site_theme().theme_dir_name+'/css/openuchile.css' %}">
   <meta name="path_prefix" content="{{EDX_ROOT_URL}}">
 </head>
 

@@ -8,6 +8,7 @@ from six import text_type
 import locale
 from django.utils import timezone
 now = timezone.now()
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 %>
 <%
     if type(course["start"]) is str:
@@ -48,7 +49,7 @@ now = timezone.now()
             % if course_end is not None and now is not None and course_end < now:
             <div class="col-md-12">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha termino.svg')}">
               </div>
               <div class="open-course-date-text">
                 <span>${_("Finished course")}</span>
@@ -57,7 +58,7 @@ now = timezone.now()
             % elif "start_display" in course and course['start_display'] is not None:
             <div class="col-md-12">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/fecha inicio.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha inicio.svg')}">
               </div>
               <div class="open-course-date-text">
                 <span>${course['start_display']}</span>
@@ -66,7 +67,7 @@ now = timezone.now()
             % elif course["self_paced"] and course_start <= now:
             <div class="col-md-12">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha inicio.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha inicio.svg')}">
                 </div>
                 <div class="open-course-date-text">
                   <span>${_("Permanently open")}</span>
@@ -75,7 +76,7 @@ now = timezone.now()
             % else:
               <div class="col-md-6">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha inicio.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha inicio.svg')}">
                 </div>
                 <div class="open-course-date-text">
                   <span>${_("Start date")}</span>
@@ -84,7 +85,7 @@ now = timezone.now()
               </div>
               <div class="col-md-6">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha termino.svg')}">
                 </div>
                 <div class="open-course-date-text">
                   <span>${_("End date")}</span>

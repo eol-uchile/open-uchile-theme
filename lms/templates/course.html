@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 from six import text_type
 import locale
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 
 now = timezone.now()
 %>
@@ -22,8 +23,8 @@ now = timezone.now()
     course_about = reverse('about_course', args=[text_type(course['id'])])
 %>
 <script>
-  function show_default_image() {
-    return "${static.url('open-uchile-theme/images/default-course.png')}";
+    function show_default_image() {
+    return "${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/default-course.png')}";
   }
 </script>
 <div class="card ${card_class} h-100" data-about="${course_about}" data-state="${course['course_state']}" style="cursor: pointer;" onclick="window.location.href = this.dataset.about">
@@ -50,7 +51,7 @@ now = timezone.now()
             <div class="row g-0 p-0">
               <div class="col-2 m-0">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha termino.svg')}">
                 </div>
               </div>
               <div class="col-10">
@@ -69,7 +70,7 @@ now = timezone.now()
             <div class="row g-0 p-0">
               <div class="col-2 m-0">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/modalidad.svg')}">
                 </div>
               </div>
               <div class="col-10">
@@ -90,7 +91,7 @@ now = timezone.now()
             <div class="row g-0 p-0">
               <div class="col-2 m-0">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/precio.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/precio.svg')}">
                 </div>
               </div>
               <div class="col-10">
@@ -114,7 +115,7 @@ now = timezone.now()
               <div class="row g-0 p-0">
                 <div class="col-2 m-0">
                   <div class="open-course-date-icon">
-                    <img src="${static.url('open-uchile-theme/images/svg-2023/fecha inicio.svg')}">
+                    <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha inicio.svg')}">
                   </div>
                 </div>
                 <div class="col-10">

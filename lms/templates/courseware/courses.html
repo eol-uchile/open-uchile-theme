@@ -3,6 +3,7 @@
   from django.utils.translation import ugettext as _
   from datetime import datetime, timedelta
   from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+  from openedx.core.djangoapps.theming import helpers as theming_helpers
 %>
 <%inherit file="../main.html" />
 <%
@@ -16,8 +17,8 @@
 </%block>
 % endif
 <%block name="js_extra">
-  <script type="text/javascript" src="${static.url('open-uchile-theme/js/open_search.js')}"></script>
-  <script type="text/javascript" src="${static.url('open-uchile-theme/pagination/jquery.twbsPagination.js')}"></script>
+  <script type="text/javascript" src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/js/open_search.js')}"></script>
+  <script type="text/javascript" src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/pagination/jquery.twbsPagination.js')}"></script>
 </%block>
 <%block name="pagetitle">${_("Courses")}</%block>
 <%
@@ -25,8 +26,10 @@
 %>
 <script>
   function show_default_image() {
-    return "${static.url('open-uchile-theme/images/default-course.png')}";
+    return "${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/default-course.png')}";
   }
+  window.themeAsset = (path) =>
+    "${static.url(theming_helpers.get_current_site_theme().theme_dir_name)}/" + path;
 </script>
 <main id="main" aria-label="Content" tabindex="-1">
   <section class="courses-list w-100">

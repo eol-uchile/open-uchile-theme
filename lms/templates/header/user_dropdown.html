@@ -13,6 +13,7 @@ from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_
 from openedx.core.djangoapps.user_api.accounts.toggles import should_redirect_to_order_history_microfrontend
 from openedx.core.djangoapps.user_api.accounts.utils import retrieve_last_sitewide_block_completed
 from openedx.features.enterprise_support.utils import get_enterprise_learner_generic_name, get_enterprise_learner_portal
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 %>
 
 <%
@@ -29,7 +30,7 @@ should_show_order_history = should_redirect_to_order_history_microfrontend() and
 %>
 <a class="nav-link user-menu" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="sr-only">${_("Profile:")}</span>
-    <img src="${static.url('open-uchile-theme/images/svg-2023/user-menu.svg')}" width="28">
+    <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/user-menu.svg')}" width="28">
 </a>
 <div id="userDropdownMenu" class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
     <h6 class="dropdown-header" style="font: inherit;">

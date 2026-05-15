@@ -559,7 +559,7 @@ function create_course_date_html(start, advertised_start, self_paced, effort, co
         duration =
         '<div class="row g-0 p-0">'+
             '<div class="col-2 m-0">'+
-                '<div class="open-course-date-icon"><img src="/static/open-uchile-theme/images/svg-2023/fecha inicio.svg"></div>'+
+                '<div class="open-course-date-icon"><img src="'+window.themeAsset('images/svg-2023/fecha inicio.svg')+'"></div>'+
             '</div>'+
             '<div class="col-10">'+
                 '<div class="open-course-date-text ml-3">'+
@@ -584,7 +584,7 @@ function create_course_date_html(start, advertised_start, self_paced, effort, co
         '<div class="col-md-6 col-sm-12">'+
             '<div class="row g-0 p-0">'+
                 '<div class="col-2 m-0">'+
-                    '<div class="open-course-date-icon"><img src="/static/open-uchile-theme/images/svg-2023/fecha termino.svg"></div>'+
+                    '<div class="open-course-date-icon"><img src="'+window.themeAsset('images/svg-2023/fecha termino.svg')+'"></div>'+
                 '</div>'+
                 '<div class="col-10">'+
                     '<div class="open-course-date-text ml-3">'+
@@ -599,7 +599,7 @@ function create_course_date_html(start, advertised_start, self_paced, effort, co
          '<div class="col-md-6 col-sm-12">'+
             '<div class="row g-0 p-0">'+
                 '<div class="col-2 m-0">'+
-                    '<div class="open-course-date-icon"><img src="/static/open-uchile-theme/images/svg-2023/modalidad.svg"></div>'+
+                    '<div class="open-course-date-icon"><img src="'+window.themeAsset('images/svg-2023/modalidad.svg')+'"></div>'+
                 '</div>'+
                 '<div class="col-10">'+
                     '<div class="open-course-date-text ml-3">'+
@@ -616,7 +616,7 @@ function create_course_date_html(start, advertised_start, self_paced, effort, co
         '<div class="col-md-6 col-sm-12">'+
             '<div class="row g-0 p-0">'+
                 '<div class="col-2 m-0">'+
-                    '<div class="open-course-date-icon"><img src="/static/open-uchile-theme/images/svg-2023/precio.svg"></div>'+
+                    '<div class="open-course-date-icon"><img src="'+window.themeAsset('images/svg-2023/precio.svg')+'"></div>'+
                 '</div>'+
                 '<div class="col-10">'+
                     '<div class="open-course-date-text ml-3">'+
