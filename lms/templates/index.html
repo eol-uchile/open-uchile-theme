@@ -7,12 +7,13 @@ from django.urls import reverse
 from django.conf import settings
 from openedx.core.djangolib.markup import HTML, Text
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 %>
 
 <%block name="header_extras">
-<link rel="stylesheet" href="${static.url('open-uchile-theme/owlcarousel/owl.carousel.min.css')}">
-<link rel="stylesheet" href="${static.url('open-uchile-theme/owlcarousel/owl.theme.default.min.css')}">
-<script type="text/javascript" src="${static.url('open-uchile-theme/owlcarousel/owl.carousel.min.js')}"></script>
+<link rel="stylesheet" href="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/owlcarousel/owl.carousel.min.css')}">
+<link rel="stylesheet" href="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/owlcarousel/owl.theme.default.min.css')}">
+<script type="text/javascript" src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/owlcarousel/owl.carousel.min.js')}"></script>
 </%block>
 <%block name="pagetitle">${_("Home")}</%block>
 <%block name="headextra">
@@ -24,7 +25,7 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 <meta property="og:title" content="${self.pagetitle()}">
 <meta property="og:description" content="${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="${static.url('open-uchile-theme/images/banner-linkedIn-2025.png')}">
+<meta property="og:image" content="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/banner-linkedIn-2025.png')}">
 <meta property="og:url" content="${configuration_helpers.get_value('LMS_ROOT_URL', settings.LMS_ROOT_URL)}">
 <meta property="og:site_name" content="${configuration_helpers.get_value('EOL_OG_SITE_NAME', '')}">
 <meta property="og:locale" content="es_CL">
@@ -50,7 +51,7 @@ use_schema_org = configuration_helpers.get_value('USE_SCHEMA_ORG', "False")
       "@context": "https://schema.org",
       "@type": "ImageObject",
       "contentLocation": "${configuration_helpers.get_value('EOL_SITE_ADDRESS', '')}",
-      "contentUrl": "${static.url('open-uchile-theme/images/svg-2023/Logo-OpenUchile.svg')}",
+      "contentUrl": "${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/Logo-OpenUchile.svg')}",
       "author": "Oficina EOL"
     },
     "description":"${configuration_helpers.get_value('EOL_OG_SITE_DESCRIPTION', '')}",

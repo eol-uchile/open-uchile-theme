@@ -10,6 +10,7 @@ from django.utils.translation import pgettext
 from django.utils.translation import ugettext as _
 from lms.djangoapps.courseware.courses import get_course_about_section
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 from openedx.core.djangolib.js_utils import js_escaped_string
 from openedx.core.djangolib.markup import clean_dangerous_html, HTML, Text
 from openedx.core.lib.courses import course_image_url
@@ -86,8 +87,8 @@ if not (course.end is None):
     </div>
   % endif
 <script>
-  function show_default_image() {
-    return "${static.url('open-uchile-theme/images/default-course.png')}";
+    function show_default_image() {
+    return "${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/default-course.png')}";
   }
 </script>
 <section class="course-info">
@@ -218,7 +219,7 @@ if not (course.end is None):
           <div class="row g-0 p-0">
             <div class="col-2 m-0">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha termino.svg')}">
               </div>
             </div>
             <div class="col-10">
@@ -237,7 +238,7 @@ if not (course.end is None):
           <div class="row g-0 p-0">
             <div class="col-2 m-0">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/modalidad.svg')}">
               </div>
             </div>
             <div class="col-10">
@@ -256,7 +257,7 @@ if not (course.end is None):
           <div class="row g-0 p-0">
             <div class="col-2 m-0">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/precio.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/precio.svg')}">
               </div>
             </div>
             <div class="col-10">
@@ -279,7 +280,7 @@ if not (course.end is None):
             <div class="row g-0 p-0">
               <div class="col-2 m-0">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha inicio.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha inicio.svg')}">
                 </div>
               </div>
               <div class="col-10">
@@ -300,7 +301,7 @@ if not (course.end is None):
             <div class="row g-0 p-0">
               <div class="col-2 m-0">
                 <div class="open-course-date-icon">
-                  <img src="${static.url('open-uchile-theme/images/svg-2023/fecha termino.svg')}">
+                  <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/fecha termino.svg')}">
                 </div>
               </div>
               <div class="col-10">
@@ -317,7 +318,7 @@ if not (course.end is None):
           <div class="row g-0 p-0">
             <div class="col-2 m-0">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/modalidad.svg')}">
               </div>
             </div>
             <div class="col-10">
@@ -334,7 +335,7 @@ if not (course.end is None):
           <div class="row g-0 p-0">
             <div class="col-2 m-0">
               <div class="open-course-date-icon">
-                <img src="${static.url('open-uchile-theme/images/svg-2023/modalidad.svg')}">
+                <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/svg-2023/modalidad.svg')}">
               </div>
             </div>
             <div class="col-10">

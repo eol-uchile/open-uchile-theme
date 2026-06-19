@@ -6,6 +6,7 @@
   from lms.djangoapps.branding.api import get_footer
   from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
   from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
+  from openedx.core.djangoapps.theming import helpers as theming_helpers
   import json
   import traceback
 %>
@@ -36,10 +37,10 @@ linkedin_url = footer_url_config.get('linkedin', '')
   <div class="border-0 mb-3 text-center">
     <div class="row m-0 mb-4 d-flex justify-content-center">
       <a href="https://www.uchile.cl/" target="_blank" class="text-decoration-none col-12 col-md-4 col-sm-12 col-xl-3 align-self-end d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-xl-center">
-        <img src="${static.url('open-uchile-theme/images/logo_uchile.png')}" class="img-fluid my-auto p-0 " alt="UChile" style="max-height: 110px;">
+        <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/logo_uchile.png')}" class="img-fluid my-auto p-0 " alt="UChile" style="max-height: 110px;">
       </a>
       <a href="https://oficinaeol.uchile.cl/" target="_blank" class="text-decoration-none col-12 col-md-4 col-sm-12 col-xl-3 align-self-end d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-xl-center">
-        <img src="${static.url('open-uchile-theme/images/logo_eol.png')}" class="img-fluid my-auto p-0" alt="EOL" style="max-height: 80px;">
+        <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/logo_eol.png')}" class="img-fluid my-auto p-0" alt="EOL" style="max-height: 80px;">
       </a>
     </div>
 
@@ -90,7 +91,7 @@ linkedin_url = footer_url_config.get('linkedin', '')
     </p>
   <div class="openedx-logo">
     <a href="https://open.edx.org"  target="_blank" class="ttext-decoration-none col-12 col-md-4 col-sm-12 col-xl-2 align-self-end d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-xl-center my-xl-0 mx-md-5 my-3 my-sm-3 my-md-0">
-      <img src="${static.url('open-uchile-theme/images/openedx_logo.png')}" class="img-fluid my-auto p-0" alt="Con la tecnología de Open edX" style="max-height: 50px;">
+      <img src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/openedx_logo.png')}" class="img-fluid my-auto p-0" alt="Con la tecnología de Open edX" style="max-height: 50px;">
     </a>
   </div>
 </div>
@@ -100,7 +101,7 @@ linkedin_url = footer_url_config.get('linkedin', '')
 % if context.get('include_language_selector', footer_language_selector_is_enabled()):
     <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
 % endif
-<img class="uchile-separator" src="${static.url('open-uchile-theme/images/uchile_separator.svg')}" alt="">
+<img class="uchile-separator" src="${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/uchile_separator.svg')}" alt="">
 
 % if include_dependencies:
   <%static:js group='base_vendor'/>

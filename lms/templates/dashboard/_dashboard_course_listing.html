@@ -26,6 +26,7 @@ from common.djangoapps.student.helpers import (
 )
 from common.djangoapps.util.course import get_link_for_about_page, get_encoded_course_sharing_utm_params
 from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 %>
 
 <%
@@ -43,8 +44,8 @@ from lms.djangoapps.experiments.utils import UPSELL_TRACKING_FLAG
 
 <%namespace name='static' file='../static_content.html'/>
 <script>
-  function show_default_image() {
-    return "${static.url('open-uchile-theme/images/default-course.png')}";
+    function show_default_image() {
+    return "${static.url(theming_helpers.get_current_site_theme().theme_dir_name+'/images/default-course.png')}";
   }
 </script>
 <li class="course-item">
