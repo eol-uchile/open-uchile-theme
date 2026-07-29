@@ -40,6 +40,7 @@ from openedx.core.djangoapps.theming import helpers as theming_helpers
     cert_name_long = settings.CERT_NAME_LONG
 
   is_course_expired = hasattr(show_courseware_link, 'error_code') and show_courseware_link.error_code == 'audit_expired'
+  resume_button_url = resume_button_url.replace("/jump_to/", "/eol_jump_to/")
 %>
 
 <%namespace name='static' file='../static_content.html'/>
