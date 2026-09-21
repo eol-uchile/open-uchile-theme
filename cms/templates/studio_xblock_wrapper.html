@@ -7,6 +7,7 @@ from lms.lib.utils import is_unit
 from openedx.core.djangolib.js_utils import (
     dump_js_escaped_json, js_escaped_string
 )
+from openedx.core.djangoapps.theming import helpers as theming_helpers
 %>
 <%
 xblock_url = xblock_studio_url(xblock)
@@ -49,6 +50,8 @@ block_is_unit = is_unit(xblock)
     % endif
     ">
 % endif
+
+<link rel="stylesheet" href="${static.url(theming_helpers.get_current_site_theme().theme_dir_name + '/css/location.css')}">
 
 <header class="xblock-header xblock-header-${xblock.category}">
     <div class="xblock-header-primary
@@ -172,6 +175,13 @@ block_is_unit = is_unit(xblock)
         % endif
         ${content | n, decode.utf8}
         </article>
+        <footer class="location-footer">
+            <div class="location-container">
+                <label class="location-label">${_('Location:')}</label>
+                <p class="location-value">${ xblock.location }</p>
+            </div>
+        </footer>
+
     % else:
         <div class="xblock-message-area">
         ${content | n, decode.utf8}
