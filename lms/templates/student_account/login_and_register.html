@@ -38,7 +38,7 @@
         </script>
     % endfor
 </%block>
-<div class="visually-hidden" id="url_next">${ reverse('eol_sso_login:uchile_login') | h }?${urlencode({'next':login_redirect_url})}</div>
+<div class="visually-hidden" id="url_next">/auth/login/uchile-oauth2/?auth_entry=login&${urlencode({'next': login_redirect_url})}</div>
 <div class="container px-1 px-md-3 mt-2">
     <div class="card col-12 col-md-8 col-lg-7 mx-auto px-0 px-md-5 py-4 mb-5 rounded-lg border-0" id="content-container">
         % if enable_enterprise_sidebar:
