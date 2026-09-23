@@ -19,8 +19,8 @@ define(['js/views/validation',
             },
             initialize: function() {
                 this.template = HtmlUtils.template(
-            $('#advanced_entry-tpl').text()
-        );
+                    $('#advanced_entry-tpl').text()
+                );
                 this.listenTo(this.model, 'invalid', this.handleValidationError);
                 this.render();
             },
@@ -127,6 +127,7 @@ define(['js/views/validation',
                     }
                 });
                 return jsonValidationErrors;
+
             },
             saveView: function() {
                 var self = this;
@@ -135,6 +136,7 @@ define(['js/views/validation',
                     self.showErrorModal(jsonValidationErrors);
                     return;
                 }
+
                 this.model.save({}, {
                     success: function() {
                         var title = gettext('Your policy changes have been saved.');
@@ -144,6 +146,8 @@ define(['js/views/validation',
                         analytics.track('Saved Advanced Settings', {
                             course: course_location_analytics
                         });
+
+                        init_simplified_settings(update=true); // Settings-Simplified
                     },
                     silent: true,
                     error: function(model, response, options) {
