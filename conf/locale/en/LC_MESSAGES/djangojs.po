@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: help-open@uchile.cl\n"
-"POT-Creation-Date: 2026-05-19 21:44+0000\n"
+"POT-Creation-Date: 2026-09-23 15:03+0000\n"
 "PO-Revision-Date: 2022-07-28 20:11+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -17,6 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
+
+#: cms/static/js/factories/settings_advanced.js:42
+msgid "Hide Deprecated Settings"
+msgstr ""
+
+#: cms/static/js/factories/settings_advanced.js:46
+msgid "Show Deprecated Settings"
+msgstr ""
+
+#: cms/static/js/views/settings/advanced.js:69
+msgid ""
+"Your changes will not take effect until you save your progress. Take care"
+" with key and value formatting, as validation is not implemented."
+msgstr ""
+
+#: cms/static/js/views/settings/advanced.js:142
+msgid "Your policy changes have been saved."
+msgstr ""
+
+#: cms/static/js/views/settings/advanced.js:143
+msgid ""
+"No validation is performed on policy keys or value pairs. If you are "
+"having difficulties, check your formatting."
+msgstr ""
 
 #: cms/templates/js/course-outline.underscore:40
 #, python-format
@@ -175,67 +199,67 @@ msgstr ""
 msgid "ERROR loading categories"
 msgstr ""
 
-#: lms/static/js/open_search.js:307 lms/static/js/open_search.js:340
+#: lms/static/js/open_search.js:323 lms/static/js/open_search.js:359
 msgid "No results were found for your search"
 msgstr ""
 
-#: lms/static/js/open_search.js:333
+#: lms/static/js/open_search.js:349
 msgid "Showing"
 msgstr ""
 
-#: lms/static/js/open_search.js:333
+#: lms/static/js/open_search.js:349
 msgid "out of"
 msgstr ""
 
-#: lms/static/js/open_search.js:333
+#: lms/static/js/open_search.js:349
 msgid "courses"
 msgstr ""
 
-#: lms/static/js/open_search.js:335
+#: lms/static/js/open_search.js:351
 msgid "Showing 0 courses"
 msgstr ""
 
-#: lms/static/js/open_search.js:494
+#: lms/static/js/open_search.js:513
 msgid "Enroll now"
 msgstr ""
 
-#: lms/static/js/open_search.js:496
+#: lms/static/js/open_search.js:515
 msgid "Coming soon"
 msgstr ""
 
-#: lms/static/js/open_search.js:498
+#: lms/static/js/open_search.js:517
 msgid "See more"
 msgstr ""
 
-#: lms/static/js/open_search.js:500
+#: lms/static/js/open_search.js:519
 msgid "Finished"
 msgstr ""
 
-#: lms/static/js/open_search.js:550
+#: lms/static/js/open_search.js:569
 msgid "Duration"
 msgstr ""
 
-#: lms/static/js/open_search.js:575
+#: lms/static/js/open_search.js:594
 msgid "Classes Start"
 msgstr ""
 
-#: lms/static/js/open_search.js:590
+#: lms/static/js/open_search.js:609
 msgid "Pacing"
 msgstr ""
 
-#: lms/static/js/open_search.js:607
+#: lms/static/js/open_search.js:626
 msgid "Price"
 msgstr ""
 
-#: lms/static/js/open_search.js:625
+#: lms/static/js/open_search.js:644
 msgid "Free"
 msgstr ""
 
-#: lms/static/js/open_search.js:630
+#: lms/static/js/open_search.js:649
 msgid "Student paced"
 msgstr ""
 
-#: lms/static/js/open_search.js:630
+#: lms/static/js/open_search.js:649
 msgid "Instructor paced"
 msgstr ""
 
